@@ -1,13 +1,56 @@
-<!-- wp:group {"tagName":"footer","style":{"color":{"background":"#0B0A55","text":"#FFFFFF"}},"layout":{"type":"constrained"},"className":"chosen-site-footer"} -->
-<footer class="wp-block-group chosen-site-footer has-background has-text-color" style="background-color:#0B0A55;color:#FFFFFF">
-	<!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-	<div class="wp-block-group">
-		<!-- wp:site-title {"style":{"typography":{"fontFamily":"'Work Sans', sans-serif","fontWeight":"700"},"color":{"text":"#FFFFFF"}}} /-->
-		<!-- wp:navigation {"textColor":"white","overlayBackgroundColor":"chosen-navy"} /-->
-	</div>
-	<!-- /wp:group -->
-	<!-- wp:paragraph {"align":"center","style":{"color":{"text":"#FFFFFF"},"typography":{"fontSize":"0.75rem"}}} -->
-	<p class="has-text-align-center has-text-color" style="color:#FFFFFF;font-size:0.75rem">&copy; 2026 Jesus Youth Australia. All rights reserved.</p>
-	<!-- /wp:paragraph -->
+<!-- wp:group {"tagName":"footer","className":"chosen-footer","style":{"color":{"background":"#0B0A55","text":"#FFFFFF"}}} -->
+<footer class="wp-block-group chosen-footer has-background has-text-color bg-chosen-navy text-white" style="background-color:#0B0A55;color:#FFFFFF">
+  <div class="mx-auto max-w-wide px-6 py-16">
+
+    <div class="grid gap-10 md:grid-cols-3 md:items-start">
+      <div class="chosen-footer__logo">
+        <img src="/wp-content/themes/chosen-theme/assets/img/chosen-logo-white.png" alt="Chosen Conference" width="180" height="56" class="h-14 w-auto" />
+      </div>
+
+      <address class="chosen-footer__address not-italic text-[14px] leading-loose text-white/85">
+        Jesus Youth Australia<br />
+        140 Westbourne Grove<br />
+        Northcote VIC 3070<br />
+        Australia
+      </address>
+
+      <div class="chosen-footer__socials flex items-center gap-5 md:justify-end">
+        <a href="https://maps.google.com/?q=140+Westbourne+Grove+Northcote+VIC+3070" class="text-white/85 hover:text-chosen-gold transition-colors duration-200 ease-out-quart" aria-label="View Jesus Youth Australia office on Google Maps" target="_blank" rel="noopener noreferrer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        </a>
+        <a href="https://instagram.com/jyaustralia" class="text-white/85 hover:text-chosen-gold transition-colors duration-200 ease-out-quart" aria-label="Jesus Youth Australia on Instagram" target="_blank" rel="noopener noreferrer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+        <a href="https://facebook.com/jesusyouthaustralia" class="text-white/85 hover:text-chosen-gold transition-colors duration-200 ease-out-quart" aria-label="Jesus Youth Australia on Facebook" target="_blank" rel="noopener noreferrer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="my-12 h-[3px] w-12 bg-chosen-gold" aria-hidden="true"></div>
+
+    <div class="chosen-footer__scripture max-w-xl">
+      <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold mb-3">Theme &middot; Chosen 2026</p>
+      <blockquote class="text-[20px] font-light italic leading-relaxed text-white">
+        &ldquo;Look to him, and be radiant; so your faces shall never be ashamed.&rdquo;
+      </blockquote>
+      <cite class="not-italic text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold mt-3 inline-block">Psalm 34:5</cite>
+    </div>
+
+    <div class="mt-16 flex flex-col gap-2 border-t border-white/10 pt-6 text-[12px] text-white/60 md:flex-row md:items-center md:justify-between">
+      <p>&copy; 2026 Jesus Youth Australia. All rights reserved.</p>
+      <p>Built for Chosen 2026 &middot; La Trobe University, Melbourne &middot; 19&ndash;22 November 2026</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var hdr = document.querySelector('.chosen-header');
+      if (!hdr) return;
+      var on = function () { hdr.classList.toggle('is-scrolled', window.scrollY > 8); };
+      on();
+      window.addEventListener('scroll', on, { passive: true });
+    })();
+  </script>
 </footer>
 <!-- /wp:group -->
