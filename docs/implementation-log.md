@@ -10,9 +10,9 @@
 |-------|--------|-------|
 | Phase 0 — Environment | ✅ Complete | LocalWP running at chosen.local |
 | Phase 1 — Scaffold | ✅ Complete | All structural files built and committed |
-| **Task 11 — Activate theme** | **⏳ USER ACTION** | Go to chosen.local/wp-admin → Appearance → Themes → activate Chosen Theme |
-| Phase 2 — Header + footer | ⏳ Pending activation | Real nav, wordmark, footer |
-| Phase 3 — 9 custom blocks | ⏳ Pending Phase 2 | Run /impeccable:teach-impeccable first |
+| Task 11 — Activate theme | ✅ Complete | User-confirmed via WP Admin |
+| **Phase 2 — Header + footer** | **⏳ Awaiting visual verification** | Code shipped (5 commits); user to verify on chosen.local |
+| Phase 3 — 9 custom blocks | ⏳ Pending Phase 2 verification | `.impeccable.md` already shipped (Task 0) |
 | Phase 4 — Content | ⏳ Pending assets from Irene | Logo SVG, real signup URL needed |
 | Phase 5 — QA + launch | ⏳ Pending content | Lighthouse, WCAG AA, cross-browser |
 | Phase 6 — Handoff | ⏳ Pending launch | Editor training doc for Irene |
@@ -22,6 +22,12 @@
 ## Commit history
 
 ```
+eac3cf1 feat(theme): base resets — warm paper bg, gold focus ring, ease-out-quart fix
+61ddca2 feat(theme): real footer with logo, socials, scripture pull-quote
+d732dbd feat(theme): real header with wordmark medallion and gold CTA
+737dfb8 feat(theme): copy logo working files to assets/img
+cc927e2 docs: add .impeccable.md with canonical design context
+e9d202d docs: add comprehensive session-handoff.md, update implementation log
 b291116 docs: add ADRs (001-003), update implementation log — Phase 1 complete
 7e3e3b7 feat(theme): add FSE templates and footer/header parts
 ac1b711 feat(theme): add functions.php and inc/ (block registration, menus, security)
@@ -65,6 +71,22 @@ eda1dc0 chore: rename design-system/, add .claude tooling and agents
 - `docs/session-handoff.md` — comprehensive session resume guide
 
 **Build verified:** `npm run build` — webpack compiled cleanly, Tailwind output generated.
+
+---
+
+## Phase 2 — What was built (2026-04-30)
+
+- `.impeccable.md` — root-level Design Context for impeccable skills
+- `assets/img/chosen-logo-white.png` — working copy of white horizontal logo
+- `assets/img/chosen-mark.png` — working copy of Tau-circle medallion
+- `parts/header.html` — sticky 64px navy header with CHOSEN wordmark (medallion replacing "O"), 5 hardcoded nav links (hidden < md), gold "Register" pill
+- `parts/footer.html` — branded navy footer with white logo, JY address, three Lucide-style inline-SVG socials, 48px gold rule, scripture pull-quote (Psalm 34:5), copyright row, inline IO snippet for sticky-shadow
+- `src/css/input.css` additions: `.chosen-wordmark__o` medallion replacement, `.chosen-header.is-scrolled` shadow, base resets (warm paper bg, gold focus ring, smooth-scroll with reduced-motion override, default link colour)
+- `tailwind.config.js` — fixed `transitionTimingFunction` keys (`out-quart`, `movement` — Tailwind prepends `ease-` itself)
+
+**Build verified:** `npm run build` — `assets/css/main.css` ~9KB minified, includes `.ease-out-quart`, `.tracking-[0.18em]`, `.max-w-wide`, all `.chosen-*` colour utilities. URL `url(../../assets/img/chosen-mark.png)` resolves correctly from `/wp-content/themes/chosen-theme/assets/css/main.css` to `/wp-content/themes/chosen-theme/assets/img/chosen-mark.png`.
+
+**Awaiting user visual verification on `chosen.local`** — see Phase 2 verification gate in `~/.claude/plans/immutable-questing-narwhal.md`.
 
 ---
 
