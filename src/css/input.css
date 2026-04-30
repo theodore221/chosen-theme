@@ -55,7 +55,8 @@
 }
 
 @layer components {
-  /* CHOSEN wordmark — the "O" glyph is replaced inline by the chosen-mark medallion. */
+  /* CHOSEN wordmark — the "O" glyph is replaced inline by the chosen-mark medallion.
+     0.84em matches the canonical design-system reference (type-wordmark.html). */
   .chosen-wordmark__o {
     display: inline-block;
     width: 0.84em;
@@ -66,6 +67,16 @@
     background-repeat: no-repeat;
     background-position: center;
     margin: 0 0.04em;
+  }
+
+  /* In the header lockup ("National Youth Conference" stacked above CHOSEN),
+     the medallion reads as slightly larger than cap-height per the official
+     poster lockup the user supplied. Bump to 1em + tighter vertical-align
+     for that context. */
+  .chosen-wordmark--lockup .chosen-wordmark__o {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.22em;
   }
 
   /* Sticky shadow when scrolled. The .is-scrolled class is toggled by the inline
