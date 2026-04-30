@@ -159,10 +159,13 @@
     }
   ],
   "customTemplates": [
-    {
-      "name": "front-page",
-      "title": "Front Page",
-      "postTypes": ["page"]
-    }
+    { "name": "front-page",     "title": "Front Page",      "postTypes": ["page"] },
+    { "name": "page-about",     "title": "About",           "postTypes": ["page"] },
+    { "name": "page-programme", "title": "Programme",       "postTypes": ["page"] },
+    { "name": "page-travel",    "title": "Travel",          "postTypes": ["page"] },
+    { "name": "page-faqs",      "title": "FAQs",            "postTypes": ["page"] },
+    { "name": "page-contact",   "title": "Contact",         "postTypes": ["page"] },
+    { "name": "page-privacy",   "title": "Privacy Policy",  "postTypes": ["page"] },
+    { "name": "page-safety",    "title": "Child Safety",    "postTypes": ["page"] }
   ]
 }
