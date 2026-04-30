@@ -24,7 +24,7 @@ if ( empty( $tiles ) ) {
 }
 
 $wrapper_attrs = get_block_wrapper_attributes( [
-	'class' => 'chosen-expect-tile-grid bg-chosen-paper py-20 md:py-24',
+	'class' => 'chosen-expect-tile-grid bg-chosen-paper py-24 md:py-28',
 ] );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>

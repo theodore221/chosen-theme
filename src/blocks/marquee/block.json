@@ -27,6 +27,11 @@
       "type": "string",
       "default": "medium",
       "enum": ["slow", "medium", "fast"]
+    },
+    "background": {
+      "type": "string",
+      "default": "navy",
+      "enum": ["navy", "paper", "royal"]
     }
   },
   "editorScript": "file:./index.js",

@@ -33,7 +33,7 @@ $grid_class = 'bento' === $layout
 	: 'chosen-image-mosaic--even';
 
 $wrapper_attrs = get_block_wrapper_attributes( [
-	'class' => 'chosen-image-mosaic ' . $grid_class,
+	'class' => 'chosen-image-mosaic py-12 md:py-16 ' . $grid_class,
 ] );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?> aria-label="<?php esc_attr_e( 'Photo gallery from Chosen', 'chosen-theme' ); ?>">

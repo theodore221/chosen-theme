@@ -9,7 +9,7 @@ import {
 import { __ } from '@wordpress/i18n';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { items, speed } = attributes;
+	const { items, speed, background } = attributes;
 
 	const blockProps = useBlockProps( {
 		className:
@@ -69,6 +69,22 @@ export default function Edit( { attributes, setAttributes } ) {
 					<Button variant="primary" onClick={ addItem }>
 						{ __( '+ Add item', 'chosen-theme' ) }
 					</Button>
+				</PanelBody>
+				<PanelBody title={ __( 'Background', 'chosen-theme' ) }>
+					<SelectControl
+						label={ __( 'Surface colour', 'chosen-theme' ) }
+						value={ background || 'navy' }
+						options={ [
+							{ label: 'Navy (default)', value: 'navy' },
+							{ label: 'Warm paper', value: 'paper' },
+							{ label: 'Royal blue', value: 'royal' },
+						] }
+						onChange={ ( v ) => setAttributes( { background: v } ) }
+						help={ __(
+							'Use to break up successive navy sections. Default white items render as navy on paper backgrounds.',
+							'chosen-theme'
+						) }
+					/>
 				</PanelBody>
 				<PanelBody title={ __( 'Motion', 'chosen-theme' ) }>
 					<SelectControl

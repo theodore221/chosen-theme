@@ -22,7 +22,7 @@ $register_url = ( defined( 'CHOSEN_REGISTER_URL' ) && CHOSEN_REGISTER_URL ) ? CH
 $cta_disabled = '' === $register_url;
 
 $wrapper_attrs = get_block_wrapper_attributes( [
-	'class' => 'chosen-cta-banner bg-chosen-navy text-white py-20 md:py-28',
+	'class' => 'chosen-cta-banner bg-chosen-navy text-white py-24 md:py-32',
 ] );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>

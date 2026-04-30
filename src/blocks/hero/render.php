@@ -71,7 +71,7 @@ $hero_id = 'chosen-hero-' . wp_unique_id();
 		<?php endif; ?>
 
 		<?php if ( $date_range || $venue_name ) : ?>
-			<div class="chosen-hero__datevenue mt-10 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:gap-5">
+			<div class="chosen-hero__datevenue mt-10 hidden md:flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:gap-5">
 				<?php if ( $date_range ) : ?>
 					<div class="chosen-hero__date rounded-md bg-chosen-gold px-5 py-3 text-left font-display leading-[0.95] text-chosen-navy">
 						<div class="text-[44px] sm:text-[56px]"><?php echo esc_html( $date_range ); ?></div>

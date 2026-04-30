@@ -25,9 +25,32 @@ $eyebrow = isset( $attributes['eyebrow'] ) ? (string) $attributes['eyebrow'] : '
 $sponsors = function_exists( 'get_field' ) ? get_field( 'sponsors' ) : null;
 
 if ( empty( $sponsors ) || ! is_array( $sponsors ) ) {
+	// Visitor fallback: render the section with eyebrow + JY medallion only.
+	// Ensures the slot reads as an intentional credit rather than empty space.
+	$fallback_attrs = get_block_wrapper_attributes( [
+		'class' => 'chosen-sponsor-strip chosen-sponsor-strip--fallback bg-chosen-paper py-12 md:py-16',
+	] );
+	$mark_url = get_template_directory_uri() . '/assets/img/chosen-mark.png';
+	?>
+	<section <?php echo $fallback_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?> aria-label="<?php esc_attr_e( 'Brought to you by Jesus Youth Australia', 'chosen-theme' ); ?>">
+		<div class="mx-auto max-w-content px-6 text-center">
+			<?php if ( $eyebrow ) : ?>
+				<p class="text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">
+					<?php echo esc_html( $eyebrow ); ?>
+				</p>
+			<?php endif; ?>
+			<img src="<?php echo esc_url( $mark_url ); ?>"
+				alt="Jesus Youth Australia"
+				class="chosen-sponsor-strip__fallback-mark mx-auto mt-6 h-16 w-auto md:h-20"
+				width="80" height="80"
+				loading="lazy"
+				decoding="async" />
+		</div>
+	</section>
+	<?php
 	if ( current_user_can( 'edit_posts' ) ) {
-		echo '<div class="chosen-sponsor-strip-empty bg-chosen-paper py-12 text-center text-chosen-navy/60">'
-			. esc_html__( 'Sponsor strip — add sponsors via the "Chosen Sponsors" field group on this page.', 'chosen-theme' )
+		echo '<div class="chosen-sponsor-strip-editor-note bg-chosen-paper pb-8 text-center text-[11px] text-chosen-navy/50">'
+			. esc_html__( 'Editor note: add sponsor logos via the "Chosen Sponsors" ACF field group to replace this fallback.', 'chosen-theme' )
 			. '</div>';
 	}
 	return;
