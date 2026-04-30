@@ -75,4 +75,77 @@
       0 1px 0 rgba(255, 255, 255, 0.08),
       0 8px 24px rgba(11, 10, 85, 0.35);
   }
+
+  /* ---- Hero block ---- */
+
+  /* Radiant rays: 24 individually rotated trapezoidal rays cycling 6 brand colours.
+     The container rotates as a unit at 60s/turn. The clip-path turns each rectangle
+     into the angled ray shape that matches the BeRadiant ripples motif. */
+  .chosen-hero__rays {
+    /* Container is positioned by Tailwind utilities in render.php (absolute inset-0). */
+    transform-origin: center;
+  }
+
+  .chosen-hero__ray {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 70vmax;
+    height: 8vmax;
+    transform-origin: 0 50%;
+    opacity: 0.35;
+    clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%);
+  }
+
+  /* Ken Burns photo wrapper — slow scale-and-pan loop (≤4% scale). */
+  .chosen-hero__photo--kenburns img {
+    will-change: transform;
+  }
+
+  /* CTA pulse — gold glow ripple every 4s. */
+  .chosen-cta-pulse {
+    will-change: box-shadow;
+  }
+
+  /* Animations are gated on no-preference so they're inert with reduced motion.
+     The prefers-reduced-motion: reduce block in @layer base also kills any
+     animation that slips through. Defence in depth. */
+  @media (prefers-reduced-motion: no-preference) {
+    .chosen-hero__rays {
+      animation: chosenSpin 60s linear infinite;
+    }
+
+    .chosen-hero__photo--kenburns img {
+      animation: chosenKenBurns 20s ease-in-out infinite;
+    }
+
+    .chosen-cta-pulse {
+      animation: chosenRegisterPulse 4s ease-in-out infinite;
+    }
+  }
+}
+
+/* Keyframes live outside @layer so they're not purged.
+   All animations that use these are gated above on prefers-reduced-motion. */
+@keyframes chosenSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes chosenKenBurns {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.04) translate(-1.5%, 1%);
+  }
+}
+
+@keyframes chosenRegisterPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(237, 169, 12, 0.45);
+  }
+  60% {
+    box-shadow: 0 0 0 14px rgba(237, 169, 12, 0);
+  }
 }

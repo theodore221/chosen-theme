@@ -34,7 +34,7 @@ add_filter( 'block_categories_all', 'chosen_register_block_category', 10, 1 );
  */
 function chosen_register_blocks() {
     $blocks = [
-        // 'hero',
+        'hero',
         // 'marquee',
         // 'vision',
         // 'stat-strip',
@@ -45,8 +45,11 @@ function chosen_register_blocks() {
         // 'quote',
     ];
 
+    // wp-scripts compiles src/blocks/<slug>/ → build/blocks/<slug>/. The compiled
+    // bundle contains the resolved JS, the copied block.json, and render.php — that's
+    // what register_block_type() needs to read.
     foreach ( $blocks as $slug ) {
-        $path = __DIR__ . '/../src/blocks/' . $slug;
+        $path = __DIR__ . '/../build/blocks/' . $slug;
         if ( file_exists( $path . '/block.json' ) ) {
             register_block_type( $path );
         }

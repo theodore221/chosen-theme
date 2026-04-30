@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/hero",
+  "title": "Hero",
+  "category": "chosen",
+  "icon": "format-image",
+  "description": "Full-bleed photographic hero with rotating radiant rays, Anton headline, gold date/venue card, and pulsing Register CTA. Use once at the top of the front page.",
+  "keywords": ["hero", "banner", "be radiant"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["full"],
+    "spacing": { "margin": false, "padding": false }
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Chosen 2026 · National Catholic Youth Conference"
+    },
+    "headlinePart1": {
+      "type": "string",
+      "default": "Be"
+    },
+    "headlinePart2": {
+      "type": "string",
+      "default": "Radiant"
+    },
+    "subhead": {
+      "type": "string",
+      "default": "Look to him, and be radiant."
+    },
+    "dateRange": {
+      "type": "string",
+      "default": "19–22"
+    },
+    "dateMonth": {
+      "type": "string",
+      "default": "NOV '26"
+    },
+    "venueName": {
+      "type": "string",
+      "default": "La Trobe University"
+    },
+    "venueCity": {
+      "type": "string",
+      "default": "Bundoora · Melbourne"
+    },
+    "ctaLabel": {
+      "type": "string",
+      "default": "Register"
+    },
+    "backgroundImage": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "url": "",
+        "alt": ""
+      }
+    },
+    "enableRays": {
+      "type": "boolean",
+      "default": true
+    },
+    "enableKenBurns": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
