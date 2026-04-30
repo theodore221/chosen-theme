@@ -14,7 +14,7 @@
 
 <!-- wp:chosen/marquee {"items":[{"text":"BE RADIANT","color":"gold"},{"text":"CHOSEN 2026","color":"white"},{"text":"LOOK TO HIM","color":"gold"},{"text":"19–22 NOV · MELBOURNE","color":"white"},{"text":"ENCOUNTER · WORSHIP · MISSION","color":"gold"},{"text":"JESUS YOUTH AUSTRALIA","color":"white"}],"speed":"medium"} /-->
 
-<!-- wp:chosen/vision {"eyebrow":"Theme · Chosen 2026","headline":"A conference beyond the ordinary.","body":"Come and get equipped to be a leader with practical life-changing steps that help you boldly live a life of purpose. Learn to share the joy of the gospel and change lives around you.","scripture":"Look to him, and be radiant; so your faces shall never be ashamed.","cite":"Psalm 34:5"} /-->
+<!-- wp:chosen/vision {"eyebrow":"Theme · Chosen 2026","headline":"Faces lifted. Hearts unveiled.","body":"For four days at La Trobe we gather to look to Him together — in adoration, in sacrament, in worship that does something to a face. You leave changed: lighter, softer, radiant in a way you didn't arrive. Come and let Christ be seen in you.","scripture":"Look to him, and be radiant; so your faces shall never be ashamed.","cite":"Psalm 34:5"} /-->
 
 <!-- wp:chosen/stat-strip {"eyebrow":"Why we gather","stats":[{"value":800,"prefix":"","suffix":"+","label":"Young people gathered"},{"value":4,"prefix":"","suffix":"","label":"Days of encounter"},{"value":8,"prefix":"","suffix":"","label":"Cities sending youth"}],"background":"royal"} /-->
 
@@ -24,6 +24,6 @@
 
 <!-- wp:chosen/quote {"eyebrow":"Word of God","verse":"Arise, shine; for your light has come, and the glory of the Lord has risen upon you.","cite":"Isaiah 60:1","background":"paper"} /-->
 
-<!-- wp:chosen/cta-banner {"headline":"Come and be made radiant.","subhead":"Come and see.","ctaLabel":"Register","eyebrow":"Your place at the table","scripture":"You did not choose me but I chose you; and I appointed you to go and bear fruit that will last.","cite":"John 15:16"} /-->
+<!-- wp:chosen/cta-banner {"headline":"Come and be made radiant.","subhead":"Four days at La Trobe University, Melbourne, 19 to 22 November — chosen, called, and walking home with Him visible in you.","ctaLabel":"Register","eyebrow":"Your place at the table","scripture":"You did not choose me but I chose you; and I appointed you to go and bear fruit that will last.","cite":"John 15:16"} /-->
 
 <!-- wp:chosen/sponsor-strip {"eyebrow":"Brought to you by Jesus Youth Australia."} /-->
