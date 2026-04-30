@@ -323,7 +323,7 @@ Preview refs: `components-scripture-pull.html`, `type-body-scripture.html`
 
 ## Open items (pending from stakeholders)
 
-- [ ] Logo SVG file → `assets/img/logo.svg` (currently only PNG versions in design-system/)
+- [ ] Logo SVG hand-off (Irene/Jento) — replace `assets/img/chosen-logo-white.png` and `assets/img/chosen-mark.png` with `chosen-logo-white.svg` + `chosen-mark.svg` when supplied. Keep PNGs as fallback for email/poster ui_kits.
 - [ ] `BeRadiant ripples.eps` — radiant ray vector (currently recreating in CSS/JS)
 - [ ] `CHOSEN_REGISTER_URL` — real external signup app URL
 - [ ] Display typeface confirmation (Anton is substitute — confirm or supply original)
