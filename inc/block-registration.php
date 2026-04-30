@@ -35,7 +35,7 @@ add_filter( 'block_categories_all', 'chosen_register_block_category', 10, 1 );
 function chosen_register_blocks() {
     $blocks = [
         'hero',
-        // 'marquee',
+        'marquee',
         // 'vision',
         // 'stat-strip',
         // 'expect-tile-grid',

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/marquee",
+  "title": "Marquee",
+  "category": "chosen",
+  "icon": "controls-repeat",
+  "description": "Infinite scrolling text strip on a navy band. Gold and white items, smooth ease-out-quart, pauses on hover. Pure CSS.",
+  "keywords": [
+    "marquee",
+    "ticker",
+    "scrolling text"
+  ],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "items": {
+      "type": "array",
+      "default": [
+        {
+          "text": "LOOK TO HIM",
+          "color": "gold"
+        },
+        {
+          "text": "BE RADIANT",
+          "color": "white"
+        },
+        {
+          "text": "CHOSEN 2026",
+          "color": "gold"
+        },
+        {
+          "text": "COME AND ENCOUNTER",
+          "color": "white"
+        },
+        {
+          "text": "JESUS YOUTH AUSTRALIA",
+          "color": "gold"
+        }
+      ]
+    },
+    "speed": {
+      "type": "string",
+      "default": "medium",
+      "enum": [
+        "slow",
+        "medium",
+        "fast"
+      ]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

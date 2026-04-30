@@ -107,6 +107,31 @@
     will-change: box-shadow;
   }
 
+  /* ---- Marquee block ---- */
+
+  .chosen-marquee__viewport {
+    /* The viewport hides overflow; the track is wider than the viewport
+       because items are duplicated. translateX(-50%) loops seamlessly. */
+    width: 100%;
+  }
+
+  .chosen-marquee__track {
+    width: max-content;
+    will-change: transform;
+  }
+
+  .chosen-marquee__sep {
+    font-family: var(--font-display, 'Anton'), sans-serif;
+    font-size: 1.5rem;
+    line-height: 1;
+    opacity: 0.7;
+  }
+
+  /* Pause on hover. The animation keeps running; just stops advancing. */
+  .chosen-marquee:hover .chosen-marquee__track {
+    animation-play-state: paused;
+  }
+
   /* Animations are gated on no-preference so they're inert with reduced motion.
      The prefers-reduced-motion: reduce block in @layer base also kills any
      animation that slips through. Defence in depth. */
@@ -121,6 +146,10 @@
 
     .chosen-cta-pulse {
       animation: chosenRegisterPulse 4s ease-in-out infinite;
+    }
+
+    .chosen-marquee__track {
+      animation: chosenMarquee var(--chosen-marquee-duration, 40s) linear infinite;
     }
   }
 }
@@ -148,4 +177,12 @@
   60% {
     box-shadow: 0 0 0 14px rgba(237, 169, 12, 0);
   }
+}
+
+/* Marquee scroll loops the track from 0% → -50%. The track contains the
+   item sequence twice, so -50% = end of the original sequence = start of
+   the duplicate, making the loop seamless with no jump. */
+@keyframes chosenMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
