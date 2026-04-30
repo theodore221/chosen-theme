@@ -9,7 +9,41 @@
     box-sizing: border-box;
   }
 
+  /* Smooth in-page anchor scrolling. Off with reduced motion. */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Page background is warm paper, never pure white. Default body text is
+     near-black (neutral-900) — not pure black, never pure black. */
+  body {
+    background-color: #FAF8F3;
+    color: #14130F;
+  }
+
+  /* Default front-end link styling (header/nav have their own classes that
+     override these). Gold by default; darken on hover. */
+  a {
+    color: #EDA90C;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #C68A06;
+  }
+
+  /* Visible gold focus ring on every interactive element. WCAG 2.2 SC 2.4.11. */
+  :focus-visible {
+    outline: 3px solid #EDA90C;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
     *,
     *::before,
     *::after {

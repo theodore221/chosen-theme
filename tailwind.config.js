@@ -31,8 +31,10 @@ module.exports = {
         widest:  '0.22em',
       },
       transitionTimingFunction: {
-        'ease-out-quart': 'cubic-bezier(0.22, 0.61, 0.36, 1)',
-        'ease-movement':  'cubic-bezier(0.4, 0, 0.6, 1)',
+        // Tailwind prepends `ease-` automatically, so keys are bare names.
+        // Class names: `ease-out-quart`, `ease-movement`.
+        'out-quart': 'cubic-bezier(0.22, 0.61, 0.36, 1)',
+        'movement':  'cubic-bezier(0.4, 0, 0.6, 1)',
       },
       boxShadow: {
         'chosen-sm': '0 1px 3px rgba(11, 10, 85, 0.12)',
