@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/sponsor-strip",
+  "title": "Sponsor Strip",
+  "category": "chosen",
+  "icon": "groups",
+  "description": "Logo row of partners and sponsors on warm paper. Logos are greyscale at rest and colour on hover. Content is managed via the ACF Sponsors field group.",
+  "keywords": [
+    "sponsors",
+    "partners",
+    "logos"
+  ],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "full"
+    ],
+    "jsx": true
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Brought to you by"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

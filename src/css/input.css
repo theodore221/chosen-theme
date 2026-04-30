@@ -277,6 +277,40 @@
     }
   }
 
+  /* ---- Sponsor strip ---- */
+
+  .chosen-sponsor-strip__logo {
+    max-height: 56px;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    filter: grayscale(100%);
+    opacity: 0.65;
+    transition: filter 250ms cubic-bezier(0.22, 0.61, 0.36, 1),
+                opacity 250ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    object-fit: contain;
+  }
+
+  .chosen-sponsor-strip__link:hover .chosen-sponsor-strip__logo,
+  .chosen-sponsor-strip__cell:hover .chosen-sponsor-strip__logo {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+
+  /* WordPress sets `.screen-reader-text` globally, but in case theme.json
+     resets it we restate the visually-hidden recipe here. */
+  .screen-reader-text {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
   /* Animations are gated on no-preference so they're inert with reduced motion.
      The prefers-reduced-motion: reduce block in @layer base also kills any
      animation that slips through. Defence in depth. */

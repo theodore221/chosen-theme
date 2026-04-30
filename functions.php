@@ -11,6 +11,9 @@ define( 'CHOSEN_REGISTER_URL', '' ); // TODO: set to real signup URL before laun
 require_once get_template_directory() . '/inc/block-registration.php';
 require_once get_template_directory() . '/inc/menus.php';
 require_once get_template_directory() . '/inc/security.php';
+// ACF field groups — registered as PHP so the schema deploys with the theme.
+// File self-guards on function_exists( 'acf_add_local_field_group' ).
+require_once get_template_directory() . '/inc/acf-sponsor-fields.php';
 
 add_action( 'after_setup_theme', 'chosen_setup' );
 function chosen_setup(): void {

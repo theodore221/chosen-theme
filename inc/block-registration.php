@@ -41,7 +41,7 @@ function chosen_register_blocks() {
         'expect-tile-grid',
         'image-mosaic',
         'cta-banner',
-        // 'sponsor-strip',
+        'sponsor-strip',
         // 'quote',
     ];
 
