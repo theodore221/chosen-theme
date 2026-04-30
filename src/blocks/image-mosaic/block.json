@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/image-mosaic",
+  "title": "Image Mosaic",
+  "category": "chosen",
+  "icon": "format-gallery",
+  "description": "CSS Grid photo collage. Bento layout with 2 hero tiles and 4 supporting tiles, or even grid. Hard-edged full-bleed photos with gold-tint hover overlay.",
+  "keywords": ["mosaic", "gallery", "photos", "grid"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["full", "wide"]
+  },
+  "attributes": {
+    "images": {
+      "type": "array",
+      "default": [
+        { "id": 0, "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-arms-raised-worship.jpg",   "alt": "Young people at Chosen with arms raised in worship" },
+        { "id": 0, "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-adoration-monstrance.jpg", "alt": "Eucharistic adoration before the monstrance at Chosen" },
+        { "id": 0, "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-orange-prayer-tent.jpg",   "alt": "Outdoor prayer in the orange tent at Chosen" },
+        { "id": 0, "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-sister-laughing.jpg",      "alt": "A religious sister laughing in community at Chosen" },
+        { "id": 0, "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-painting-candlelit.jpg",   "alt": "Reverent prayer in candlelit space at Chosen" },
+        { "id": 0, "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-worship-keyboard.jpg",     "alt": "Worship leader at the keyboard at Chosen" }
+      ]
+    },
+    "layout": {
+      "type": "string",
+      "default": "bento",
+      "enum": ["bento", "even"]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
