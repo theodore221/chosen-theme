@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/quote",
+  "title": "Quote",
+  "category": "chosen",
+  "icon": "format-quote",
+  "description": "Standalone scripture pull-quote: eyebrow → italic light verse → 48px gold rule → gold cite. Use between sections to anchor the page in scripture.",
+  "keywords": ["quote", "scripture", "pull quote"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["full", "wide"]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Theme · Chosen 2026"
+    },
+    "verse": {
+      "type": "string",
+      "default": "Look to him, and be radiant; so your faces shall never be ashamed."
+    },
+    "cite": {
+      "type": "string",
+      "default": "Psalm 34:5"
+    },
+    "background": {
+      "type": "string",
+      "default": "navy",
+      "enum": ["navy", "paper"]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

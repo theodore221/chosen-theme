@@ -42,7 +42,7 @@ function chosen_register_blocks() {
         'image-mosaic',
         'cta-banner',
         'sponsor-strip',
-        // 'quote',
+        'quote',
     ];
 
     // wp-scripts compiles src/blocks/<slug>/ → build/blocks/<slug>/. The compiled
