@@ -1,73 +1,77 @@
 # Chosen Theme — Implementation Log
 
-Resume guide: if this session ends, read this file first. It records exactly what has been completed, what's in progress, and what to do next.
-
-**Plan file:** `docs/superpowers/plans/2026-04-30-chosen-theme-phase-1-scaffold.md`  
-**Branch:** main  
-**Local site:** http://chosen.local (LocalWP)  
-**Repo:** /Users/theodorexavier/Desktop/repo/chosen-theme/
+**For full session context, plans, and remaining work: read `docs/session-handoff.md` first.**
 
 ---
 
-## Status
+## Current status
 
-| Task | Description | Status |
-|------|-------------|--------|
-| Task 1 | Phase 0 cleanup — plugins + permalinks | ✅ Done |
-| Task 2 | Symlink theme repo to LocalWP | ✅ Done |
-| Task 3 | Rename design-system/ + move agents | ✅ Done |
-| Task 4 | Claude Code tooling (.claude/) | ✅ Done |
-| Task 5 | Core WP theme files (style.css, index.php) | ✅ Done |
-| Task 6 | theme.json | ✅ Done |
-| Task 7 | Build tooling (package.json, Tailwind, npm install + build) | ✅ Done |
-| Task 8 | functions.php + inc/ files | ✅ Done |
-| Task 9 | FSE templates + parts | ✅ Done |
-| Task 10 | Docs + ADRs | ✅ Done |
-| Task 11 | Activate theme + verify | ⏳ Pending (user action in WP Admin) |
+| Phase | Status | Notes |
+|-------|--------|-------|
+| Phase 0 — Environment | ✅ Complete | LocalWP running at chosen.local |
+| Phase 1 — Scaffold | ✅ Complete | All structural files built and committed |
+| **Task 11 — Activate theme** | **⏳ USER ACTION** | Go to chosen.local/wp-admin → Appearance → Themes → activate Chosen Theme |
+| Phase 2 — Header + footer | ⏳ Pending activation | Real nav, wordmark, footer |
+| Phase 3 — 9 custom blocks | ⏳ Pending Phase 2 | Run /impeccable:teach-impeccable first |
+| Phase 4 — Content | ⏳ Pending assets from Irene | Logo SVG, real signup URL needed |
+| Phase 5 — QA + launch | ⏳ Pending content | Lighthouse, WCAG AA, cross-browser |
+| Phase 6 — Handoff | ⏳ Pending launch | Editor training doc for Irene |
 
 ---
 
-## Checkpoint Notes
+## Commit history
 
-### 2026-04-30 — Phase 1 scaffold complete
-
-All Phase 1 tasks completed. The theme is structurally complete and ready to activate.
-
-**Commit history (this session):**
-- `eda1dc0` chore: rename design-system/, add .claude tooling and agents
-- `031c4b2` feat(theme): add core theme identity files
-- `c9f9470` feat(theme): add theme.json with brand design tokens
-- `da283cb` feat(build): add Tailwind + wp-scripts build tooling, compiled assets
-- `ac1b711` feat(theme): add functions.php and inc/ (block registration, menus, security)
-- `7e3e3b7` feat(theme): add FSE templates and footer/header parts
-- *(this commit)* docs: add ADRs and update implementation log
-
-**Build verified:** `npm run build` succeeds — webpack compiled cleanly, Tailwind `assets/css/main.css` generated.
-
-**What activating the theme will do:**
-- chosen.local will switch from Inspiro to Chosen Theme
-- Block editor palette will show 10 brand colours (navy, royal, gold, red, orange, yellow, teal, white, paper, black)
-- Work Sans + Anton + Bebas Neue will appear in the editor font selector
-- Header/footer parts will render (minimal navy placeholder — Phase 2 will replace these with real header + footer design)
+```
+b291116 docs: add ADRs (001-003), update implementation log — Phase 1 complete
+7e3e3b7 feat(theme): add FSE templates and footer/header parts
+ac1b711 feat(theme): add functions.php and inc/ (block registration, menus, security)
+da283cb feat(build): add Tailwind + wp-scripts build tooling, compiled assets
+c9f9470 feat(theme): add theme.json with brand design tokens
+031c4b2 feat(theme): add core theme identity files
+eda1dc0 chore: rename design-system/, add .claude tooling and agents
+28a1652 Initial commit
+```
 
 ---
 
-## Next Steps After Activation (Phase 2)
+## Phase 1 — What was built (2026-04-30)
 
-Once Task 11 is verified:
+- `style.css` — theme header (name, version, text-domain, requirements)
+- `index.php` — required empty WP recognition file
+- `.gitignore` — node_modules/ only (assets/ is committed)
+- `theme.json` — 10 brand colours, 3 font families, 11 font sizes, 720/1200px layout widths
+- `tailwind.config.js` — mirrors theme.json tokens (colours, fonts, letter-spacing, easing, shadows)
+- `package.json` — npm scripts: start (concurrently Tailwind watch + wp-scripts start), build
+- `src/css/input.css` — Tailwind directives + prefers-reduced-motion reset
+- `src/index.js` — placeholder (prevents wp-scripts build error with no blocks yet)
+- `assets/css/main.css` — compiled Tailwind output (committed, ~3KB)
+- `functions.php` — setup, Google Fonts enqueue, design-system CSS enqueue, constants, inc/ requires
+- `inc/block-registration.php` — empty, ready for register_block_type() calls
+- `inc/menus.php` — primary + footer nav menus
+- `inc/security.php` — xmlrpc disabled, wp_generator removed
+- `templates/index.html` — required WP fallback
+- `templates/front-page.html` — home page (full-width main)
+- `templates/page.html` — default page (constrained)
+- `templates/single.html` — single post (constrained)
+- `parts/header.html` — minimal navy placeholder
+- `parts/footer.html` — minimal navy placeholder
+- `docs/adr/001-003` — architecture decision records
+- `.claude/settings.json` — pre-approved bash permissions
+- `.claude/commands/new-block.md` — /new-block scaffold command
+- `.claude/commands/chosen-design.md` — /chosen-design brand context loader
+- `.claude/agents/marketing-content-creator.md` — content agent
+- `.claude/agents/engineering-cms-developer.md` — WP engineering agent
+- `design-system/` — full design system (renamed from "Chosen 2025 Design System/")
+- `docs/session-handoff.md` — comprehensive session resume guide
 
-1. **Phase 2 — Real header + footer**
-   - `parts/header.html`: sticky navy 64px bar, CHOSEN wordmark (O replaced with chosen-mark medallion), gold pill CTA "Register", white nav links
-   - `parts/footer.html`: navy bg, logo, address (140 Westbourne Grove, Northcote VIC 3070), social icons (Lucide, 24px), scripture pull-quote
-
-2. **Phase 3 — Custom blocks (run `/impeccable:teach-impeccable` first)**
-   Build order: hero → marquee → vision → stat-strip → expect-tile-grid → image-mosaic → cta-banner → sponsor-strip → quote
+**Build verified:** `npm run build` — webpack compiled cleanly, Tailwind output generated.
 
 ---
 
-## How to Resume
+## Known issues / gotchas
 
-1. Read this file to find the last completed task
-2. Check `git log --oneline` to confirm commits
-3. If Task 11 is not done: ask user to activate chosen-theme in WP Admin → Appearance → Themes
-4. After activation: proceed to Phase 2 (real header/footer), then Phase 3 (blocks)
+- Template parts (.html) don't execute PHP — all dynamic output via render.php in custom blocks
+- ACF field groups built in Phase 3 must be exported as PHP to `inc/` to deploy with theme
+- `CHOSEN_REGISTER_URL` is empty until Jento provides real signup URL
+- Logo PNG only (no SVG yet) — `assets/img/` has a .gitkeep placeholder
+- Anton is a substitute display font — confirm with Irene/Jento before launch
