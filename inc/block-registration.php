@@ -38,7 +38,7 @@ function chosen_register_blocks() {
         'marquee',
         'vision',
         'stat-strip',
-        // 'expect-tile-grid',
+        'expect-tile-grid',
         // 'image-mosaic',
         // 'cta-banner',
         // 'sponsor-strip',

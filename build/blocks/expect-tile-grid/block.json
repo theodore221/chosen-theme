@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/expect-tile-grid",
+  "title": "Expect Tile Grid",
+  "category": "chosen",
+  "icon": "screenoptions",
+  "description": "Grid of cards describing what attendees can expect — adoration, talks, workshops, theatre. Hover lifts each tile and slides in a gold top accent.",
+  "keywords": [
+    "tiles",
+    "grid",
+    "expect",
+    "cards"
+  ],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "full",
+      "wide"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "What to expect"
+    },
+    "headline": {
+      "type": "string",
+      "default": "Four days of encounter."
+    },
+    "tiles": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Adoration",
+          "description": "Eucharistic adoration & sacramental prayer in the chapel and main hall."
+        },
+        {
+          "title": "Bishops & guest speakers",
+          "description": "Inspiring talks from bishops, priests, and lay missionaries."
+        },
+        {
+          "title": "Workshops",
+          "description": "Practical sessions on faith, vocation, mission, and community life."
+        },
+        {
+          "title": "Live worship",
+          "description": "Worship led by the Masterplan band, reverent and Spirit-filled."
+        },
+        {
+          "title": "Theatre",
+          "description": "Live theatre and testimonies that make the gospel come alive."
+        },
+        {
+          "title": "Confession",
+          "description": "Sacramental confession available throughout the four days."
+        },
+        {
+          "title": "Community",
+          "description": "Meals, chats, friendships across dioceses and ages."
+        },
+        {
+          "title": "Vocation",
+          "description": "Discernment space and conversations with religious orders."
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
