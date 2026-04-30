@@ -37,7 +37,7 @@ function chosen_register_blocks() {
         'hero',
         'marquee',
         'vision',
-        // 'stat-strip',
+        'stat-strip',
         // 'expect-tile-grid',
         // 'image-mosaic',
         // 'cta-banner',

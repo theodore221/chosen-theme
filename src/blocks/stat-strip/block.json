@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/stat-strip",
+  "title": "Stat Strip",
+  "category": "chosen",
+  "icon": "chart-bar",
+  "description": "Row of 4 by-the-numbers stats. Anton numbers count up from 0 when the section enters the viewport.",
+  "keywords": ["stats", "numbers", "counters"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["full", "wide"]
+  },
+  "attributes": {
+    "stats": {
+      "type": "array",
+      "default": [
+        { "value": 1500, "prefix": "", "suffix": "+", "label": "Young people gathered" },
+        { "value": 22,   "prefix": "", "suffix": "",  "label": "Speakers" },
+        { "value": 4,    "prefix": "", "suffix": "",  "label": "Days of encounter" },
+        { "value": 30,   "prefix": "", "suffix": "+", "label": "Workshops & talks" }
+      ]
+    },
+    "background": {
+      "type": "string",
+      "default": "paper",
+      "enum": ["paper", "royal"]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
