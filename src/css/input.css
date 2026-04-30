@@ -19,3 +19,26 @@
     }
   }
 }
+
+@layer components {
+  /* CHOSEN wordmark — the "O" glyph is replaced inline by the chosen-mark medallion. */
+  .chosen-wordmark__o {
+    display: inline-block;
+    width: 0.84em;
+    height: 0.84em;
+    vertical-align: -0.18em;
+    background-image: url('../../assets/img/chosen-mark.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 0.04em;
+  }
+
+  /* Sticky shadow when scrolled. The .is-scrolled class is toggled by the inline
+     IO snippet at the bottom of parts/footer.html (single-source, no per-block JS). */
+  .chosen-header.is-scrolled {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.08),
+      0 8px 24px rgba(11, 10, 85, 0.35);
+  }
+}
