@@ -10,7 +10,7 @@
  */
 ?>
 
-<!-- wp:chosen/hero {"eyebrow":"CHOSEN 2026 · Jesus Youth Australia National Conference","headlinePart1":"Be","headlinePart2":"Radiant","subhead":"Look to Him, and let your face carry His light home.","dateRange":"19–22","dateMonth":"NOV '26","venueName":"La Trobe University","venueCity":"Bundoora · Melbourne","ctaLabel":"Register","backgroundImage":{"id":0,"url":"/wp-content/themes/chosen-theme/assets/img/photos/photo-arms-raised-worship.jpg","alt":"A young woman with eyes closed and arms raised in worship at Chosen, soft stage light catching her face"},"enableRays":true,"enableKenBurns":true} /-->
+<!-- wp:chosen/hero {"eyebrow":"CHOSEN 2026 · Jesus Youth Australia National Conference","headlinePart1":"Be","headlinePart2":"Radiant","subhead":"Look to Him, and let your face carry His light home.","dateRange":"19–22","dateMonth":"NOV '26","venueName":"La Trobe University","venueCity":"Bundoora · Melbourne","ctaLabel":"Register","backgroundImage":{"id":0,"url":"/wp-content/themes/chosen-theme/assets/img/photos/photo-adoration-vigil.jpg","alt":"Young people kneeling around an illuminated monstrance during candlelit Eucharistic adoration at Chosen, hands raised, the Blessed Sacrament centred behind a sheer canopy"},"enableRays":true,"enableKenBurns":true} /-->
 
 <!-- wp:chosen/marquee {"items":[{"text":"BE RADIANT","color":"gold"},{"text":"CHOSEN 2026","color":"white"},{"text":"LOOK TO HIM","color":"gold"},{"text":"19–22 NOV · MELBOURNE","color":"white"},{"text":"ENCOUNTER · WORSHIP · MISSION","color":"gold"},{"text":"JESUS YOUTH AUSTRALIA","color":"white"}],"speed":"medium"} /-->
 
