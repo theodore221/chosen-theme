@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Radiant rays motif</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 0; background: var(--chosen-navy); font-family: var(--font-sans); position: relative; height: 320px; overflow: hidden; }
+  .stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .rays { position: absolute; width: 800px; height: 800px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .ray { position: absolute; left: 50%; top: 50%; width: 50%; height: 60px; transform-origin: 0 50%; opacity: 0.95; }
+  .center { position: relative; width: 110px; height: 110px; background: url('../assets/chosen-mark.png') center/contain no-repeat; z-index: 2; filter: drop-shadow(0 0 30px rgba(237,169,12,0.6)); }
+  .label { position: absolute; bottom: 14px; left: 18px; font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.7); z-index: 3; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="rays" id="rays"></div>
+    <div class="center"></div>
+  </div>
+  <div class="label">"BeRadiant ripples" — radiant rays motif (recreated; .eps source pending)</div>
+  <script>
+    const colors = ['#F71A1D','#FE4E0E','#EDA90C','#EBC903','#4071AC','#37BCB1'];
+    const rays = document.getElementById('rays');
+    const N = 24;
+    for (let i = 0; i < N; i++) {
+      const r = document.createElement('div');
+      r.className = 'ray';
+      r.style.background = colors[i % colors.length];
+      r.style.transform = `rotate(${(360/N)*i}deg)`;
+      r.style.clipPath = 'polygon(0 40%, 100% 0, 100% 100%, 0 60%)';
+      rays.appendChild(r);
+    }
+  </script>
+</body>
+</html>

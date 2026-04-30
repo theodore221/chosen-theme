@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Colors — Neutrals (warm paper)</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 20px; background: var(--bg-paper); }
+  .row { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .step { aspect-ratio: 1 / 1.4; padding: 8px; display: flex; flex-direction: column; justify-content: flex-end; font-family: var(--font-mono); font-size: 10px; }
+  .label { font-family: var(--font-sans); font-weight: 700; font-size: 11px; margin-top: 14px; color: var(--fg-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+  <div class="label">Neutrals — warm-leaning, paired with navy</div>
+  <div class="row">
+    <div class="step" style="background:#FFFFFF;color:#444">0<br>FFF</div>
+    <div class="step" style="background:#FAF8F3;color:#444">50<br>FAF8F3</div>
+    <div class="step" style="background:#F2EEE5;color:#444">100<br>F2EEE5</div>
+    <div class="step" style="background:#E5DFD0;color:#444">200<br>E5DFD0</div>
+    <div class="step" style="background:#C9C2B2;color:#222">300<br>C9C2B2</div>
+    <div class="step" style="background:#807A6A;color:#fff">500<br>807A6A</div>
+    <div class="step" style="background:#3F3B33;color:#fff">700<br>3F3B33</div>
+    <div class="step" style="background:#14130F;color:#fff">900<br>14130F</div>
+  </div>
+</body>
+</html>

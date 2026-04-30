@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chosen — Print Kit (Be Radiant Poster)</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 28px; background: var(--neutral-200); font-family: var(--font-sans); }
+  h1 { font-size: 22px; color: var(--chosen-navy); margin: 0 0 6px; }
+  .sub { font-size: 13px; color: var(--fg-muted); margin: 0 0 24px; }
+  .row { display: flex; gap: 22px; flex-wrap: wrap; }
+
+  /* A4 poster, scaled */
+  .poster {
+    width: 420px;
+    aspect-ratio: 1 / 1.414;
+    background: #0B0A55;
+    color: white;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  /* Radiant rays background */
+  .poster .rays {
+    position: absolute; inset: 0;
+    background:
+      conic-gradient(from -90deg at 50% 56%,
+        #C81216 0deg 12deg, #0B0A55 12deg 22deg,
+        #FE4E0E 22deg 34deg, #0B0A55 34deg 44deg,
+        #EBC903 44deg 56deg, #0B0A55 56deg 66deg,
+        #37BCB1 66deg 78deg, #0B0A55 78deg 88deg,
+        #4071AC 88deg 100deg, #0B0A55 100deg 110deg,
+        #EBC903 110deg 122deg, #0B0A55 122deg 132deg,
+        #FE4E0E 132deg 144deg, #0B0A55 144deg 154deg,
+        #C81216 154deg 166deg, #0B0A55 166deg 176deg,
+        #C81216 176deg 188deg, #0B0A55 188deg 198deg,
+        #FE4E0E 198deg 210deg, #0B0A55 210deg 220deg,
+        #EBC903 220deg 232deg, #0B0A55 232deg 242deg,
+        #37BCB1 242deg 254deg, #0B0A55 254deg 264deg,
+        #4071AC 264deg 276deg, #0B0A55 276deg 286deg,
+        #EBC903 286deg 298deg, #0B0A55 298deg 308deg,
+        #FE4E0E 308deg 320deg, #0B0A55 320deg 330deg,
+        #C81216 330deg 342deg, #0B0A55 342deg 360deg);
+    opacity: 0.85;
+  }
+  .poster .vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 56%, transparent 18%, rgba(11,10,85,0.55) 70%, rgba(11,10,85,0.95) 100%);
+  }
+  .poster .top {
+    position: absolute; top: 16px; left: 16px; right: 16px;
+    display: flex; justify-content: space-between; align-items: flex-start; z-index: 5;
+    gap: 12px;
+  }
+  .poster .top .logobg { background: rgba(11,10,85,0.78); padding: 8px 12px; border-radius: 4px; backdrop-filter: blur(2px); }
+  .poster .top img { height: 38px; display: block; }
+  .poster .date {
+    font-family: var(--font-display);
+    line-height: 1.0; text-align: right; color: white;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    background: rgba(11,10,85,0.65);
+    padding: 8px 12px;
+    border-radius: 4px;
+    min-width: 120px;
+  }
+  .poster .date .big { font-size: 22px; display: block; line-height: 1.05; white-space: nowrap; }
+  .poster .date .where { font-size: 8px; letter-spacing: 0.06em; font-weight: 400; font-family: var(--font-sans); margin-top: 8px; opacity: 0.95; line-height: 1.35; white-space: normal; }
+
+  /* Monstrance focal — real photography */
+  .poster .focal {
+    position: absolute; top: 14%; left: 50%; transform: translateX(-50%);
+    width: 220px; height: 220px;
+    background: url('../../assets/photo-adoration-monstrance.jpg') center 30%/cover no-repeat;
+    border-radius: 50%;
+    z-index: 3;
+    filter: drop-shadow(0 0 50px rgba(237,169,12,0.7));
+    -webkit-mask-image: radial-gradient(circle, black 45%, transparent 72%);
+            mask-image: radial-gradient(circle, black 45%, transparent 72%);
+  }
+  .poster .focal::after {
+    content:''; position:absolute; inset:0; border-radius:50%;
+    background: radial-gradient(circle, transparent 35%, rgba(237,169,12,0.18) 55%, transparent 75%);
+    mix-blend-mode: screen;
+  }
+
+  .poster .title {
+    position: absolute; left: 0; right: 0; top: 47%; text-align: center; z-index: 4;
+    font-family: var(--font-display);
+    font-size: 60px; line-height: 0.92;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.5);
+    letter-spacing: -0.005em;
+  }
+  .poster .title .be {
+    display: block;
+    color: var(--chosen-gold);
+    font-style: italic;
+    margin-bottom: 4px;
+    text-shadow: 0 2px 10px rgba(11,10,85,0.95), 0 0 20px rgba(11,10,85,0.9);
+  }
+
+  .poster .scripture {
+    position: absolute; left: 22px; right: 22px; bottom: 50px;
+    z-index: 5;
+    background: rgba(11,10,85,0.78);
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+  .poster .scripture .cite { font-size: 9px; letter-spacing: 0.22em; font-weight: 700; color: var(--chosen-gold); text-transform: uppercase; margin-bottom: 6px; }
+  .poster .scripture .verse { font-size: 10.5px; font-weight: 600; line-height: 1.4; }
+
+  .poster .footer {
+    position: absolute; left: 22px; right: 22px; bottom: 14px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 5;
+    font-size: 9px; letter-spacing: 0.04em; color: rgba(255,255,255,0.85);
+  }
+  .poster .footer .url { font-weight: 700; }
+  .poster .footer .jy { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+  .poster .footer .jy::before { content:''; width: 14px; height: 14px; border-radius: 50%; background: var(--chosen-gold); }
+
+  /* A5 flyer reduced version */
+  .flyer { width: 300px; aspect-ratio: 1/1.414; background: var(--bg-paper); color: var(--chosen-navy); border-radius: 4px; box-shadow: var(--shadow-lg); padding: 26px 22px; box-sizing: border-box; display: flex; flex-direction: column; }
+  .flyer img.logo { height: 38px; align-self: flex-start; }
+  .flyer .h { font-family: var(--font-display); font-size: 56px; line-height: 0.9; text-transform: uppercase; margin-top: 14px; color: var(--chosen-red); }
+  .flyer .h .b { color: var(--chosen-gold); display: block; }
+  .flyer .meta { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-top: 14px; color: var(--chosen-navy); }
+  .flyer .verse { font-size: 11px; font-style: italic; font-weight: 300; line-height: 1.5; margin-top: 12px; }
+  .flyer .cite { font-size: 9px; letter-spacing: 0.22em; font-weight: 700; color: var(--chosen-gold); text-transform: uppercase; margin-top: 8px; }
+  .flyer .spacer { flex: 1; }
+  .flyer .cta { background: var(--chosen-navy); color: white; padding: 12px 16px; border-radius: 999px; font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; }
+  .flyer .url { font-size: 10px; color: var(--fg-muted); margin-top: 8px; text-align: center; }
+</style>
+</head>
+<body>
+  <h1>Chosen — Print Kit</h1>
+  <p class="sub">A4 poster (left) and A5 flyer (right). The poster recreates the 2026 <em>Be Radiant</em> artwork using the radiant ray motif and a stand-in monstrance focal — drop in your own photography for production. The flyer is a mono-photographic, paper-stock-friendly variant for parishes.</p>
+
+  <div class="row">
+    <div class="poster">
+      <div class="rays"></div>
+      <div class="vignette"></div>
+      <div class="focal"></div>
+      <div class="top">
+        <div class="logobg"><img src="../../assets/chosen-logo-white.png" alt="Chosen"></div>
+        <div class="date">
+          <div class="big">19–22</div>
+          <div class="big">NOV ’26</div>
+          <div class="where">La Trobe University<br>Melbourne</div>
+        </div>
+      </div>
+      <div class="title">
+        <span class="be">Be</span>
+        Radiant
+      </div>
+      <div class="scripture">
+        <div class="cite">Psalm 34:5</div>
+        <div class="verse">"Look to him, and be radiant; so your faces shall never be ashamed."</div>
+      </div>
+      <div class="footer">
+        <span class="url">chosenconference.org.au</span>
+        <span class="jy">Jesus Youth Australia</span>
+      </div>
+    </div>
+
+    <div class="flyer">
+      <img class="logo" src="../../assets/chosen-logo-full.png">
+      <div class="h"><span class="b">Be</span>Radiant</div>
+      <div class="meta">19–22 Nov ’26 · Melbourne</div>
+      <div class="cite">Psalm 34:5</div>
+      <div class="verse">"Look to him, and be radiant; so your faces shall never be ashamed."</div>
+      <div class="spacer"></div>
+      <div class="cta">Register now</div>
+      <div class="url">chosenconference.org.au</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg-paper); font-family: var(--font-sans); }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+  .btn { font-family: var(--font-sans); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 22px; border-radius: 999px; border: none; cursor: pointer; transition: all 200ms cubic-bezier(0.22,0.61,0.36,1); }
+  .primary { background: var(--chosen-gold); color: var(--chosen-navy); }
+  .primary:hover { background: var(--chosen-gold-600); color: white; }
+  .secondary { background: var(--chosen-navy); color: white; }
+  .ghost { background: transparent; color: var(--chosen-navy); border: 2px solid var(--chosen-navy); }
+  .danger { background: var(--chosen-red); color: white; }
+  .label { font-family: var(--font-mono); font-size: 10px; color: var(--fg-muted); width: 80px; }
+</style>
+</head>
+<body>
+  <div class="row"><div class="label">primary</div><button class="btn primary">Register now</button><button class="btn primary" disabled style="opacity:.4;cursor:not-allowed">Register now</button></div>
+  <div class="row"><div class="label">secondary</div><button class="btn secondary">Learn more</button></div>
+  <div class="row"><div class="label">ghost</div><button class="btn ghost">View speakers</button></div>
+  <div class="row"><div class="label">danger</div><button class="btn danger">Be Radiant</button></div>
+</body>
+</html>

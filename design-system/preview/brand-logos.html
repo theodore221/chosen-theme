@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Logo lockups</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 0; background: var(--bg-paper); font-family: var(--font-sans); display: grid; grid-template-columns: 1fr 1fr 1fr; height: 280px; }
+  .cell { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 18px; gap: 10px; }
+  .cell.dark { background: var(--chosen-navy); }
+  .cell.sky { background: var(--chosen-royal); }
+  .cell img { max-width: 75%; height: auto; }
+  .label { font-family: var(--font-mono); font-size: 10px; color: var(--fg-muted); }
+  .dark .label, .sky .label { color: rgba(255,255,255,0.75); }
+</style>
+</head>
+<body>
+  <div class="cell">
+    <img src="../assets/chosen-logo-full.png" alt="Chosen primary">
+    <div class="label">primary on light</div>
+  </div>
+  <div class="cell dark">
+    <img src="../assets/chosen-logo-white.png" alt="Chosen white">
+    <div class="label">on navy</div>
+  </div>
+  <div class="cell sky">
+    <img src="../assets/chosen-mark.png" alt="Chosen mark" style="max-width: 110px;">
+    <div class="label">mark only · royal blue</div>
+  </div>
+</body>
+</html>

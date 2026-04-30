@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chosen — Email Kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 32px; background: var(--neutral-200); font-family: var(--font-sans); }
+  h1 { font-size: 22px; color: var(--chosen-navy); margin: 0 0 6px; }
+  .sub { font-size: 13px; color: var(--fg-muted); margin: 0 0 24px; }
+  .row { display: flex; gap: 22px; flex-wrap: wrap; }
+  .email { width: 600px; background: white; box-shadow: var(--shadow-lg); border-radius: 6px; overflow: hidden; }
+  .e-head { background: var(--chosen-navy); padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; }
+  .e-head img { height: 36px; }
+  .e-head .nav { font-size: 11px; color: var(--chosen-gold); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+  .hero { background: linear-gradient(180deg, rgba(11,10,85,0.55) 0%, rgba(11,10,85,0.92) 100%), url('../../assets/photo-orange-prayer-tent.jpg') center 30%/cover no-repeat; color: white; padding: 56px 28px 44px; text-align: center; position: relative; }
+  .hero .eyebrow { font-size: 10px; letter-spacing: 0.32em; font-weight: 700; color: var(--chosen-gold); text-transform: uppercase; }
+  .hero h2 { font-family: var(--font-display); font-size: 64px; margin: 14px 0 8px; text-transform: uppercase; line-height: 0.9; }
+  .hero h2 .be { color: var(--chosen-gold); }
+  .hero .verse { font-style: italic; font-weight: 300; max-width: 420px; margin: 14px auto 0; line-height: 1.45; font-size: 14px; }
+  .hero .cite { font-size: 10px; letter-spacing: 0.22em; color: var(--chosen-gold); font-weight: 700; margin-top: 10px; text-transform: uppercase; }
+  .body { padding: 28px; color: var(--chosen-navy); }
+  .body h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -0.01em; }
+  .body p { font-size: 14px; line-height: 1.6; color: var(--fg); margin: 0 0 14px; }
+  .body .cta { display: inline-block; background: var(--chosen-gold); color: var(--chosen-navy); font-weight: 800; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 26px; border-radius: 999px; text-decoration: none; }
+  .info { background: var(--bg-paper); border-top: 1px solid var(--border); padding: 22px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .info .lbl { font-size: 10px; letter-spacing: 0.18em; font-weight: 700; color: var(--chosen-gold); text-transform: uppercase; }
+  .info .val { font-size: 14px; font-weight: 600; color: var(--chosen-navy); margin-top: 4px; }
+  .foot { background: var(--chosen-navy); color: rgba(255,255,255,0.75); padding: 22px 28px; font-size: 11px; text-align: center; line-height: 1.6; }
+  .foot a { color: var(--chosen-gold); text-decoration: none; }
+
+  /* welcome variant */
+  .e2 .hero2 { background: var(--chosen-gold); color: var(--chosen-navy); padding: 30px 28px; }
+  .e2 .hero2 .eyebrow { font-size: 10px; letter-spacing: 0.32em; font-weight: 700; text-transform: uppercase; color: var(--chosen-navy); }
+  .e2 .hero2 h2 { margin: 8px 0 0; font-size: 30px; letter-spacing: -0.01em; }
+  .e2 .checklist { padding: 0 28px 6px; }
+  .e2 .item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--border); }
+  .e2 .item:last-child { border: none; }
+  .e2 .num { width: 28px; height: 28px; border-radius: 50%; background: var(--chosen-navy); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
+  .e2 .item h4 { margin: 0 0 2px; font-size: 14px; color: var(--chosen-navy); }
+  .e2 .item p { margin: 0; font-size: 12px; color: var(--fg-muted); }
+</style>
+</head>
+<body>
+  <h1>Chosen — Email Kit</h1>
+  <p class="sub">600 px responsive HTML email templates. Designed to match the dark/warm gradient hero look of the 2026 poster, with table-friendly layouts in mind for production.</p>
+  <div class="row">
+
+    <div class="email">
+      <div class="e-head">
+        <img src="../../assets/chosen-logo-white.png" alt="Chosen">
+        <div class="nav">Conference 2026</div>
+      </div>
+      <div class="hero">
+        <div class="eyebrow">Registration is open</div>
+        <h2><span class="be">Be</span> Radiant</h2>
+        <div class="verse">"Look to him, and be radiant; so your faces shall never be ashamed."</div>
+        <div class="cite">Psalm 34:5</div>
+      </div>
+      <div class="body">
+        <h3>You've been chosen.</h3>
+        <p>This November, join hundreds of young Catholics from across Australia for four days of adoration, inspiring talks, workshops and worship led by Masterplan. Come and get equipped to boldly live a life of purpose.</p>
+        <a class="cta" href="#">Register now →</a>
+      </div>
+      <div class="info">
+        <div><div class="lbl">When</div><div class="val">19–22 November 2026</div></div>
+        <div><div class="lbl">Where</div><div class="val">La Trobe University,<br>Bundoora · Melbourne</div></div>
+      </div>
+      <div class="foot">
+        Jesus Youth Australia · 140 Westbourne Grove, Northcote VIC 3070<br>
+        <a href="#">chosenconference.org.au</a> · <a href="#">Unsubscribe</a>
+      </div>
+    </div>
+
+    <div class="email e2">
+      <div class="e-head">
+        <img src="../../assets/chosen-logo-white.png" alt="Chosen">
+        <div class="nav">Welcome</div>
+      </div>
+      <div class="hero2">
+        <div class="eyebrow">You're in</div>
+        <h2>Welcome to Chosen 2026, Maria.</h2>
+      </div>
+      <div class="body">
+        <p>Your spot is confirmed. Below is everything you need to prepare for the conference. We can't wait to gather with you in November.</p>
+      </div>
+      <div class="checklist">
+        <div class="item"><div class="num">1</div><div><h4>Confirm your travel</h4><p>Forward your itinerary to travel@chosenconference.org.au by 1 Nov.</p></div></div>
+        <div class="item"><div class="num">2</div><div><h4>Join the WhatsApp group</h4><p>Connect with your state coordinator and fellow delegates.</p></div></div>
+        <div class="item"><div class="num">3</div><div><h4>Pack your essentials</h4><p>Bible, rosary, refillable bottle, comfortable shoes for adoration nights.</p></div></div>
+      </div>
+      <div class="body" style="padding-top:6px;">
+        <a class="cta" href="#">Open my dashboard →</a>
+      </div>
+      <div class="foot">
+        Questions? Reply to this email — we're here.<br>
+        <a href="#">chosenconference.org.au</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chosen — Social Kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 32px; background: var(--neutral-200); font-family: var(--font-sans); }
+  h1 { font-size: 22px; color: var(--chosen-navy); letter-spacing: -0.01em; margin: 0 0 6px; }
+  .sub { font-size: 13px; color: var(--fg-muted); margin: 0 0 24px; }
+  .group { margin-bottom: 36px; }
+  .label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--chosen-navy); text-transform: uppercase; margin-bottom: 12px; }
+  .row { display: flex; gap: 18px; flex-wrap: wrap; }
+
+  /* ----- INSTAGRAM SQUARE 1080x1080 (scaled to 380) ----- */
+  .sq { width: 380px; height: 380px; position: relative; overflow: hidden; box-shadow: var(--shadow-lg); border-radius: 6px; color: white; }
+
+  /* Variant A — Theme reveal */
+  .sq.theme {
+    background: radial-gradient(ellipse at center, #c81216 0%, #6a0a14 55%, #0B0A55 100%);
+  }
+  .sq.theme .rays { position: absolute; inset: 0; background:
+    conic-gradient(from 0deg,
+      rgba(247,26,29,0.55) 0deg 14deg, transparent 14deg 30deg,
+      rgba(254,78,14,0.55) 30deg 44deg, transparent 44deg 60deg,
+      rgba(235,201,3,0.55) 60deg 74deg, transparent 74deg 90deg,
+      rgba(64,113,172,0.55) 90deg 104deg, transparent 104deg 120deg,
+      rgba(55,188,177,0.55) 120deg 134deg, transparent 134deg 150deg,
+      rgba(247,26,29,0.55) 150deg 164deg, transparent 164deg 180deg,
+      rgba(254,78,14,0.55) 180deg 194deg, transparent 194deg 210deg,
+      rgba(235,201,3,0.55) 210deg 224deg, transparent 224deg 240deg,
+      rgba(64,113,172,0.55) 240deg 254deg, transparent 254deg 270deg,
+      rgba(55,188,177,0.55) 270deg 284deg, transparent 284deg 300deg,
+      rgba(247,26,29,0.55) 300deg 314deg, transparent 314deg 330deg,
+      rgba(254,78,14,0.55) 330deg 344deg, transparent 344deg 360deg);
+    mix-blend-mode: screen;
+  }
+  .sq.theme .scrim { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0) 30%, rgba(11,10,85,0.6) 100%); }
+  .sq.theme .stack { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 26px 22px 50px; text-align: center; box-sizing: border-box; }
+  .sq.theme .eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.24em; color: var(--chosen-gold); white-space: nowrap; }
+  .sq.theme .title { font-family: var(--font-display); font-size: 56px; line-height: 0.9; color: white; text-transform: uppercase; margin: 12px 0 4px; text-shadow: 0 2px 16px rgba(0,0,0,0.4); }
+  .sq.theme .title .be { display: block; }
+  .sq.theme .title .be { color: var(--chosen-gold); }
+  .sq.theme .cite { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; color: var(--chosen-gold); margin-top: 14px; }
+  .sq.theme .verse { font-size: 12px; font-style: italic; font-weight: 300; max-width: 82%; line-height: 1.4; margin-top: 6px; }
+  .sq.theme .footer { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
+
+  /* Variant B — Speaker reveal (navy) */
+  .sq.speaker { background: var(--chosen-navy); }
+  .sq.speaker .photo { position: absolute; right: 0; top: 0; bottom: 0; width: 55%; background: url('../../assets/photo-sister-laughing.jpg') 30% center/cover no-repeat; }
+  .sq.speaker .photo::after { content:''; position:absolute; inset:0; background: linear-gradient(90deg, var(--chosen-navy) 0%, transparent 35%); }
+  .sq.speaker .panel { position: absolute; left: 0; top: 0; bottom: 0; width: 58%; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; z-index: 2; }
+  .sq.speaker .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.32em; color: var(--chosen-gold); }
+  .sq.speaker .name { font-family: var(--font-sans); font-weight: 800; font-size: 30px; line-height: 1.05; letter-spacing: -0.01em; }
+  .sq.speaker .desc { font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.4; }
+  .sq.speaker .rule { width: 36px; height: 3px; background: var(--chosen-gold); margin: 10px 0; }
+  .sq.speaker .logo { height: 28px; }
+
+  /* Variant C — Save the date (gold) */
+  .sq.std { background: var(--chosen-gold); color: var(--chosen-navy); }
+  .sq.std .stack { padding: 30px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; }
+  .sq.std .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.32em; }
+  .sq.std .date { font-family: var(--font-display); font-size: 72px; line-height: 0.9; }
+  .sq.std .month { font-family: var(--font-display); font-size: 38px; letter-spacing: 0.04em; }
+  .sq.std .venue { font-size: 14px; font-weight: 600; line-height: 1.3; }
+  .sq.std .footer { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+  .sq.std .markwm { width: 56px; height: 56px; background: url('../../assets/chosen-mark.png') center/contain no-repeat; }
+
+  /* Variant D — Photo-led square */
+  .sq.photo-led { background: #000; }
+  .sq.photo-led .img { position:absolute; inset:0; background: url('../../assets/photo-orange-prayer-tent.jpg') center/cover no-repeat; }
+  .sq.photo-led .img::after { content:''; position:absolute; inset:0; background: linear-gradient(180deg, transparent 35%, rgba(11,10,85,0.85) 100%); }
+  .sq.photo-led .stack { position:absolute; left:0; right:0; bottom:0; padding: 24px; z-index:2; }
+  .sq.photo-led .eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.32em; color: var(--chosen-gold); text-transform: uppercase; }
+  .sq.photo-led h3 { font-family: var(--font-display); font-size: 36px; line-height: 0.95; text-transform: uppercase; margin: 8px 0 6px; color: white; letter-spacing: -0.005em; }
+  .sq.photo-led .desc { font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.45; max-width: 84%; }
+  .sq.photo-led .row2 { display:flex; align-items:center; justify-content:space-between; margin-top: 14px; }
+  .sq.photo-led .url2 { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.85); }
+  .sq.photo-led img.logosm { height: 22px; }
+
+  /* Story photo-bleed */
+  .story.photo-bleed { background:#000; }
+  .story.photo-bleed .img { position:absolute; inset:0; background: url('../../assets/photo-painting-candlelit.jpg') 60% center/cover no-repeat; }
+  .story.photo-bleed .img::after { content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 35%, transparent 60%, rgba(0,0,0,0.9) 100%); }
+  .story.photo-bleed .stack { position:absolute; inset:0; padding: 26px 22px; display:flex; flex-direction:column; justify-content:space-between; z-index:2; }
+  .story.photo-bleed .top img { height: 22px; }
+  .story.photo-bleed .h { font-family: var(--font-display); font-size: 32px; line-height: 0.95; text-transform: uppercase; color:white; letter-spacing:-0.005em; }
+  .story.photo-bleed .h .be { color: var(--chosen-gold); display:block; font-style:italic; }
+  .story.photo-bleed .meta { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--chosen-gold); text-transform:uppercase; margin-top: 8px; }
+  .story.photo-bleed .url2 { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.75); margin-top: 6px; }
+
+  /* ----- IG STORY 9:16 (scaled) ----- */
+  .story { width: 240px; height: 426px; position: relative; overflow: hidden; box-shadow: var(--shadow-lg); border-radius: 6px; color: white; }
+  .story.scripture { background: linear-gradient(180deg, #15146E 0%, #0B0A55 60%, #04031F 100%); }
+  .story.scripture .stack { position: absolute; inset: 0; padding: 30px 22px; display: flex; flex-direction: column; }
+  .story.scripture .top { display: flex; align-items: center; gap: 8px; }
+  .story.scripture .top img { height: 22px; }
+  .story.scripture .body { flex: 1; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; gap: 14px; }
+  .story.scripture .verse { font-family: var(--font-sans); font-style: italic; font-weight: 300; font-size: 18px; line-height: 1.4; }
+  .story.scripture .rule { width: 36px; height: 3px; background: var(--chosen-gold); }
+  .story.scripture .cite { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; color: var(--chosen-gold); text-transform: uppercase; }
+  .story.scripture .foot { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-align: center; }
+
+  .story.cta { background: var(--chosen-red); color: white; }
+  .story.cta .stack { position: absolute; inset: 0; padding: 30px 22px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 16px; }
+  .story.cta .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.30em; color: var(--chosen-gold); text-transform: uppercase; }
+  .story.cta .h { font-family: var(--font-display); font-size: 40px; line-height: 0.95; text-transform: uppercase; }
+  .story.cta .btn { background: var(--chosen-gold); color: var(--chosen-navy); padding: 12px 22px; border-radius: 999px; font-weight: 800; font-size: 13px; letter-spacing: 0.10em; text-transform: uppercase; }
+  .story.cta .url { font-family: var(--font-mono); font-size: 11px; opacity: 0.85; }
+</style>
+</head>
+<body>
+  <h1>Chosen — Social Kit</h1>
+  <p class="sub">1080×1080 squares and 1080×1920 stories. Three core variants per format, all built from the same tokens. Photo placeholders use brand colours; drop your photography in via the .photo background-image.</p>
+
+  <div class="group">
+    <div class="label">Instagram square · 1080 × 1080</div>
+    <div class="row">
+
+      <!-- Theme -->
+      <div class="sq theme">
+        <div class="rays"></div>
+        <div class="scrim"></div>
+        <div class="stack">
+          <div class="eyebrow">Chosen 2026 · Theme</div>
+          <div class="title"><span class="be">Be</span>Radiant</div>
+          <div class="cite">Psalm 34:5</div>
+          <div class="verse">"Look to him, and be radiant; so your faces shall never be ashamed."</div>
+        </div>
+        <div class="footer">19–22 Nov · La Trobe Uni · Melbourne</div>
+      </div>
+
+      <!-- Speaker -->
+      <div class="sq speaker">
+        <div class="photo"></div>
+        <div class="panel">
+          <div>
+            <div class="eyebrow">Speaker</div>
+            <div class="rule"></div>
+            <div class="name">Sr Mary<br>Catherine<br>OP</div>
+          </div>
+          <div>
+            <div class="desc">Dominican Sisters of St Cecilia &mdash; speaking on radical joy &amp; the contemplative life.</div>
+            <img class="logo" src="../../assets/chosen-logo-white.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <!-- STD -->
+      <div class="sq std">
+        <div class="stack">
+          <div>
+            <div class="eyebrow">Save the date</div>
+          </div>
+          <div>
+            <div class="date">19–22</div>
+            <div class="month">NOV ’26</div>
+          </div>
+          <div style="display:flex; align-items:flex-end; justify-content:space-between;">
+            <div class="venue">La Trobe University<br>Bundoora · Melbourne</div>
+            <div class="markwm"></div>
+          </div>
+          <div class="footer">chosenconference.org.au</div>
+        </div>
+      </div>
+
+      <!-- Photo-led -->
+      <div class="sq photo-led">
+        <div class="img"></div>
+        <div class="stack">
+          <div class="eyebrow">Programme · Adoration</div>
+          <h3>The fire that doesn't go out.</h3>
+          <div class="desc">Four nights of adoration. Confessions every evening. The Lord, waiting.</div>
+          <div class="row2">
+            <div class="url2">chosenconference.org.au</div>
+            <img class="logosm" src="../../assets/chosen-logo-white.png" alt="">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="label">Instagram story · 1080 × 1920</div>
+    <div class="row">
+
+      <div class="story scripture">
+        <div class="stack">
+          <div class="top"><img src="../../assets/chosen-logo-white.png"></div>
+          <div class="body">
+            <div class="cite">Psalm 34:5</div>
+            <div class="verse">"Look to him, and be radiant; so your faces shall never be ashamed."</div>
+            <div class="rule"></div>
+          </div>
+          <div class="foot">@jyaustralia · #chosen2026</div>
+        </div>
+      </div>
+
+      <div class="story cta">
+        <div class="stack">
+          <div class="eyebrow">Registrations open</div>
+          <div class="h">Be<br>Chosen.</div>
+          <div class="btn">Register now →</div>
+          <div class="url">chosenconference.org.au</div>
+        </div>
+      </div>
+
+      <div class="story photo-bleed">
+        <div class="img"></div>
+        <div class="stack">
+          <div class="top"><img src="../../assets/chosen-logo-white.png"></div>
+          <div>
+            <div class="meta">Chosen 2026</div>
+            <div class="h"><span class="be">Be</span>Radiant</div>
+            <div class="url2">19–22 NOV · LA TROBE · MELBOURNE</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

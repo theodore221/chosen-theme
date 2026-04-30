@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Top nav</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; background: var(--bg-paper); font-family: var(--font-sans); }
+  .bar { background: var(--chosen-navy); color: white; height: 64px; display: flex; align-items: center; padding: 0 24px; gap: 28px; }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo img { height: 36px; }
+  .links { display: flex; gap: 22px; flex: 1; }
+  .links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; }
+  .links a.active { color: var(--chosen-gold); font-weight: 700; }
+  .cta { background: var(--chosen-gold); color: var(--chosen-navy); border: none; font-weight: 700; font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase; padding: 10px 18px; border-radius: 999px; }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div class="logo"><img src="../assets/chosen-logo-white.png" alt="Chosen"/></div>
+    <div class="links">
+      <a class="active" href="#">Home</a>
+      <a href="#">Programme</a>
+      <a href="#">Speakers</a>
+      <a href="#">Travel</a>
+      <a href="#">FAQs</a>
+    </div>
+    <button class="cta">Register</button>
+  </div>
+</body>
+</html>

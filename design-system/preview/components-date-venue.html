@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Date + venue block</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg-paper); font-family: var(--font-sans); display: flex; gap: 18px; align-items: stretch; }
+  .date { background: var(--chosen-gold); color: var(--chosen-navy); padding: 14px 20px; border-radius: 10px; font-family: var(--font-display); line-height: 0.95; }
+  .date .big { font-size: 56px; }
+  .date .small { font-size: 18px; letter-spacing: 0.04em; }
+  .venue { display: flex; flex-direction: column; justify-content: center; }
+  .venue .label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: var(--chosen-gold); text-transform: uppercase; }
+  .venue .name { font-size: 20px; font-weight: 700; color: var(--chosen-navy); margin-top: 4px; }
+  .venue .city { font-size: 14px; color: var(--fg-muted); margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="date">
+    <div class="big">19–22</div>
+    <div class="small">NOV ’26</div>
+  </div>
+  <div class="venue">
+    <div class="label">Venue</div>
+    <div class="name">La Trobe University</div>
+    <div class="city">Bundoora · Melbourne</div>
+  </div>
+</body>
+</html>

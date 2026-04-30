@@ -1,0 +1,252 @@
+/* =========================================================
+   CHOSEN 2026 — Colors & Type
+   National Catholic Youth Conference · Jesus Youth Australia
+   La Trobe University, Melbourne · 19–22 Nov 2026
+   ========================================================= */
+
+/* ---------- Webfonts ----------
+   Primary: Work Sans (per official brand guideline page).
+   Display fallback: Bebas Neue / Anton-style condensed for poster
+   "Be Radiant" treatment. We provide both via Google Fonts.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&family=Anton&family=Bebas+Neue&display=swap');
+
+:root {
+  /* ============================================================
+     CORE BRAND PALETTE
+     Sourced from logo & 2018 brand-guideline page.
+     Each colour carries theological meaning (see README).
+     ============================================================ */
+  --chosen-navy:        #0B0A55; /* deep navy — figures, "royalty/specialty" */
+  --chosen-navy-700:    #15146E;
+  --chosen-navy-500:    #2A2A8C;
+
+  --chosen-royal:       #4071AC; /* royal blue — "God coming down from heaven" */
+  --chosen-royal-700:   #2F5A91;
+  --chosen-royal-300:   #7C9DC7;
+
+  --chosen-gold:        #EDA90C; /* Tau cross gold — "light of truth" */
+  --chosen-gold-600:    #C68A06;
+  --chosen-gold-300:    #F5C964;
+
+  --chosen-red:         #F71A1D; /* youth beckoning for Christ */
+  --chosen-red-700:     #C81216;
+
+  --chosen-yellow:      #EBC903; /* sun ring inner */
+  --chosen-orange:      #FE4E0E; /* sun ring outer / radiant accent */
+
+  --chosen-black:       #0A0A0A; /* CHOSEN wordmark */
+  --chosen-white:       #FFFFFF;
+
+  /* ============================================================
+     NEUTRALS — warm-leaning, paired with navy
+     ============================================================ */
+  --neutral-0:    #FFFFFF;
+  --neutral-50:   #FAF8F3; /* warm paper */
+  --neutral-100:  #F2EEE5;
+  --neutral-200:  #E5DFD0;
+  --neutral-300:  #C9C2B2;
+  --neutral-500:  #807A6A;
+  --neutral-700:  #3F3B33;
+  --neutral-900:  #14130F;
+
+  /* ============================================================
+     SEMANTIC TOKENS — use these in components/pages
+     ============================================================ */
+  /* Surfaces */
+  --bg:           var(--neutral-0);
+  --bg-paper:     var(--neutral-50);
+  --bg-deep:      var(--chosen-navy);
+  --bg-sky:       var(--chosen-royal);
+
+  /* Foregrounds */
+  --fg:           var(--neutral-900);
+  --fg-muted:     var(--neutral-700);
+  --fg-soft:      var(--neutral-500);
+  --fg-on-deep:   var(--neutral-0);
+  --fg-on-gold:   var(--chosen-navy);
+
+  /* Brand accents */
+  --accent:           var(--chosen-gold);
+  --accent-strong:    var(--chosen-red);
+  --accent-cool:      var(--chosen-royal);
+  --accent-deep:      var(--chosen-navy);
+
+  /* Lines & borders */
+  --border:         rgba(11, 10, 85, 0.12);
+  --border-strong:  rgba(11, 10, 85, 0.30);
+  --border-on-deep: rgba(255, 255, 255, 0.18);
+
+  /* States */
+  --hover-overlay:  rgba(11, 10, 85, 0.06);
+  --press-overlay:  rgba(11, 10, 85, 0.12);
+  --focus-ring:     var(--chosen-gold);
+
+  /* ============================================================
+     TYPOGRAPHY
+     Per the official guideline:
+       CHOSEN wordmark — Work Sans Medium 61pt
+       "conference"    — Work Sans Regular 21pt (tracked)
+     We extend Work Sans across the system.
+     "Be Radiant" theme uses Anton/Bebas Neue for tall display.
+     ============================================================ */
+  --font-sans:    'Work Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Anton', 'Bebas Neue', 'Work Sans', sans-serif; /* tall condensed for posters */
+  --font-mono:    ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Type scale (rem; 1rem = 16px) */
+  --text-xs:    0.75rem;   /* 12 */
+  --text-sm:    0.875rem;  /* 14 */
+  --text-base:  1rem;      /* 16 */
+  --text-lg:    1.125rem;  /* 18 */
+  --text-xl:    1.375rem;  /* 22 */
+  --text-2xl:   1.75rem;   /* 28 */
+  --text-3xl:   2.25rem;   /* 36 */
+  --text-4xl:   3rem;      /* 48 */
+  --text-5xl:   4rem;      /* 64 */
+  --text-6xl:   5.5rem;    /* 88 */
+  --text-7xl:   7.5rem;    /* 120 */
+
+  /* Weights */
+  --w-light:    300;
+  --w-regular:  400;
+  --w-medium:   500;
+  --w-semibold: 600;
+  --w-bold:     700;
+  --w-black:    900;
+
+  /* Line height */
+  --lh-tight:   1.05;
+  --lh-snug:    1.2;
+  --lh-normal:  1.45;
+  --lh-loose:   1.65;
+
+  /* Tracking */
+  --tr-tight:   -0.02em;
+  --tr-normal:  0;
+  --tr-wide:    0.06em;
+  --tr-eyebrow: 0.18em;  /* used on category labels e.g. "PSALM 34:5" */
+
+  /* ============================================================
+     SPACING — 4px base
+     ============================================================ */
+  --space-1: 0.25rem;  /*  4 */
+  --space-2: 0.5rem;   /*  8 */
+  --space-3: 0.75rem;  /* 12 */
+  --space-4: 1rem;     /* 16 */
+  --space-5: 1.5rem;   /* 24 */
+  --space-6: 2rem;     /* 32 */
+  --space-7: 3rem;     /* 48 */
+  --space-8: 4rem;     /* 64 */
+  --space-9: 6rem;     /* 96 */
+
+  /* ============================================================
+     RADII — moderate; the brand uses circles + clean rectangles
+     ============================================================ */
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   14px;
+  --radius-xl:   22px;
+  --radius-pill: 9999px;
+  --radius-circle: 50%;
+
+  /* ============================================================
+     SHADOWS — soft + warm; navy-tinted for the dark mode
+     ============================================================ */
+  --shadow-sm: 0 1px 2px rgba(11,10,85,0.08);
+  --shadow-md: 0 6px 18px rgba(11,10,85,0.10), 0 2px 4px rgba(11,10,85,0.06);
+  --shadow-lg: 0 18px 40px rgba(11,10,85,0.18), 0 4px 10px rgba(11,10,85,0.08);
+  --shadow-glow-gold: 0 0 0 4px rgba(237,169,12,0.25);
+  --shadow-inner:    inset 0 1px 2px rgba(11,10,85,0.10);
+}
+
+/* =========================================================
+   SEMANTIC TYPOGRAPHY CLASSES
+   Use these directly in HTML, or @apply-style copy in components.
+   ========================================================= */
+
+html { font-family: var(--font-sans); color: var(--fg); }
+body { font-family: var(--font-sans); color: var(--fg); background: var(--bg); line-height: var(--lh-normal); }
+
+/* Display — for posters, hero, stage signage. Tall + tight. */
+.display-1 {
+  font-family: var(--font-display);
+  font-weight: var(--w-regular); /* Anton ships single weight */
+  font-size: clamp(4rem, 9vw, var(--text-7xl));
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.display-2 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, var(--text-6xl));
+  line-height: 0.95;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/* Wordmark — replicates the official CHOSEN logo treatment */
+.wordmark-chosen {
+  font-family: var(--font-sans);
+  font-weight: var(--w-medium);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.wordmark-conference {
+  font-family: var(--font-sans);
+  font-weight: var(--w-regular);
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: lowercase;
+  font-size: 0.34em; /* matches 21pt vs 61pt ratio */
+}
+
+/* Headings */
+.h1 { font-family: var(--font-sans); font-weight: var(--w-bold);   font-size: var(--text-5xl); line-height: var(--lh-tight); letter-spacing: var(--tr-tight); }
+.h2 { font-family: var(--font-sans); font-weight: var(--w-bold);   font-size: var(--text-4xl); line-height: var(--lh-tight); letter-spacing: var(--tr-tight); }
+.h3 { font-family: var(--font-sans); font-weight: var(--w-semibold);font-size: var(--text-3xl); line-height: var(--lh-snug); }
+.h4 { font-family: var(--font-sans); font-weight: var(--w-semibold);font-size: var(--text-2xl); line-height: var(--lh-snug); }
+.h5 { font-family: var(--font-sans); font-weight: var(--w-semibold);font-size: var(--text-xl);  line-height: var(--lh-snug); }
+.h6 { font-family: var(--font-sans); font-weight: var(--w-semibold);font-size: var(--text-lg);  line-height: var(--lh-snug); }
+
+/* Body */
+.body-lg   { font-size: var(--text-lg);   line-height: var(--lh-loose); }
+.body      { font-size: var(--text-base); line-height: var(--lh-normal); }
+.body-sm   { font-size: var(--text-sm);   line-height: var(--lh-normal); color: var(--fg-muted); }
+
+/* Eyebrow / category — gold uppercase tracked label, e.g. "PSALM 34:5" */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--w-bold);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+  color: var(--chosen-gold);
+}
+
+/* Scripture — italic-like serif feel achieved with light Work Sans on warm paper */
+.scripture {
+  font-family: var(--font-sans);
+  font-weight: var(--w-light);
+  font-style: italic;
+  font-size: var(--text-xl);
+  line-height: var(--lh-loose);
+  color: var(--fg);
+}
+.scripture-cite {
+  font-family: var(--font-sans);
+  font-weight: var(--w-semibold);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tr-wide);
+  text-transform: uppercase;
+  color: var(--chosen-gold);
+}
+
+/* CTA */
+.cta {
+  font-family: var(--font-sans);
+  font-weight: var(--w-bold);
+  font-size: var(--text-base);
+  letter-spacing: var(--tr-wide);
+  text-transform: uppercase;
+}

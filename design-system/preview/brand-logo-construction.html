@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Logo construction</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg-paper); font-family: var(--font-sans); display: flex; gap: 22px; align-items: center; }
+  .mark { width: 130px; height: 130px; flex-shrink: 0; background: url('../assets/chosen-mark.png') center/contain no-repeat; }
+  .meaning { font-size: 12px; color: var(--fg); line-height: 1.45; }
+  .meaning b { color: var(--chosen-navy); }
+  .row { display: flex; gap: 8px; align-items: baseline; margin-bottom: 4px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; transform: translateY(2px); }
+</style>
+</head>
+<body>
+  <div class="mark"></div>
+  <div class="meaning">
+    <div class="row"><span class="dot" style="background:#EDA90C"></span><div><b>Tau cross</b> — light of truth (Franciscan inspiration)</div></div>
+    <div class="row"><span class="dot" style="background:#0B0A55"></span><div><b>Navy figures</b> — chosen children, royalty</div></div>
+    <div class="row"><span class="dot" style="background:#F71A1D"></span><div><b>Red youth</b> — beckoning for Christ</div></div>
+    <div class="row"><span class="dot" style="background:#4071AC"></span><div><b>Royal sky</b> — God descending from heaven</div></div>
+    <div class="row"><span class="dot" style="background:#FE4E0E"></span><div><b>Sun ring</b> — the Eucharistic radiance</div></div>
+  </div>
+</body>
+</html>

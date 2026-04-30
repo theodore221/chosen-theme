@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Form fields</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg-paper); font-family: var(--font-sans); display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--chosen-navy); margin-bottom: 6px; }
+  .field { background: white; border: 1px solid var(--border-strong); border-radius: 8px; padding: 12px 14px; font-family: var(--font-sans); font-size: 14px; color: var(--fg); width: 100%; box-sizing: border-box; box-shadow: var(--shadow-inner); }
+  .field:focus { outline: none; border-color: var(--chosen-gold); box-shadow: var(--shadow-glow-gold); }
+  .field-focus { border-color: var(--chosen-gold); box-shadow: var(--shadow-glow-gold); }
+  .help { font-size: 11px; color: var(--fg-muted); margin-top: 4px; }
+</style>
+</head>
+<body>
+  <div>
+    <label>Full name</label>
+    <input class="field" value="Maria Thomas" />
+  </div>
+  <div>
+    <label>Diocese</label>
+    <select class="field"><option>Archdiocese of Melbourne</option></select>
+  </div>
+  <div>
+    <label>Email <span style="color:var(--chosen-gold)">●</span></label>
+    <input class="field field-focus" value="maria@example.com.au" />
+    <div class="help">Confirmation will be sent here.</div>
+  </div>
+  <div>
+    <label>Comments</label>
+    <textarea class="field" rows="2">Travelling with parish group of 5.</textarea>
+  </div>
+</body>
+</html>

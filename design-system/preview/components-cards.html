@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cards</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 18px; background: var(--bg-paper); font-family: var(--font-sans); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .card { background: white; border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow-md); overflow: hidden; }
+  .card.featured { border-top: 4px solid var(--chosen-gold); }
+  .card.deep { background: var(--chosen-navy); color: white; border-color: transparent; }
+  .pad { padding: 14px 16px; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--chosen-gold); margin-bottom: 6px; }
+  .title { font-weight: 700; font-size: 16px; line-height: 1.25; color: var(--chosen-navy); }
+  .deep .title { color: white; }
+  .meta { font-size: 11px; color: var(--fg-muted); margin-top: 4px; }
+  .deep .meta { color: rgba(255,255,255,0.7); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="pad">
+      <div class="eyebrow">Workshop</div>
+      <div class="title">Living the Beatitudes</div>
+      <div class="meta">Fr Chris Eaton · Sat 21 Nov · 11:30 am</div>
+    </div>
+  </div>
+  <div class="card featured">
+    <div class="pad">
+      <div class="eyebrow">Featured · Keynote</div>
+      <div class="title">Bear fruit that will last</div>
+      <div class="meta">Bishop Bosco Puthur · Fri 20 Nov</div>
+    </div>
+  </div>
+  <div class="card deep">
+    <div class="pad">
+      <div class="eyebrow">Adoration</div>
+      <div class="title">Be Radiant — Holy Hour</div>
+      <div class="meta">Sat night · Main Hall</div>
+    </div>
+  </div>
+</body>
+</html>

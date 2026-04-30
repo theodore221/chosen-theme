@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Badges & chips</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg-paper); font-family: var(--font-sans); }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
+  .label { font-family: var(--font-mono); font-size: 10px; color: var(--fg-muted); width: 80px; }
+  .badge { font-family: var(--font-sans); font-weight: 700; font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; }
+  .gold { background: var(--chosen-gold); color: var(--chosen-navy); }
+  .navy { background: var(--chosen-navy); color: white; }
+  .royal { background: var(--chosen-royal); color: white; }
+  .red { background: var(--chosen-red); color: white; }
+  .ghost { background: transparent; color: var(--chosen-navy); border: 1.5px solid var(--chosen-navy); }
+  .soft { background: rgba(237,169,12,0.18); color: var(--chosen-gold-600); }
+</style>
+</head>
+<body>
+  <div class="row"><div class="label">solid</div>
+    <span class="badge gold">Featured</span>
+    <span class="badge navy">JY Speaker</span>
+    <span class="badge royal">Workshop</span>
+    <span class="badge red">Sold out</span>
+  </div>
+  <div class="row"><div class="label">subtle</div>
+    <span class="badge ghost">Bishop</span>
+    <span class="badge soft">Early bird</span>
+  </div>
+</body>
+</html>

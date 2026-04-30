@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Colors — Semantic tokens</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 18px; background: var(--bg-paper); font-family: var(--font-sans); font-size: 12px; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+  td:first-child { font-family: var(--font-mono); font-size: 11px; color: var(--chosen-navy); width: 38%; }
+  td:nth-child(2) { font-family: var(--font-mono); font-size: 11px; color: var(--fg-muted); width: 38%; }
+  .swatch { width: 22px; height: 22px; border-radius: 4px; display: inline-block; vertical-align: middle; border: 1px solid var(--border); margin-right: 8px; }
+  tr:last-child td { border-bottom: none; }
+</style>
+</head>
+<body>
+  <table>
+    <tr><td>--bg</td><td>neutral-0</td><td><span class="swatch" style="background:var(--bg)"></span>page surface</td></tr>
+    <tr><td>--bg-paper</td><td>neutral-50</td><td><span class="swatch" style="background:var(--bg-paper)"></span>warm paper</td></tr>
+    <tr><td>--bg-deep</td><td>chosen-navy</td><td><span class="swatch" style="background:var(--bg-deep)"></span>dark hero</td></tr>
+    <tr><td>--bg-sky</td><td>chosen-royal</td><td><span class="swatch" style="background:var(--bg-sky)"></span>secondary band</td></tr>
+    <tr><td>--accent</td><td>chosen-gold</td><td><span class="swatch" style="background:var(--accent)"></span>CTAs, eyebrows</td></tr>
+    <tr><td>--accent-strong</td><td>chosen-red</td><td><span class="swatch" style="background:var(--accent-strong)"></span>theme word, urgency</td></tr>
+    <tr><td>--fg</td><td>neutral-900</td><td><span class="swatch" style="background:var(--fg)"></span>body text</td></tr>
+    <tr><td>--fg-muted</td><td>neutral-700</td><td><span class="swatch" style="background:var(--fg-muted)"></span>secondary text</td></tr>
+  </table>
+</body>
+</html>

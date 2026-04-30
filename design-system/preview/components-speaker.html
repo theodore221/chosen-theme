@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Speaker card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg-paper); font-family: var(--font-sans); display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .speaker { display: flex; gap: 14px; background: white; border: 1px solid var(--border); border-radius: 10px; padding: 14px; box-shadow: var(--shadow-sm); align-items: center; }
+  .ph { width: 64px; height: 64px; border-radius: 50%; background: var(--chosen-royal); flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 22px; letter-spacing: 0.04em; }
+  .ph.gold { background: var(--chosen-gold); color: var(--chosen-navy); }
+  .info .role { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: var(--chosen-gold); text-transform: uppercase; }
+  .info .name { font-size: 16px; font-weight: 700; color: var(--chosen-navy); margin-top: 2px; line-height: 1.2; }
+  .info .desc { font-size: 12px; color: var(--fg-muted); margin-top: 2px; line-height: 1.35; }
+</style>
+</head>
+<body>
+  <div class="speaker">
+    <div class="ph">BP</div>
+    <div class="info">
+      <div class="role">Bishop</div>
+      <div class="name">Most Rev Mark Edwards OMI</div>
+      <div class="desc">Auxiliary Bishop, Archdiocese of Melbourne</div>
+    </div>
+  </div>
+  <div class="speaker">
+    <div class="ph gold">PN</div>
+    <div class="info">
+      <div class="role">Guest Speaker</div>
+      <div class="name">Paul Ninnes</div>
+      <div class="desc">Co-founder, Real Talk International</div>
+    </div>
+  </div>
+</body>
+</html>
