@@ -1,0 +1,6 @@
+<?php
+defined( 'ABSPATH' ) || exit;
+
+add_filter( 'xmlrpc_enabled', '__return_false' );
+
+remove_action( 'wp_head', 'wp_generator' );
