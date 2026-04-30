@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/vision",
+  "title": "Vision",
+  "category": "chosen",
+  "icon": "format-quote",
+  "description": "Mission/vision section on navy. Eyebrow → Anton headline → 48px gold rule → italic light scripture → gold cite. Scroll-fade entrance.",
+  "keywords": [
+    "vision",
+    "mission",
+    "scripture"
+  ],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Theme · Chosen 2026"
+    },
+    "headline": {
+      "type": "string",
+      "default": "A conference beyond the ordinary."
+    },
+    "body": {
+      "type": "string",
+      "default": ""
+    },
+    "scripture": {
+      "type": "string",
+      "default": "Look to him, and be radiant; so your faces shall never be ashamed."
+    },
+    "cite": {
+      "type": "string",
+      "default": "Psalm 34:5"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

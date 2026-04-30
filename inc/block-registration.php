@@ -36,7 +36,7 @@ function chosen_register_blocks() {
     $blocks = [
         'hero',
         'marquee',
-        // 'vision',
+        'vision',
         // 'stat-strip',
         // 'expect-tile-grid',
         // 'image-mosaic',
