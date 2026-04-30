@@ -1,7 +1,14 @@
-<!-- wp:template-part {"slug":"header","area":"header"} /-->
-
-<!-- wp:group {"tagName":"main","layout":{"type":"default"},"className":"chosen-front-page"} -->
-<main class="wp-block-group chosen-front-page">
+<?php
+/**
+ * Title: Chosen Front Page
+ * Slug: chosen-theme/front-page
+ * Categories: chosen, featured
+ * Description: Full front-page composition: hero → marquee → vision → stat-strip → expect-tile-grid → image-mosaic → quote → cta-banner → sponsor-strip. The same content is duplicated into templates/front-page.html so the home page renders without editor input; this pattern lets editors re-insert the composition into any other page (or restore it if the template is blanked).
+ * Keywords: front page, home, landing
+ * Block Types: core/post-content
+ * Inserter: yes
+ */
+?>
 
 <!-- wp:chosen/hero {"eyebrow":"CHOSEN 2026 · Jesus Youth Australia National Conference","headlinePart1":"Be","headlinePart2":"Radiant","subhead":"Look to Him, and let your face carry His light home.","dateRange":"19–22","dateMonth":"NOV '26","venueName":"La Trobe University","venueCity":"Bundoora · Melbourne","ctaLabel":"Register","backgroundImage":{"id":0,"url":"/wp-content/themes/chosen-theme/assets/img/photos/photo-arms-raised-worship.jpg","alt":"A young woman with eyes closed and arms raised in worship at Chosen, soft stage light catching her face"},"enableRays":true,"enableKenBurns":true} /-->
 
@@ -20,8 +27,3 @@
 <!-- wp:chosen/cta-banner {"headline":"Come and be made radiant.","subhead":"He chose you first; your only task is to come.","ctaLabel":"Register","eyebrow":"Your place at the table","scripture":"You did not choose me but I chose you; and I appointed you to go and bear fruit that will last.","cite":"John 15:16"} /-->
 
 <!-- wp:chosen/sponsor-strip {"eyebrow":"Brought to you by"} /-->
-
-</main>
-<!-- /wp:group -->
-
-<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
