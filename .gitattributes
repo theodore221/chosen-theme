@@ -1,0 +1,40 @@
+# Files excluded from `git archive` output (the deployable theme zip).
+# These exist in the repo for designers and developers, but the live
+# WordPress server has no need for them and they bloat the upload zip
+# above default WP upload_max_filesize limits.
+
+# --- Designer reference originals & duplicates (~60MB of source photos)
+# Web-ready copies of these photos already exist in assets/img/photos/.
+/design-system/uploads     export-ignore
+/design-system/uploads/**  export-ignore
+/design-system/assets      export-ignore
+/design-system/assets/**   export-ignore
+/design-system/screenshots export-ignore
+/design-system/screenshots/** export-ignore
+/design-system/ui_kits     export-ignore
+/design-system/ui_kits/**  export-ignore
+
+# --- Build inputs (only build/ output is needed live; src/ is for dev)
+/src     export-ignore
+/src/**  export-ignore
+/node_modules     export-ignore
+/node_modules/**  export-ignore
+
+# --- Build tooling (live server doesn't run npm)
+/package.json       export-ignore
+/package-lock.json  export-ignore
+/tailwind.config.js export-ignore
+
+# --- Developer tooling (Claude Code config + slash commands)
+/.claude     export-ignore
+/.claude/**  export-ignore
+
+# --- Project-level docs (kept in repo; not needed on the live theme)
+/CLAUDE.md       export-ignore
+/.impeccable.md  export-ignore
+/.gitattributes  export-ignore
+/.gitignore      export-ignore
+
+# Note: design-system/colors_and_type.css IS kept — functions.php enqueues
+# it for the front end as the design-tokens stylesheet. design-system/README.md,
+# SKILL.md, and preview/*.html are small text files and harmless to ship.
