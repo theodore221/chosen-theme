@@ -40,7 +40,7 @@ function chosen_register_blocks() {
         'stat-strip',
         'expect-tile-grid',
         'image-mosaic',
-        // 'cta-banner',
+        'cta-banner',
         // 'sponsor-strip',
         // 'quote',
     ];

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/cta-banner",
+  "title": "CTA Banner",
+  "category": "chosen",
+  "icon": "megaphone",
+  "description": "Full-width navy CTA. Anton headline, gold pulse Register pill (CHOSEN_REGISTER_URL), scripture pull-quote beneath.",
+  "keywords": [
+    "cta",
+    "banner",
+    "register"
+  ],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "headline": {
+      "type": "string",
+      "default": "Be one of the chosen."
+    },
+    "subhead": {
+      "type": "string",
+      "default": "Spaces are limited. Bring a friend."
+    },
+    "ctaLabel": {
+      "type": "string",
+      "default": "Register"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Chosen 2026"
+    },
+    "scripture": {
+      "type": "string",
+      "default": "You did not choose me but I chose you; and I appointed you to go and bear fruit that will last."
+    },
+    "cite": {
+      "type": "string",
+      "default": "John 15:16"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
