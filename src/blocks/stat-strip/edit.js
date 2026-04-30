@@ -1,4 +1,4 @@
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, RichText } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	TextControl,
@@ -8,7 +8,7 @@ import {
 import { __ } from '@wordpress/i18n';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { stats, background } = attributes;
+	const { eyebrow, stats, background } = attributes;
 
 	const isPaper = background === 'paper';
 
@@ -102,40 +102,65 @@ export default function Edit( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 			<div { ...blockProps }>
+				<RichText
+					tagName="p"
+					value={ eyebrow }
+					onChange={ ( v ) => setAttributes( { eyebrow: v } ) }
+					placeholder={ __( 'Optional eyebrow…', 'chosen-theme' ) }
+					style={ {
+						color: '#EDA90C',
+						fontSize: 11,
+						fontWeight: 700,
+						letterSpacing: '0.18em',
+						textTransform: 'uppercase',
+						margin: '0 0 24px',
+					} }
+				/>
 				<div
 					style={ {
 						display: 'grid',
-						gridTemplateColumns: `repeat(${ Math.min( stats.length, 4 ) }, 1fr)`,
+						gridTemplateColumns: 'repeat(4, 1fr)',
 						gap: 24,
+						alignItems: 'flex-end',
 					} }
 				>
-					{ stats.map( ( stat, i ) => (
-						<div key={ i } style={ { textAlign: 'left' } }>
+					{ stats.map( ( stat, i ) => {
+						const featured = i === 0;
+						return (
 							<div
+								key={ i }
 								style={ {
-									fontFamily: 'Anton, sans-serif',
-									fontSize: 56,
-									lineHeight: 1,
+									textAlign: 'left',
+									gridColumn: featured ? 'span 2' : 'span 1',
 								} }
 							>
-								{ stat.prefix || '' }
-								{ stat.value }
-								{ stat.suffix || '' }
+								<div
+									style={ {
+										fontFamily: 'Anton, sans-serif',
+										fontSize: featured ? 96 : 48,
+										lineHeight: 0.92,
+										letterSpacing: '-0.025em',
+									} }
+								>
+									{ stat.prefix || '' }
+									{ stat.value }
+									{ stat.suffix || '' }
+								</div>
+								<div
+									style={ {
+										fontSize: 11,
+										fontWeight: 700,
+										letterSpacing: '0.18em',
+										textTransform: 'uppercase',
+										color: isPaper ? '#EDA90C' : 'rgba(255,255,255,0.85)',
+										marginTop: 8,
+									} }
+								>
+									{ stat.label }
+								</div>
 							</div>
-							<div
-								style={ {
-									fontSize: 11,
-									fontWeight: 700,
-									letterSpacing: '0.18em',
-									textTransform: 'uppercase',
-									color: '#EDA90C',
-									marginTop: 6,
-								} }
-							>
-								{ stat.label }
-							</div>
-						</div>
-					) ) }
+						);
+					} ) }
 				</div>
 			</div>
 		</>

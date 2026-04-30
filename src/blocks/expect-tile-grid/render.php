@@ -41,14 +41,21 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 		<?php endif; ?>
 
 		<ul class="chosen-tile-list mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-4" role="list">
-			<?php foreach ( $tiles as $i => $tile ) : ?>
-				<li class="chosen-tile chosen-fade-up relative overflow-hidden rounded-md border border-chosen-navy/10 bg-white p-6 transition-all duration-300 ease-out-quart"
+			<?php foreach ( $tiles as $i => $tile ) :
+				$featured  = ! empty( $tile['featured'] );
+				$span_class = $featured ? 'lg:col-span-2' : 'lg:col-span-1';
+				$pad_class  = $featured ? 'p-8 md:p-10' : 'p-6';
+				$h_class    = $featured
+					? 'font-display text-[clamp(1.75rem,3vw,2.25rem)] leading-tight uppercase'
+					: 'font-sans text-[18px] font-bold leading-snug';
+			?>
+				<li class="chosen-tile chosen-fade-up relative overflow-hidden rounded-md border border-chosen-navy/10 bg-white transition-all duration-300 ease-out-quart <?php echo esc_attr( $span_class . ' ' . $pad_class ); ?>"
 					style="--i: <?php echo (int) $i; ?>;">
-					<h3 class="font-sans text-[18px] font-bold leading-snug text-chosen-navy">
+					<h3 class="<?php echo esc_attr( $h_class ); ?> text-chosen-navy">
 						<?php echo esc_html( $tile['title'] ); ?>
 					</h3>
 					<?php if ( ! empty( $tile['description'] ) ) : ?>
-						<p class="mt-3 text-[14px] leading-relaxed text-neutral-700">
+						<p class="<?php echo $featured ? 'mt-4 max-w-md text-[15px]' : 'mt-3 text-[14px]'; ?> leading-relaxed text-neutral-700">
 							<?php echo esc_html( (string) $tile['description'] ); ?>
 						</p>
 					<?php endif; ?>

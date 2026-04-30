@@ -34,7 +34,7 @@ if ( empty( $sponsors ) || ! is_array( $sponsors ) ) {
 }
 
 $wrapper_attrs = get_block_wrapper_attributes( [
-	'class' => 'chosen-sponsor-strip bg-chosen-paper py-16 md:py-20',
+	'class' => 'chosen-sponsor-strip bg-chosen-paper py-12 md:py-16',
 ] );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?> aria-label="<?php esc_attr_e( 'Conference partners', 'chosen-theme' ); ?>">

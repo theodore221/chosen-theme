@@ -19,7 +19,7 @@ $scripture = isset( $attributes['scripture'] ) ? (string) $attributes['scripture
 $cite      = isset( $attributes['cite'] ) ? (string) $attributes['cite'] : '';
 
 $wrapper_attrs = get_block_wrapper_attributes( [
-	'class' => 'chosen-vision bg-chosen-navy text-white py-20 md:py-28',
+	'class' => 'chosen-vision bg-chosen-navy text-white py-24 md:py-36',
 ] );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>

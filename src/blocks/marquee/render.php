@@ -31,14 +31,14 @@ $speed_seconds = [
 $duration = isset( $speed_seconds[ $speed_attr ] ) ? $speed_seconds[ $speed_attr ] : 40;
 
 $wrapper_attrs = get_block_wrapper_attributes( [
-	'class' => 'chosen-marquee bg-chosen-navy text-white py-5 overflow-hidden',
+	'class' => 'chosen-marquee bg-chosen-navy text-white py-4 overflow-hidden border-y border-white/10',
 ] );
 
 $render_items = function ( $items, $aria_hidden = false ) {
 	foreach ( $items as $item ) {
 		$colour = ( isset( $item['color'] ) && 'gold' === $item['color'] ) ? 'text-chosen-gold' : 'text-white';
 		?>
-		<span class="chosen-marquee__item font-display text-3xl md:text-5xl uppercase tracking-[0.04em] <?php echo esc_attr( $colour ); ?>"<?php echo $aria_hidden ? ' aria-hidden="true"' : ''; ?>>
+		<span class="chosen-marquee__item font-display text-2xl md:text-3xl uppercase tracking-[0.04em] <?php echo esc_attr( $colour ); ?>"<?php echo $aria_hidden ? ' aria-hidden="true"' : ''; ?>>
 			<?php echo esc_html( $item['text'] ); ?>
 		</span>
 		<span class="chosen-marquee__sep text-chosen-gold"<?php echo $aria_hidden ? ' aria-hidden="true"' : ''; ?>>&middot;</span>

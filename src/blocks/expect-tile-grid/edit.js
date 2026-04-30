@@ -1,5 +1,11 @@
 import { useBlockProps, InspectorControls, RichText } from '@wordpress/block-editor';
-import { PanelBody, TextControl, Button, TextareaControl } from '@wordpress/components';
+import {
+	PanelBody,
+	TextControl,
+	Button,
+	TextareaControl,
+	ToggleControl,
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 export default function Edit( { attributes, setAttributes } ) {
@@ -48,6 +54,15 @@ export default function Edit( { attributes, setAttributes } ) {
 								value={ tile.description }
 								onChange={ ( v ) => updateTile( index, 'description', v ) }
 								rows={ 3 }
+							/>
+							<ToggleControl
+								label={ __( 'Featured (spans 2 columns, larger heading)', 'chosen-theme' ) }
+								checked={ !! tile.featured }
+								onChange={ ( v ) => updateTile( index, 'featured', v ) }
+								help={ __(
+									'Use to break the grid rhythm. 1–2 featured tiles per section is plenty.',
+									'chosen-theme'
+								) }
 							/>
 							<Button
 								variant="link"
@@ -106,17 +121,28 @@ export default function Edit( { attributes, setAttributes } ) {
 								background: '#FFFFFF',
 								border: '1px solid rgba(11,10,85,0.12)',
 								borderRadius: 8,
-								padding: 16,
+								padding: tile.featured ? 24 : 16,
 								color: '#0B0A55',
+								gridColumn: tile.featured ? 'span 2' : 'span 1',
 							} }
 						>
-							<div style={ { fontSize: 16, fontWeight: 700 } }>{ tile.title }</div>
 							<div
 								style={ {
-									fontSize: 12,
+									fontFamily: tile.featured ? 'Anton, sans-serif' : 'Work Sans, sans-serif',
+									fontSize: tile.featured ? 24 : 16,
+									fontWeight: tile.featured ? 400 : 700,
+									lineHeight: 1.15,
+									textTransform: tile.featured ? 'uppercase' : 'none',
+								} }
+							>
+								{ tile.title }
+							</div>
+							<div
+								style={ {
+									fontSize: tile.featured ? 13 : 12,
 									color: '#3F3B33',
-									marginTop: 6,
-									lineHeight: 1.4,
+									marginTop: tile.featured ? 10 : 6,
+									lineHeight: 1.45,
 								} }
 							>
 								{ tile.description }

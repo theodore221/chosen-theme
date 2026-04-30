@@ -30,7 +30,7 @@ $bg_class = $is_paper ? 'bg-chosen-paper' : 'bg-chosen-navy';
 $verse_class = $is_paper ? 'text-chosen-navy' : 'text-white';
 
 $wrapper_attrs = get_block_wrapper_attributes( [
-	'class' => 'chosen-quote ' . $bg_class . ' py-20 md:py-28',
+	'class' => 'chosen-quote ' . $bg_class . ' py-28 md:py-40',
 ] );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>

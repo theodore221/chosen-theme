@@ -40,7 +40,7 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 					</p>
 				<?php endif; ?>
 				<div class="mt-8">
-					<a class="chosen-cta-pulse inline-flex items-center justify-center rounded-full bg-chosen-gold px-7 py-3 text-[13px] font-bold uppercase tracking-[0.10em] text-chosen-navy no-underline transition-all duration-200 ease-out-quart hover:bg-chosen-gold-600 hover:text-white"
+					<a class="inline-flex items-center justify-center rounded-full bg-chosen-gold px-7 py-3 text-[13px] font-bold uppercase tracking-[0.10em] text-chosen-navy no-underline transition-all duration-200 ease-out-quart hover:bg-chosen-gold-600 hover:text-white"
 						href="<?php echo esc_url( $register_url ? $register_url : '#' ); ?>"
 						<?php if ( $cta_disabled ) : ?>
 							aria-disabled="true"

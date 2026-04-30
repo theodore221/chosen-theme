@@ -13,6 +13,10 @@
     "align": ["full", "wide"]
   },
   "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
     "stats": {
       "type": "array",
       "default": [
