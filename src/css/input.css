@@ -89,22 +89,26 @@
 
   /* ---- Hero block ---- */
 
-  /* Radiant rays: 24 individually rotated trapezoidal rays cycling 6 brand colours.
-     The container rotates as a unit at 60s/turn. The clip-path turns each rectangle
-     into the angled ray shape that matches the BeRadiant ripples motif. */
+  /* Radiant rays: 18 individually rotated trapezoidal rays cycling 4 theological
+     radiance colours (gold/orange/red/royal — the BeRadiant theology). The container
+     rotates as a unit at 120s/turn. A radial mask fades the rays to nothing through
+     the centre so the hero headline sits on a clean surface and the rays read as
+     a peripheral halo, not a behind-text kaleidoscope. */
   .chosen-hero__rays {
-    /* Container is positioned by Tailwind utilities in render.php (absolute inset-0). */
     transform-origin: center;
+    /* Centre stays clean (0–35%); rays fade in 35% → 75% → fully visible at the edge. */
+    -webkit-mask-image: radial-gradient(circle at center, transparent 35%, rgba(0,0,0,0.4) 60%, black 90%);
+    mask-image: radial-gradient(circle at center, transparent 35%, rgba(0,0,0,0.4) 60%, black 90%);
   }
 
   .chosen-hero__ray {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 70vmax;
-    height: 8vmax;
+    width: 60vmax;
+    height: 5vmax;
     transform-origin: 0 50%;
-    opacity: 0.35;
+    opacity: 0.18;
     clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%);
   }
 
@@ -327,7 +331,7 @@
      animation that slips through. Defence in depth. */
   @media (prefers-reduced-motion: no-preference) {
     .chosen-hero__rays {
-      animation: chosenSpin 60s linear infinite;
+      animation: chosenSpin 120s linear infinite;
     }
 
     .chosen-hero__photo--kenburns img {

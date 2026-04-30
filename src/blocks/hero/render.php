@@ -48,7 +48,7 @@ $hero_id = 'chosen-hero-' . wp_unique_id();
 	<?php endif; ?>
 
 	<?php if ( $enable_rays ) : ?>
-		<div class="chosen-hero__rays absolute inset-0 z-[1] pointer-events-none" aria-hidden="true" data-rays="24"></div>
+		<div class="chosen-hero__rays absolute inset-0 z-[1] pointer-events-none" aria-hidden="true" data-rays="18"></div>
 	<?php endif; ?>
 
 	<div class="chosen-hero__content relative z-[2] mx-auto flex min-h-[88vh] max-w-wide flex-col items-center justify-center px-6 py-24 text-center md:min-h-[92vh]">
@@ -116,8 +116,10 @@ $hero_id = 'chosen-hero-' . wp_unique_id();
 				var holder = hero.querySelector( '.chosen-hero__rays' );
 				if ( ! holder || holder.dataset.raysReady ) { return; }
 				holder.dataset.raysReady = '1';
-				var n = parseInt( holder.dataset.rays || '24', 10 );
-				var colors = [ '#F71A1D', '#FE4E0E', '#EDA90C', '#EBC903', '#4071AC', '#37BCB1' ];
+				var n = parseInt( holder.dataset.rays || '18', 10 );
+				/* Quieter palette: 4 theological radiance colours only (gold/orange/red/royal),
+				   ordered to feel like a warm dawn rather than a kaleidoscope. */
+				var colors = [ '#EDA90C', '#FE4E0E', '#F71A1D', '#4071AC' ];
 				var frag = document.createDocumentFragment();
 				for ( var i = 0; i < n; i++ ) {
 					var ray = document.createElement( 'span' );

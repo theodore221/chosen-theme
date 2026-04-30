@@ -329,6 +329,7 @@ Preview refs: `components-scripture-pull.html`, `type-body-scripture.html`
 - [ ] Display typeface confirmation (Anton is substitute — confirm or supply original)
 - [ ] Plugin change approval from Jento (Hello Dolly, Inspiro, WPZOOM deactivated; ACF + Fluent Forms installed)
 - [ ] Annual tagline confirmation ("Be Radiant" — confirm with Irene)
+- [ ] **All on-page body copy is currently DRAFT — pending Irene approval.** The Content Creator subagent drafted hero subhead, vision headline + body, expect-tile descriptions, CTA banner headline + subhead, and stat labels using the voice rules in `.impeccable.md` and the approved samples in `design-system/preview/brand-voice.html` — but the exact words are not from any approved source. **Verbatim canonical sources** used as-is on the page are: Psalm 34:5 (theme verse), Isaiah 60:1 (quote block), John 15:16 (CTA banner scripture), and the eyebrow `Theme · Chosen 2026` from `components-scripture-pull.html`. Everything else needs Irene to either approve or rewrite. See `templates/front-page.html` for what's currently live; the source JSON the agent produced is in commit `b7e9909`.
 
 ---
 
