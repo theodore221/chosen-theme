@@ -8,6 +8,7 @@ Originals from `~/Documents/Chosen Conference/photos/`. Optimised here at 800/12
 | `dsc00155` | Priest in white robe anointing/blessing young woman | Reverent · sacramental | Story-section photo (PART II vision); CTA-banner |
 | `dsc00238` | Young woman pulling young man down corridor laughing, red curtain | Joyful · movement | Image-mosaic; second story-section |
 | `dsc00424` | Monstrance adoration — gold rays, candles, priest praying | Sacred · cinematic · warm-gold | **Hero poster / bg fallback**; tile-grid featured (Adoration); CTA-banner |
+| `dsc00515` | Worship keyboard — keyboardist + guitarist + UPPERROOM 2025 backdrop | Worship · warm · live | tile-grid featured (Live Worship) |
 | `dsc00635` | Two young women hugging, "Listen to what the Spirit is saying" tee | Friendship · warmth | Image-mosaic; story-section (split-photo) |
 | `dsc09433` | Young man laughing and pointing at workshop/talk | Energy · joy | Image-mosaic; testimonial photo |
 | `dsc09854` | Two young men with arms around each other, JY lanyards | Brotherhood · community | Image-mosaic; people-grid headshot crop |

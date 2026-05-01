@@ -83,14 +83,24 @@
 
       function splitLines(el) {
         if (el.dataset.split === '1') return;
-        // Walk text content and split into lines by measuring the
-        // baseline of word-wrapped spans. Cheap heuristic: split on
-        // <br> or on natural visual line breaks via getBoundingClientRect.
-        var raw = el.textContent;
-        // First split on explicit \n if present, else by sentence punctuation.
+        // Trim leading/trailing whitespace from the source FIRST so PHP
+        // template indentation doesn't generate phantom empty lines.
+        var raw = el.textContent.trim();
+        if (!raw) {
+          el.dataset.split = '1';
+          return;
+        }
         var lines = raw.indexOf('\n') !== -1
-          ? raw.split('\n').map(function (l) { return l.trim(); }).filter(Boolean)
+          ? raw.split('\n')
           : raw.split(/(?<=[.!?])\s+/);
+        // Trim each segment and drop empties — block-level chosen-split-line
+        // spans for empty strings stay invisible but still occupy a full
+        // line of vertical space, leaving a phantom gap.
+        lines = lines.map(function (l) { return l.trim(); }).filter(Boolean);
+        if (!lines.length) {
+          el.dataset.split = '1';
+          return;
+        }
         el.textContent = '';
         lines.forEach(function (text, i) {
           var line = document.createElement('span');

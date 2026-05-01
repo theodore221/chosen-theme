@@ -53,6 +53,10 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 				$photo_stem = isset( $tile['photoStem'] ) ? preg_replace( '/[^a-z0-9_-]/', '', (string) $tile['photoStem'] ) : '';
 				$has_photo  = $featured && '' !== $photo_stem;
 				$photo_base = $theme_uri . '/assets/img/photos-real/' . $photo_stem;
+				/* Optional per-tile object-position (CSS) so editors can shift
+				   the focal point of cropped featured photos — e.g. "center 70%"
+				   biases the crop toward the bottom of the source image. */
+				$photo_position = isset( $tile['photoPosition'] ) ? preg_replace( '/[^a-zA-Z0-9% .-]/', '', (string) $tile['photoPosition'] ) : '';
 				$tile_color_class = $has_photo ? 'text-white' : 'text-chosen-navy';
 				$tile_bg_class    = $has_photo ? 'bg-chosen-navy' : 'bg-white';
 			?>
@@ -62,6 +66,7 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 						<picture>
 							<source type="image/webp" srcset="<?php echo esc_url( $photo_base . '-1280.webp' ); ?>" />
 							<img class="chosen-tile__photo absolute inset-0 z-0 h-full w-full object-cover transition-transform duration-500 ease-out-quart"
+								<?php if ( $photo_position ) : ?>style="object-position: <?php echo esc_attr( $photo_position ); ?>"<?php endif; ?>
 								src="<?php echo esc_url( $photo_base . '-1280.jpg' ); ?>"
 								alt=""
 								loading="lazy"
