@@ -43,6 +43,9 @@ function chosen_register_blocks() {
         'cta-banner',
         'sponsor-strip',
         'quote',
+        'story-section',
+        'people-grid',
+        'testimonial',
     ];
 
     // wp-scripts compiles src/blocks/<slug>/ → build/blocks/<slug>/. The compiled

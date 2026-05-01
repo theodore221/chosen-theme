@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/story-section",
+  "title": "Story Section",
+  "category": "chosen",
+  "icon": "align-left",
+  "description": "Long-form editorial section. Eyebrow + oversized Anton heading + body. Three layouts: stacked, split-photo-right, split-photo-left.",
+  "keywords": ["story", "section", "narrative", "editorial"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["full", "wide"]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Our story"
+    },
+    "heading": {
+      "type": "string",
+      "default": "A conference beyond the ordinary"
+    },
+    "body": {
+      "type": "string",
+      "source": "html",
+      "selector": ".chosen-story__body",
+      "default": "<p>Four days at La Trobe University. Adoration, daily Mass, talks, workshops, live worship, theatre. Eight hundred young Catholics from across Australia, gathered to encounter Christ and one another.</p>"
+    },
+    "layout": {
+      "type": "string",
+      "default": "stacked",
+      "enum": ["stacked", "split-photo-right", "split-photo-left"]
+    },
+    "photoStem": {
+      "type": "string",
+      "default": "dsc00635"
+    },
+    "photoAlt": {
+      "type": "string",
+      "default": "Two young women embracing at the conference"
+    },
+    "background": {
+      "type": "string",
+      "default": "paper",
+      "enum": ["paper", "navy", "white", "cream", "sage", "sky", "sun", "coral"]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

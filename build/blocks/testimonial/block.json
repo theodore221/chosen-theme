@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/testimonial",
+  "title": "Testimonial",
+  "category": "chosen",
+  "icon": "format-quote",
+  "description": "Pull-quote testimonial. Oversized gold quote-mark ornament + italic Work Sans quote + named attribution with city/age.",
+  "keywords": [
+    "testimonial",
+    "quote",
+    "story"
+  ],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide"
+    ]
+  },
+  "attributes": {
+    "quote": {
+      "type": "string",
+      "default": "Chosen was the first time I really felt the Holy Spirit show up. I came home different."
+    },
+    "name": {
+      "type": "string",
+      "default": "Elizabeth"
+    },
+    "ageCity": {
+      "type": "string",
+      "default": "18 · Cairns"
+    },
+    "photoStem": {
+      "type": "string",
+      "default": "dsc00635"
+    },
+    "background": {
+      "type": "string",
+      "default": "paper",
+      "enum": [
+        "paper",
+        "white",
+        "navy",
+        "cream",
+        "sage",
+        "sky",
+        "sun",
+        "coral"
+      ]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
