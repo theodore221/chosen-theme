@@ -17,7 +17,7 @@ $headline  = isset( $attributes['headline'] ) ? (string) $attributes['headline']
 $body      = isset( $attributes['body'] ) ? (string) $attributes['body'] : '';
 $scripture = isset( $attributes['scripture'] ) ? (string) $attributes['scripture'] : '';
 $cite      = isset( $attributes['cite'] ) ? (string) $attributes['cite'] : '';
-$bg        = isset( $attributes['background'] ) && in_array( $attributes['background'], [ 'navy', 'paper', 'cream', 'sage', 'sky', 'sun', 'coral' ], true )
+$bg        = isset( $attributes['background'] ) && in_array( $attributes['background'], [ 'navy', 'paper', 'cream', 'sage', 'sky', 'aqua', 'sun', 'coral' ], true )
 	? $attributes['background']
 	: 'navy';
 
@@ -28,6 +28,7 @@ $bg_class = [
 	'cream' => 'bg-chosen-cream text-chosen-navy',
 	'sage'  => 'bg-chosen-sage text-chosen-navy',
 	'sky'   => 'bg-chosen-sky text-chosen-navy',
+	'aqua'  => 'bg-chosen-aqua text-chosen-navy',
 	'sun'   => 'bg-chosen-sun text-chosen-navy',
 	'coral' => 'bg-chosen-coral text-chosen-navy',
 ][ $bg ];

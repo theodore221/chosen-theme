@@ -24,6 +24,7 @@ module.exports = {
         'chosen-cream':  '#F4ECDC',
         'chosen-sage':   '#BFD2B6',
         'chosen-sky':    '#C7DCE8',
+        'chosen-aqua':   '#C5E5DD',
         'chosen-sun':    '#FAE2A3',
         'chosen-coral':  '#F4B7A0',
         'chosen-black':  '#0A0A0A',

@@ -65,6 +65,11 @@
           "name": "Sky (soft tint)"
         },
         {
+          "slug": "chosen-aqua",
+          "color": "#C5E5DD",
+          "name": "Aqua (soft tint)"
+        },
+        {
           "slug": "chosen-sun",
           "color": "#FAE2A3",
           "name": "Sun (soft tint)"

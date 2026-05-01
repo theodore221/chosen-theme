@@ -49,6 +49,7 @@
   --chosen-cream:       #F4ECDC; /* warm peach-cream */
   --chosen-sage:        #BFD2B6; /* soft mint-green */
   --chosen-sky:         #C7DCE8; /* light sky blue */
+  --chosen-aqua:        #C5E5DD; /* soft aquamarine — sits between sage + sky */
   --chosen-sun:         #FAE2A3; /* soft pale yellow */
   --chosen-coral:       #F4B7A0; /* soft coral */
 
@@ -72,6 +73,7 @@
   --bg-paper:     var(--neutral-50);
   --bg-cream:     var(--chosen-cream);
   --bg-sage:      var(--chosen-sage);
+  --bg-aqua:      var(--chosen-aqua);
   --bg-sun:       var(--chosen-sun);
   --bg-coral:     var(--chosen-coral);
   --bg-deep:      var(--chosen-navy);

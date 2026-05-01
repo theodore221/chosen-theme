@@ -41,13 +41,14 @@
     },
     "background": {
       "type": "string",
-      "default": "sun",
+      "default": "aqua",
       "enum": [
         "navy",
         "paper",
         "cream",
         "sage",
         "sky",
+        "aqua",
         "sun",
         "coral"
       ]
