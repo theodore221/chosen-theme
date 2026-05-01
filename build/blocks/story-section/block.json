@@ -65,6 +65,14 @@
         "sun",
         "coral"
       ]
+    },
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "enum": [
+        "default",
+        "theme"
+      ]
     }
   },
   "editorScript": "file:./index.js",

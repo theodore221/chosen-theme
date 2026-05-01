@@ -26,6 +26,7 @@ $photo_alt  = isset( $attributes['photoAlt'] )   ? (string) $attributes['photoAl
 $bg         = isset( $attributes['background'] ) && in_array( $attributes['background'], [ 'paper', 'navy', 'white', 'cream', 'sage', 'sky', 'sun', 'coral' ], true )
 	? $attributes['background']
 	: 'paper';
+$variant    = isset( $attributes['variant'] ) && 'theme' === $attributes['variant'] ? 'theme' : 'default';
 
 if ( '' === trim( $heading ) ) {
 	return;
@@ -53,12 +54,21 @@ $layout_class = $is_split
 $theme_uri = get_theme_file_uri();
 $photo_base = $theme_uri . '/assets/img/photos-real/' . $photo_stem;
 
+$is_theme = 'theme' === $variant;
+$padding_y = $is_theme ? 'py-32 md:py-44' : 'py-24 md:py-32';
+$variant_class = $is_theme ? ' chosen-story--theme' : '';
+$heading_class = $is_theme ? 'chosen-display-2xl' : 'chosen-display-xl';
+
 $wrapper_attrs = get_block_wrapper_attributes( [
-	'class' => 'chosen-story ' . $bg_class . ' py-24 md:py-32',
+	'class' => 'chosen-story relative overflow-hidden ' . $bg_class . $variant_class . ' ' . $padding_y,
 ] );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
-	<div class="mx-auto max-w-wide px-6">
+	<?php if ( $is_theme ) : ?>
+		<span class="chosen-story__ornament" aria-hidden="true"></span>
+		<span class="chosen-story__breath" aria-hidden="true"></span>
+	<?php endif; ?>
+	<div class="relative mx-auto max-w-wide px-6">
 		<div class="<?php echo esc_attr( $layout_class ); ?>">
 			<div class="chosen-story__copy chosen-fade-up">
 				<?php if ( $eyebrow ) : ?>
@@ -69,7 +79,7 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 				<?php endif; ?>
 
 				<h2
-					class="chosen-display-xl mt-6 <?php echo $is_navy ? 'text-white' : 'text-chosen-navy'; ?>"
+					class="<?php echo esc_attr( $heading_class ); ?> mt-6 <?php echo $is_navy ? 'text-white' : 'text-chosen-navy'; ?>"
 					data-split="line"
 				>
 					<?php echo esc_html( $heading ); ?>
@@ -78,6 +88,10 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 				<div class="chosen-story__body mt-8 <?php echo $is_navy ? 'text-white/90' : 'text-chosen-navy/90'; ?>">
 					<?php echo wp_kses_post( $body ); ?>
 				</div>
+
+				<?php if ( $is_theme ) : ?>
+					<span class="chosen-rule-grow chosen-story__theme-rule mt-10 w-32 block" aria-hidden="true"></span>
+				<?php endif; ?>
 			</div>
 
 			<?php if ( $is_split ) : ?>

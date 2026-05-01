@@ -14,7 +14,7 @@ const PHOTO_OPTIONS = [
 ];
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { eyebrow, heading, body, layout, photoStem, photoAlt, background } = attributes;
+	const { eyebrow, heading, body, layout, photoStem, photoAlt, background, variant } = attributes;
 
 	const isNavy = background === 'navy';
 	const isWhite = background === 'white';
@@ -49,8 +49,23 @@ export default function Edit( { attributes, setAttributes } ) {
 							{ label: 'Warm paper', value: 'paper' },
 							{ label: 'White', value: 'white' },
 							{ label: 'Navy (dark)', value: 'navy' },
+							{ label: 'Cream (soft tint)', value: 'cream' },
+							{ label: 'Sage (soft tint)', value: 'sage' },
+							{ label: 'Sky (soft tint)', value: 'sky' },
+							{ label: 'Sun (soft tint)', value: 'sun' },
+							{ label: 'Coral (soft tint)', value: 'coral' },
 						] }
 						onChange={ ( v ) => setAttributes( { background: v } ) }
+					/>
+					<SelectControl
+						label={ __( 'Variant', 'chosen-theme' ) }
+						value={ variant || 'default' }
+						options={ [
+							{ label: 'Default', value: 'default' },
+							{ label: 'Theme (oversized + ornament + delight)', value: 'theme' },
+						] }
+						onChange={ ( v ) => setAttributes( { variant: v } ) }
+						help={ __( 'Theme variant promotes this story-section to the page\'s scripture pedestal: display-2XL heading, floating ornament, sun-bg breathe, drawn-in gold rule.', 'chosen-theme' ) }
 					/>
 				</PanelBody>
 				{ showPhoto && (

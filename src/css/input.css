@@ -661,6 +661,81 @@
   }
   .chosen-story__body p + p { margin-top: 1.1em; }
 
+  /* ---- Story-section "theme" variant ---- The single scripture pedestal
+     on the home page (and About PART II). Oversized heading, floating
+     gold ornament, breathing sun-bg light, drawn-in gold rule, scripture
+     blockquote treated with an oversized typographic ornament. */
+  .chosen-story--theme {
+    /* Already has bg-chosen-sun via the bg-class; layered effects sit on top. */
+  }
+  /* Display heading scale-up handled inline via .chosen-display-2xl class
+     swap in render.php. We keep the body italic for scripture-first feel. */
+  .chosen-story--theme .chosen-story__body {
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(18px, 1.4vw, 24px);
+    line-height: 1.55;
+    max-width: 56ch;
+  }
+  /* Body em (scripture quote inline) gets the typographic emphasis. */
+  .chosen-story--theme .chosen-story__body em {
+    color: var(--chosen-navy, #0B0A55);
+    font-weight: 500;
+    font-style: italic;
+  }
+  /* Floating gold ornament — large medallion or ray fragment (decorative
+     SVG drawn in CSS via radial-gradients to avoid a new asset). 8% opacity
+     so it doesn't compete with the type. Anchored bottom-right; positions
+     vary at responsive breakpoints. */
+  .chosen-story__ornament {
+    position: absolute;
+    right: -8%;
+    bottom: -10%;
+    width: clamp(280px, 38vw, 600px);
+    height: clamp(280px, 38vw, 600px);
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle at 40% 35%,
+        rgba(237, 169, 12, 0.32) 0%,
+        rgba(254, 78, 14, 0.18) 35%,
+        rgba(247, 26, 29, 0.10) 60%,
+        transparent 75%);
+    filter: blur(2px);
+    pointer-events: none;
+    transform-origin: center;
+    z-index: 0;
+  }
+  /* Subtle radial breathe behind the type — sun bg gets a barely-perceptible
+     glow that pulses, so the surface itself feels lit. */
+  .chosen-story__breath {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 30%,
+      rgba(255, 255, 255, 0.35) 0%,
+      transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* Wider gold rule on the theme variant — anchors the section. */
+  .chosen-story__theme-rule {
+    height: 4px !important;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .chosen-story__ornament {
+      animation: chosenSpin 80s linear infinite;
+    }
+    .chosen-story__breath {
+      animation: chosenScrimDrift 14s ease-in-out infinite;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chosen-story__ornament,
+    .chosen-story__breath {
+      animation: none !important;
+    }
+  }
+
   /* ---- Testimonial ---- pull quote + named attribution + small circular
      photo + city/age tag. */
   .chosen-testimonial {

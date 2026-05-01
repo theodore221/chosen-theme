@@ -44,6 +44,11 @@
       "type": "string",
       "default": "paper",
       "enum": ["paper", "navy", "white", "cream", "sage", "sky", "sun", "coral"]
+    },
+    "variant": {
+      "type": "string",
+      "default": "default",
+      "enum": ["default", "theme"]
     }
   },
   "editorScript": "file:./index.js",
