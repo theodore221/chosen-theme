@@ -762,6 +762,30 @@
     .chosen-marquee__track {
       animation: chosenMarquee var(--chosen-marquee-duration, 35s) linear infinite;
     }
+
+    /* ---- Photo "breath" — slow Ken Burns on prominent photo surfaces so
+       the page feels alive as you scroll. ≤4% scale, 22–26 s/cycle. Two
+       variants alternated via :nth-child so adjacent cells don't sync.
+       Phase-offset by --i (set inline in render.php) so the same variant
+       across siblings starts at different points in the loop.
+       Tile-grid + people-grid skip this — they already own hover-scale
+       treatments that would conflict with a continuous transform. */
+    .chosen-image-mosaic__img,
+    .chosen-story__media img {
+      animation: chosenPhotoBreath 22s ease-in-out infinite;
+      animation-delay: calc(var(--i, 0) * -2.7s);
+      will-change: transform;
+    }
+    .chosen-image-mosaic__cell:nth-child(2n) .chosen-image-mosaic__img,
+    .chosen-story--split-left .chosen-story__media img {
+      animation-name: chosenPhotoBreathAlt;
+      animation-duration: 26s;
+    }
+    /* Pause breath on cell hover so the existing gold-tint overlay reads
+       cleanly against a still photo. Resume on un-hover. */
+    .chosen-image-mosaic__cell:hover .chosen-image-mosaic__img {
+      animation-play-state: paused;
+    }
   }
 
   /* When reduced motion is on: hide the autoplay video, reveal poster fallback,
@@ -835,4 +859,16 @@
   0%   { transform: scale(1); }
   50%  { transform: scale(1.04); }
   100% { transform: scale(1); }
+}
+
+/* Photo "breath" — slow Ken Burns within the brand cap (≤4% scale,
+   ~22 s/cycle). Two variants alternated across adjacent cells so the
+   page never reads as a synchronized swarm. Off with reduced motion. */
+@keyframes chosenPhotoBreath {
+  0%, 100% { transform: scale(1) translate(0, 0); }
+  50%      { transform: scale(1.04) translate(-1.2%, -0.8%); }
+}
+@keyframes chosenPhotoBreathAlt {
+  0%, 100% { transform: scale(1.035) translate(0.9%, 0.6%); }
+  50%      { transform: scale(1) translate(0, 0); }
 }
