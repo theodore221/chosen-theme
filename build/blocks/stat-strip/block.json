@@ -58,8 +58,13 @@
       "default": "paper",
       "enum": [
         "paper",
-        "royal"
+        "royal",
+        "photo"
       ]
+    },
+    "photoStem": {
+      "type": "string",
+      "default": "img_4837"
     }
   },
   "editorScript": "file:./index.js",

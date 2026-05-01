@@ -37,9 +37,14 @@
       <cite class="not-italic text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold mt-3 inline-block">Psalm 34:5</cite>
     </div>
 
-    <div class="mt-16 flex flex-col gap-2 border-t border-white/10 pt-6 text-[12px] text-white/60 md:flex-row md:items-center md:justify-between">
+    <div class="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 text-[12px] text-white/60 md:flex-row md:items-center md:justify-between">
       <p>&copy; 2026 Jesus Youth Australia. All rights reserved.</p>
-      <p>Built for Chosen 2026 &middot; La Trobe University, Melbourne &middot; 19&ndash;22 November 2026</p>
+      <nav aria-label="Legal" class="flex items-center gap-4">
+        <a href="/safety" class="text-white/70 hover:text-chosen-gold transition-colors duration-200 ease-out-quart">Child Safety</a>
+        <span class="text-white/30" aria-hidden="true">&middot;</span>
+        <a href="/privacy" class="text-white/70 hover:text-chosen-gold transition-colors duration-200 ease-out-quart">Privacy</a>
+      </nav>
+      <p class="md:text-right">Built for Chosen 2026 &middot; La Trobe, Melbourne &middot; 19&ndash;22 Nov 2026</p>
     </div>
   </div>
 
@@ -53,20 +58,80 @@
       window.addEventListener('scroll', on, { passive: true });
     })();
 
-    /* Shared scroll-fade observer for .chosen-fade-up elements (vision, quote,
-       and any future block opting in). One observer for all instances on the page. */
+    /* Split-text helpers — wrap target text in per-character or per-line
+       spans so each can fade in independently. Idempotent via dataset.split.
+       Reduced-motion users skip the split entirely (transitions are killed
+       by the global @layer base reset, but the markup change isn't worth it). */
     (function () {
-      var els = document.querySelectorAll('.chosen-fade-up:not(.is-visible)');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+
+      function splitChars(el) {
+        if (el.dataset.split === '1') return;
+        var text = el.textContent;
+        el.textContent = '';
+        for (var i = 0; i < text.length; i++) {
+          var ch = text[i];
+          var span = document.createElement('span');
+          span.className = 'chosen-split-char';
+          span.style.transitionDelay = (i * 30) + 'ms';
+          span.textContent = ch === ' ' ? ' ' : ch;
+          el.appendChild(span);
+        }
+        el.dataset.split = '1';
+      }
+
+      function splitLines(el) {
+        if (el.dataset.split === '1') return;
+        // Walk text content and split into lines by measuring the
+        // baseline of word-wrapped spans. Cheap heuristic: split on
+        // <br> or on natural visual line breaks via getBoundingClientRect.
+        var raw = el.textContent;
+        // First split on explicit \n if present, else by sentence punctuation.
+        var lines = raw.indexOf('\n') !== -1
+          ? raw.split('\n').map(function (l) { return l.trim(); }).filter(Boolean)
+          : raw.split(/(?<=[.!?])\s+/);
+        el.textContent = '';
+        lines.forEach(function (text, i) {
+          var line = document.createElement('span');
+          line.className = 'chosen-split-line';
+          line.style.transitionDelay = (i * 80) + 'ms';
+          line.textContent = text;
+          el.appendChild(line);
+        });
+        el.dataset.split = '1';
+      }
+
+      document.querySelectorAll('[data-split="char"]').forEach(splitChars);
+      document.querySelectorAll('[data-split="line"]').forEach(splitLines);
+    })();
+
+    /* Shared scroll-fade observer for .chosen-fade-up elements (vision, quote,
+       and any future block opting in). Also reveals split-text descendants
+       (chosen-split-char / chosen-split-line) when their wrapper enters view. */
+    (function () {
+      var els = document.querySelectorAll(
+        '.chosen-fade-up:not(.is-visible),' +
+        '[data-split="char"]:not(.is-visible),' +
+        '[data-split="line"]:not(.is-visible)'
+      );
       if (!els.length) return;
       if (!('IntersectionObserver' in window)) {
-        // Fallback: just reveal everything.
-        els.forEach(function (el) { el.classList.add('is-visible'); });
+        els.forEach(function (el) {
+          el.classList.add('is-visible');
+          el.querySelectorAll('.chosen-split-char,.chosen-split-line').forEach(function (s) {
+            s.classList.add('is-visible');
+          });
+        });
         return;
       }
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
+            entry.target.querySelectorAll('.chosen-split-char,.chosen-split-line').forEach(function (s) {
+              s.classList.add('is-visible');
+            });
             io.unobserve(entry.target);
           }
         });

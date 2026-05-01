@@ -31,18 +31,21 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 		<?php endif; ?>
 
 		<?php if ( $headline ) : ?>
-			<h2 class="mt-5 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.05] uppercase">
+			<h2
+				class="chosen-display-xl mt-6 text-white"
+				data-split="line"
+			>
 				<?php echo esc_html( $headline ); ?>
 			</h2>
 		<?php endif; ?>
 
 		<?php if ( $body ) : ?>
-			<p class="mt-6 max-w-xl text-[17px] leading-relaxed text-white/85">
+			<p class="mt-8 max-w-xl text-[17px] leading-relaxed text-white/85">
 				<?php echo esc_html( $body ); ?>
 			</p>
 		<?php endif; ?>
 
-		<div class="mt-8 h-[3px] w-12 bg-chosen-gold" aria-hidden="true"></div>
+		<span class="chosen-rule-grow mt-10 w-12 block" aria-hidden="true"></span>
 
 		<?php if ( $scripture ) : ?>
 			<blockquote class="mt-6 max-w-xl text-[22px] font-light italic leading-relaxed text-white">

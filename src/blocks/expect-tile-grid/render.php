@@ -35,30 +35,51 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 			</p>
 		<?php endif; ?>
 		<?php if ( $headline ) : ?>
-			<h2 class="mt-4 max-w-2xl font-display text-[clamp(2rem,5vw,3.5rem)] leading-[1.05] uppercase text-chosen-navy">
+			<h2 class="chosen-display-xl mt-6 max-w-5xl text-chosen-navy" data-split="line">
 				<?php echo esc_html( $headline ); ?>
 			</h2>
 		<?php endif; ?>
 
-		<ul class="chosen-tile-list mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-4" role="list">
-			<?php foreach ( $tiles as $i => $tile ) :
+		<ul class="chosen-tile-list mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-4" role="list">
+			<?php
+			$theme_uri = get_theme_file_uri();
+			foreach ( $tiles as $i => $tile ) :
 				$featured  = ! empty( $tile['featured'] );
 				$span_class = $featured ? 'lg:col-span-2' : 'lg:col-span-1';
-				$pad_class  = $featured ? 'p-8 md:p-10' : 'p-6';
+				$pad_class  = $featured ? 'p-8 md:p-12 min-h-[320px] flex flex-col justify-end' : 'p-6';
 				$h_class    = $featured
-					? 'font-display text-[clamp(1.75rem,3vw,2.25rem)] leading-tight uppercase'
+					? 'chosen-display-xl text-[clamp(2rem,4vw,3.5rem)] leading-[0.95]'
 					: 'font-sans text-[18px] font-bold leading-snug';
+				$photo_stem = isset( $tile['photoStem'] ) ? preg_replace( '/[^a-z0-9_-]/', '', (string) $tile['photoStem'] ) : '';
+				$has_photo  = $featured && '' !== $photo_stem;
+				$photo_base = $theme_uri . '/assets/img/photos-real/' . $photo_stem;
+				$tile_color_class = $has_photo ? 'text-white' : 'text-chosen-navy';
+				$tile_bg_class    = $has_photo ? 'bg-chosen-navy' : 'bg-white';
 			?>
-				<li class="chosen-tile chosen-fade-up relative overflow-hidden rounded-md border border-chosen-navy/10 bg-white transition-all duration-300 ease-out-quart <?php echo esc_attr( $span_class . ' ' . $pad_class ); ?>"
+				<li class="chosen-tile chosen-fade-up relative overflow-hidden rounded-md border border-chosen-navy/10 transition-all duration-300 ease-out-quart <?php echo esc_attr( $span_class . ' ' . $pad_class . ' ' . $tile_bg_class ); ?>"
 					style="--i: <?php echo (int) $i; ?>;">
-					<h3 class="<?php echo esc_attr( $h_class ); ?> text-chosen-navy">
-						<?php echo esc_html( $tile['title'] ); ?>
-					</h3>
-					<?php if ( ! empty( $tile['description'] ) ) : ?>
-						<p class="<?php echo $featured ? 'mt-4 max-w-md text-[15px]' : 'mt-3 text-[14px]'; ?> leading-relaxed text-neutral-700">
-							<?php echo esc_html( (string) $tile['description'] ); ?>
-						</p>
+					<?php if ( $has_photo ) : ?>
+						<picture>
+							<source type="image/webp" srcset="<?php echo esc_url( $photo_base . '-1280.webp' ); ?>" />
+							<img class="chosen-tile__photo absolute inset-0 z-0 h-full w-full object-cover transition-transform duration-500 ease-out-quart"
+								src="<?php echo esc_url( $photo_base . '-1280.jpg' ); ?>"
+								alt=""
+								loading="lazy"
+								decoding="async"
+								aria-hidden="true" />
+						</picture>
+						<div class="absolute inset-0 z-[1] bg-gradient-to-t from-chosen-navy via-chosen-navy/70 to-chosen-navy/30" aria-hidden="true"></div>
 					<?php endif; ?>
+					<div class="<?php echo $has_photo ? 'relative z-[2]' : ''; ?>">
+						<h3 class="<?php echo esc_attr( $h_class . ' ' . $tile_color_class ); ?>">
+							<?php echo esc_html( $tile['title'] ); ?>
+						</h3>
+						<?php if ( ! empty( $tile['description'] ) ) : ?>
+							<p class="<?php echo $featured ? 'mt-4 max-w-md text-[15px]' : 'mt-3 text-[14px]'; ?> leading-relaxed <?php echo $has_photo ? 'text-white/90' : 'text-neutral-700'; ?>">
+								<?php echo esc_html( (string) $tile['description'] ); ?>
+							</p>
+						<?php endif; ?>
+					</div>
 				</li>
 			<?php endforeach; ?>
 		</ul>

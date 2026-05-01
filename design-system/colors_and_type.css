@@ -39,6 +39,20 @@
   --chosen-white:       #FFFFFF;
 
   /* ============================================================
+     SOFT-TINT LAYER
+     Sourced from the 2026 Be Radiant poster sun rays. Each is a
+     calm tinted surface meant to PAIR with navy text — use as
+     section backgrounds, never as foreground accents on saturated
+     brand colours. The theological palette above is unchanged;
+     this layer adds register variety without dilution.
+     ============================================================ */
+  --chosen-cream:       #F4ECDC; /* warm peach-cream */
+  --chosen-sage:        #BFD2B6; /* soft mint-green */
+  --chosen-sky:         #C7DCE8; /* light sky blue */
+  --chosen-sun:         #FAE2A3; /* soft pale yellow */
+  --chosen-coral:       #F4B7A0; /* soft coral */
+
+  /* ============================================================
      NEUTRALS — warm-leaning, paired with navy
      ============================================================ */
   --neutral-0:    #FFFFFF;
@@ -56,7 +70,12 @@
   /* Surfaces */
   --bg:           var(--neutral-0);
   --bg-paper:     var(--neutral-50);
+  --bg-cream:     var(--chosen-cream);
+  --bg-sage:      var(--chosen-sage);
+  --bg-sun:       var(--chosen-sun);
+  --bg-coral:     var(--chosen-coral);
   --bg-deep:      var(--chosen-navy);
+  --bg-sky-soft:  var(--chosen-sky);
   --bg-sky:       var(--chosen-royal);
 
   /* Foregrounds */

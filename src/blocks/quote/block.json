@@ -28,7 +28,7 @@
     "background": {
       "type": "string",
       "default": "navy",
-      "enum": ["navy", "paper"]
+      "enum": ["navy", "paper", "cream", "sage", "sky", "sun", "coral"]
     }
   },
   "editorScript": "file:./index.js",

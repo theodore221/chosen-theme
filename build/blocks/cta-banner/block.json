@@ -42,6 +42,14 @@
     "cite": {
       "type": "string",
       "default": "John 15:16"
+    },
+    "photoStem": {
+      "type": "string",
+      "default": "dsc00424"
+    },
+    "enablePhoto": {
+      "type": "boolean",
+      "default": true
     }
   },
   "editorScript": "file:./index.js",

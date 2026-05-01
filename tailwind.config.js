@@ -19,6 +19,13 @@ module.exports = {
         'chosen-yellow': '#EBC903',
         'chosen-teal':   '#37BCB1',
         'chosen-paper':  '#FAF8F3',
+        // Soft-tint layer — borrowed from the 2026 poster sun rays. Pair with navy
+        // text. Use as section surfaces, not as accents on saturated brand colours.
+        'chosen-cream':  '#F4ECDC',
+        'chosen-sage':   '#BFD2B6',
+        'chosen-sky':    '#C7DCE8',
+        'chosen-sun':    '#FAE2A3',
+        'chosen-coral':  '#F4B7A0',
         'chosen-black':  '#0A0A0A',
       },
       fontFamily: {

@@ -1,18 +1,34 @@
 <!-- wp:group {"tagName":"header","className":"chosen-header","style":{"color":{"background":"#0B0A55"}},"layout":{"type":"constrained"}} -->
 <header class="wp-block-group chosen-header has-background sticky top-0 z-40 w-full bg-chosen-navy" style="background-color:#0B0A55">
-  <div class="chosen-header__bar mx-auto flex h-20 max-w-wide items-center justify-between gap-7 px-6">
-    <a href="/" class="chosen-wordmark chosen-wordmark--lockup flex flex-col items-start gap-[2px] no-underline leading-none" aria-label="Chosen — National Youth Conference home">
-      <span class="font-sans text-[10px] md:text-[11px] font-medium tracking-[0.04em] text-white/85 leading-none">National Youth Conference</span>
-      <span class="font-sans text-[24px] md:text-[28px] font-bold tracking-[0.14em] uppercase text-white leading-none">CH<span class="chosen-wordmark__o" aria-hidden="true"></span>SEN</span>
+  <div class="chosen-header__bar mx-auto flex h-20 max-w-wide items-center justify-between gap-6 px-6 md:h-24">
+    <a
+      href="/"
+      class="chosen-wordmark chosen-wordmark--lockup group flex flex-col items-start gap-[3px] no-underline leading-none transition-opacity duration-200 ease-out-quart hover:opacity-90"
+      aria-label="Chosen — National Youth Conference, home"
+    >
+      <span class="font-sans text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.18em] text-white/65 leading-none">National Youth Conference</span>
+      <span class="font-sans text-[26px] md:text-[34px] font-bold tracking-[0.10em] uppercase text-white leading-none">CH<span class="chosen-wordmark__o" aria-hidden="true"></span>SEN</span>
     </a>
-    <nav class="chosen-header__links hidden md:flex items-center gap-6" aria-label="Primary">
-      <a href="/" class="text-[13px] font-medium tracking-wide text-white/85 hover:text-chosen-gold no-underline transition-colors duration-200 ease-out-quart">Home</a>
-      <a href="/programme" class="text-[13px] font-medium tracking-wide text-white/85 hover:text-chosen-gold no-underline transition-colors duration-200 ease-out-quart">Programme</a>
-      <a href="/speakers" class="text-[13px] font-medium tracking-wide text-white/85 hover:text-chosen-gold no-underline transition-colors duration-200 ease-out-quart">Speakers</a>
-      <a href="/travel" class="text-[13px] font-medium tracking-wide text-white/85 hover:text-chosen-gold no-underline transition-colors duration-200 ease-out-quart">Travel</a>
-      <a href="/faqs" class="text-[13px] font-medium tracking-wide text-white/85 hover:text-chosen-gold no-underline transition-colors duration-200 ease-out-quart">FAQs</a>
+
+    <nav class="chosen-header__cluster flex items-center gap-3 md:gap-6" aria-label="Primary">
+      <a
+        href="/about"
+        class="chosen-header__link relative text-[14px] md:text-[15px] font-semibold tracking-[0.04em] text-white no-underline px-3 py-2 transition-colors duration-200 ease-out-quart hover:text-chosen-gold focus-visible:text-chosen-gold"
+      >
+        About
+        <span class="chosen-header__link-rule" aria-hidden="true"></span>
+      </a>
+      <a
+        href="#"
+        class="chosen-cta chosen-header__cta inline-flex items-center justify-center gap-2 rounded-full bg-chosen-gold px-6 py-3 md:px-7 md:py-[14px] text-[12px] md:text-[13px] font-bold uppercase tracking-[0.14em] text-chosen-navy no-underline shadow-[0_4px_18px_rgba(237,169,12,0.32)] transition-all duration-200 ease-out-quart hover:bg-chosen-gold-600 hover:text-white hover:shadow-[0_8px_24px_rgba(237,169,12,0.45)] focus-visible:bg-chosen-gold-600 focus-visible:text-white"
+        aria-label="Register for Chosen 2026"
+      >
+        <span>Register</span>
+        <svg class="chosen-header__cta-arrow" width="14" height="11" viewBox="0 0 14 11" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M1.5 5.5h11M8 1l4.5 4.5L8 10" />
+        </svg>
+      </a>
     </nav>
-    <a href="#" class="chosen-cta inline-flex items-center justify-center rounded-full bg-chosen-gold px-[22px] py-3 text-[12px] font-bold uppercase tracking-[0.10em] text-chosen-navy no-underline transition-all duration-200 ease-out-quart hover:bg-chosen-gold-600 hover:text-white" aria-label="Register for Chosen 2026">Register</a>
   </div>
 </header>
 <!-- /wp:group -->

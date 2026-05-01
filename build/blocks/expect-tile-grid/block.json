@@ -35,7 +35,8 @@
         {
           "title": "Adoration",
           "description": "Eucharistic adoration & sacramental prayer in the chapel and main hall.",
-          "featured": true
+          "featured": true,
+          "photoStem": "dsc00424"
         },
         {
           "title": "Bishops & guest speakers",
@@ -50,7 +51,8 @@
         {
           "title": "Live worship",
           "description": "Worship led by the Masterplan band, reverent and Spirit-filled.",
-          "featured": true
+          "featured": true,
+          "photoStem": "dsc09433"
         },
         {
           "title": "Theatre",

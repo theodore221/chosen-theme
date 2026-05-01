@@ -2,45 +2,73 @@
 /**
  * chosen/cta-banner block — server-side render.
  *
- * Full-width navy banner. Anton headline + gold pulse Register pill +
- * scripture pull-quote beneath. Reuses the chosenRegisterPulse keyframe
- * defined in src/css/input.css (introduced for chosen/hero).
+ * Bolder pass: full-bleed photo background with navy gradient scrim,
+ * oversized Anton headline (clamp 56→160px), strengthened register-pulse
+ * gold pill, and an SVG arrow that slides in on CTA hover.
  *
  * @param array $attributes Block attributes.
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$headline  = isset( $attributes['headline'] ) ? (string) $attributes['headline'] : '';
-$subhead   = isset( $attributes['subhead'] ) ? (string) $attributes['subhead'] : '';
-$cta_label = isset( $attributes['ctaLabel'] ) ? (string) $attributes['ctaLabel'] : 'Register';
-$eyebrow   = isset( $attributes['eyebrow'] ) ? (string) $attributes['eyebrow'] : '';
-$scripture = isset( $attributes['scripture'] ) ? (string) $attributes['scripture'] : '';
-$cite      = isset( $attributes['cite'] ) ? (string) $attributes['cite'] : '';
+$headline      = isset( $attributes['headline'] ) ? (string) $attributes['headline'] : '';
+$subhead       = isset( $attributes['subhead'] ) ? (string) $attributes['subhead'] : '';
+$cta_label     = isset( $attributes['ctaLabel'] ) ? (string) $attributes['ctaLabel'] : 'Register';
+$eyebrow       = isset( $attributes['eyebrow'] ) ? (string) $attributes['eyebrow'] : '';
+$scripture     = isset( $attributes['scripture'] ) ? (string) $attributes['scripture'] : '';
+$cite          = isset( $attributes['cite'] ) ? (string) $attributes['cite'] : '';
+$enable_photo  = ! isset( $attributes['enablePhoto'] ) || ! empty( $attributes['enablePhoto'] );
+$photo_stem    = isset( $attributes['photoStem'] ) ? preg_replace( '/[^a-z0-9_-]/', '', (string) $attributes['photoStem'] ) : 'dsc00424';
 
 $register_url = ( defined( 'CHOSEN_REGISTER_URL' ) && CHOSEN_REGISTER_URL ) ? CHOSEN_REGISTER_URL : '';
 $cta_disabled = '' === $register_url;
 
+$theme_uri = get_theme_file_uri();
+$photo_base = $theme_uri . '/assets/img/photos-real/' . $photo_stem;
+
 $wrapper_attrs = get_block_wrapper_attributes( [
-	'class' => 'chosen-cta-banner bg-chosen-navy text-white py-24 md:py-32',
+	'class' => 'chosen-cta-banner relative isolate overflow-hidden bg-chosen-navy text-white py-32 md:py-44',
 ] );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
-	<div class="chosen-fade-up mx-auto max-w-wide px-6">
+	<?php if ( $enable_photo ) : ?>
+		<picture>
+			<source
+				type="image/webp"
+				srcset="<?php echo esc_url( $photo_base . '-1280.webp' ); ?> 1280w,
+				        <?php echo esc_url( $photo_base . '-1920.webp' ); ?> 1920w"
+				sizes="100vw"
+			/>
+			<img
+				class="absolute inset-0 z-0 h-full w-full object-cover"
+				src="<?php echo esc_url( $photo_base . '-1280.jpg' ); ?>"
+				srcset="<?php echo esc_url( $photo_base . '-1280.jpg' ); ?> 1280w,
+				        <?php echo esc_url( $photo_base . '-1920.jpg' ); ?> 1920w"
+				sizes="100vw"
+				alt=""
+				loading="lazy"
+				decoding="async"
+				aria-hidden="true"
+			/>
+		</picture>
+		<div class="absolute inset-0 z-[1] bg-gradient-to-t from-chosen-navy via-chosen-navy/85 to-chosen-navy/55" aria-hidden="true"></div>
+	<?php endif; ?>
+
+	<div class="chosen-fade-up relative z-[2] mx-auto max-w-wide px-6">
 		<div class="grid gap-12 md:grid-cols-2 md:items-end">
 			<div>
 				<?php if ( $headline ) : ?>
-					<h2 class="font-display text-[clamp(2.5rem,7vw,5rem)] leading-[1.05] uppercase">
+					<h2 class="chosen-display-xl uppercase" data-split="line">
 						<?php echo esc_html( $headline ); ?>
 					</h2>
 				<?php endif; ?>
 				<?php if ( $subhead ) : ?>
-					<p class="mt-5 max-w-md text-[18px] font-light italic leading-relaxed text-white/85">
+					<p class="mt-7 max-w-md text-[18px] font-light italic leading-relaxed text-white/85">
 						<?php echo esc_html( $subhead ); ?>
 					</p>
 				<?php endif; ?>
-				<div class="mt-8">
-					<a class="inline-flex items-center justify-center rounded-full bg-chosen-gold px-7 py-3 text-[13px] font-bold uppercase tracking-[0.10em] text-chosen-navy no-underline transition-all duration-200 ease-out-quart hover:bg-chosen-gold-600 hover:text-white"
+				<div class="mt-10">
+					<a class="chosen-cta-arrow chosen-cta-pulse group inline-flex items-center justify-center gap-2 rounded-full bg-chosen-gold px-8 py-4 text-[14px] font-bold uppercase tracking-[0.10em] text-chosen-navy no-underline transition-all duration-200 ease-out-quart hover:bg-chosen-gold-600 hover:text-white"
 						href="<?php echo esc_url( $register_url ? $register_url : '#' ); ?>"
 						<?php if ( $cta_disabled ) : ?>
 							aria-disabled="true"
@@ -48,24 +76,27 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 						<?php else : ?>
 							rel="noopener"
 						<?php endif; ?>>
-						<?php echo esc_html( $cta_label ); ?>
+						<span><?php echo esc_html( $cta_label ); ?></span>
+						<svg class="chosen-cta-arrow__svg" width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M2 7h14M11 2l5 5-5 5" />
+						</svg>
 					</a>
 				</div>
 			</div>
 
 			<?php if ( $scripture || $cite || $eyebrow ) : ?>
-				<aside class="md:border-l md:border-white/10 md:pl-12">
+				<aside class="md:border-l md:border-white/15 md:pl-12">
 					<?php if ( $eyebrow ) : ?>
 						<p class="text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">
 							<?php echo esc_html( $eyebrow ); ?>
 						</p>
 					<?php endif; ?>
 					<?php if ( $scripture ) : ?>
-						<blockquote class="mt-3 max-w-md text-[20px] font-light italic leading-relaxed text-white">
+						<blockquote class="mt-4 max-w-md text-[22px] font-light italic leading-relaxed text-white" data-split="line">
 							<?php echo esc_html( $scripture ); ?>
 						</blockquote>
 					<?php endif; ?>
-					<div class="mt-4 h-[3px] w-12 bg-chosen-gold" aria-hidden="true"></div>
+					<span class="chosen-rule-grow mt-6 w-12 block" aria-hidden="true"></span>
 					<?php if ( $cite ) : ?>
 						<cite class="mt-3 inline-block not-italic text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">
 							<?php echo esc_html( $cite ); ?>

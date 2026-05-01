@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 $eyebrow = isset( $attributes['eyebrow'] ) ? (string) $attributes['eyebrow'] : '';
 $verse   = isset( $attributes['verse'] ) ? (string) $attributes['verse'] : '';
 $cite    = isset( $attributes['cite'] ) ? (string) $attributes['cite'] : '';
-$bg      = isset( $attributes['background'] ) && in_array( $attributes['background'], [ 'navy', 'paper' ], true )
+$bg      = isset( $attributes['background'] ) && in_array( $attributes['background'], [ 'navy', 'paper', 'cream', 'sage', 'sky', 'sun', 'coral' ], true )
 	? $attributes['background']
 	: 'navy';
 
@@ -25,30 +25,39 @@ if ( '' === trim( $verse ) ) {
 	return;
 }
 
-$is_paper = 'paper' === $bg;
-$bg_class = $is_paper ? 'bg-chosen-paper' : 'bg-chosen-navy';
-$verse_class = $is_paper ? 'text-chosen-navy' : 'text-white';
+$is_navy_bg = 'navy' === $bg;
+$bg_class = [
+	'navy'  => 'bg-chosen-navy',
+	'paper' => 'bg-chosen-paper',
+	'cream' => 'bg-chosen-cream',
+	'sage'  => 'bg-chosen-sage',
+	'sky'   => 'bg-chosen-sky',
+	'sun'   => 'bg-chosen-sun',
+	'coral' => 'bg-chosen-coral',
+][ $bg ];
+$verse_class = $is_navy_bg ? 'text-white' : 'text-chosen-navy';
 
 $wrapper_attrs = get_block_wrapper_attributes( [
-	'class' => 'chosen-quote ' . $bg_class . ' py-28 md:py-40',
+	'class' => 'chosen-quote relative overflow-hidden ' . $bg_class . ' py-28 md:py-40',
 ] );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
-	<div class="chosen-fade-up mx-auto max-w-content px-6">
+	<span class="chosen-display-mark absolute top-2 left-2 md:top-6 md:left-8 select-none" aria-hidden="true">&ldquo;</span>
+	<div class="chosen-fade-up relative mx-auto max-w-content px-6">
 		<?php if ( $eyebrow ) : ?>
 			<p class="text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">
 				<?php echo esc_html( $eyebrow ); ?>
 			</p>
 		<?php endif; ?>
 
-		<blockquote class="mt-5 text-[clamp(1.5rem,3.5vw,2rem)] font-light italic leading-relaxed <?php echo esc_attr( $verse_class ); ?>">
+		<blockquote class="mt-6 text-[clamp(1.75rem,4.5vw,3rem)] font-light italic leading-[1.25] <?php echo esc_attr( $verse_class ); ?>" data-split="line">
 			<?php echo esc_html( $verse ); ?>
 		</blockquote>
 
-		<div class="mt-6 h-[3px] w-12 bg-chosen-gold" aria-hidden="true"></div>
+		<span class="chosen-rule-grow mt-10 w-12 block" aria-hidden="true"></span>
 
 		<?php if ( $cite ) : ?>
-			<cite class="mt-3 inline-block not-italic text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">
+			<cite class="mt-4 inline-block not-italic text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">
 				<?php echo esc_html( $cite ); ?>
 			</cite>
 		<?php endif; ?>

@@ -24,10 +24,10 @@
     "tiles": {
       "type": "array",
       "default": [
-        { "title": "Adoration",    "description": "Eucharistic adoration & sacramental prayer in the chapel and main hall.", "featured": true },
+        { "title": "Adoration",    "description": "Eucharistic adoration & sacramental prayer in the chapel and main hall.", "featured": true, "photoStem": "dsc00424" },
         { "title": "Bishops & guest speakers", "description": "Inspiring talks from bishops, priests, and lay missionaries.", "featured": false },
         { "title": "Workshops",    "description": "Practical sessions on faith, vocation, mission, and community life.", "featured": false },
-        { "title": "Live worship", "description": "Worship led by the Masterplan band, reverent and Spirit-filled.", "featured": true },
+        { "title": "Live worship", "description": "Worship led by the Masterplan band, reverent and Spirit-filled.", "featured": true, "photoStem": "dsc09433" },
         { "title": "Theatre",      "description": "Live theatre and testimonies that make the gospel come alive.", "featured": false },
         { "title": "Confession",   "description": "Sacramental confession available throughout the four days.", "featured": false },
         { "title": "Community",    "description": "Meals, chats, friendships across dioceses and ages.", "featured": false },

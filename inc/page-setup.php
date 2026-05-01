@@ -1,9 +1,12 @@
 <?php
 /**
  * One-time page setup: ensures pages with the slugs the theme expects
- * (`about`, `programme`, `travel`, `faqs`, `contact`, `privacy`, `safety`)
- * exist in the database, so the matching `templates/page-{slug}.html`
- * templates auto-render at the corresponding URLs.
+ * (`about`, `privacy`, `safety`) exist in the database, so the matching
+ * `templates/page-{slug}.html` templates auto-render at the corresponding URLs.
+ *
+ * Privacy + Safety are kept as legal/footer-only links (not in primary nav).
+ * Earlier IA had Programme / Travel / FAQs / Contact pages — those are
+ * intentionally retired in favour of a single front + about composition.
  *
  * Pages are created with empty post_content because the templates contain
  * all the block markup. Editors can override at any time by editing the
@@ -24,13 +27,9 @@ defined( 'ABSPATH' ) || exit;
  */
 function chosen_expected_pages(): array {
 	return [
-		'about'     => 'About',
-		'programme' => 'Programme',
-		'travel'    => 'Travel',
-		'faqs'      => 'FAQs',
-		'contact'   => 'Contact',
-		'privacy'   => 'Privacy Policy',
-		'safety'    => 'Child Safety',
+		'about'   => 'About',
+		'privacy' => 'Privacy Policy',
+		'safety'  => 'Child Safety',
 	];
 }
 

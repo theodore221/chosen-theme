@@ -5,8 +5,8 @@
   "title": "Hero",
   "category": "chosen",
   "icon": "format-image",
-  "description": "Full-bleed photographic hero with rotating radiant rays, Anton headline, gold date/venue card, and pulsing Register CTA. Use once at the top of the front page.",
-  "keywords": ["hero", "banner", "be radiant"],
+  "description": "Full-bleed photographic / video hero. Conference-led composition: National Catholic Youth Conference eyebrow → CHOSEN wordmark with medallion ornament → tagline (dates + venue) → Be Radiant theme chip → Register CTA.",
+  "keywords": ["hero", "banner", "chosen", "conference"],
   "supports": {
     "html": false,
     "anchor": true,
@@ -16,35 +16,51 @@
   "attributes": {
     "eyebrow": {
       "type": "string",
-      "default": "Chosen 2026 · National Catholic Youth Conference"
+      "default": "National Catholic Youth Conference"
+    },
+    "wordmarkPart1": {
+      "type": "string",
+      "default": "CH"
+    },
+    "wordmarkPart2": {
+      "type": "string",
+      "default": "SEN"
     },
     "headlinePart1": {
       "type": "string",
-      "default": "Be"
+      "default": ""
     },
     "headlinePart2": {
       "type": "string",
-      "default": "Radiant"
+      "default": ""
+    },
+    "tagline": {
+      "type": "string",
+      "default": "19–22 November 2026 · La Trobe University, Melbourne"
     },
     "subhead": {
       "type": "string",
-      "default": "Look to him, and be radiant."
+      "default": ""
     },
-    "dateRange": {
+    "themeWord1": {
       "type": "string",
-      "default": "19–22"
+      "default": "Be"
     },
-    "dateMonth": {
+    "themeWord2": {
       "type": "string",
-      "default": "NOV '26"
+      "default": "Radiant"
     },
-    "venueName": {
+    "themeCite": {
       "type": "string",
-      "default": "La Trobe University"
+      "default": "Psalm 34:5"
     },
-    "venueCity": {
+    "themeChipLabel": {
       "type": "string",
-      "default": "Bundoora · Melbourne"
+      "default": ""
+    },
+    "themeChipCite": {
+      "type": "string",
+      "default": ""
     },
     "ctaLabel": {
       "type": "string",
@@ -63,6 +79,10 @@
       "default": true
     },
     "enableKenBurns": {
+      "type": "boolean",
+      "default": false
+    },
+    "enableVideo": {
       "type": "boolean",
       "default": true
     }

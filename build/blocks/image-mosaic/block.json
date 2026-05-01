@@ -26,42 +26,67 @@
       "default": [
         {
           "id": 0,
+          "url": "/wp-content/themes/chosen-theme/assets/img/photos-real/img_4837-1280.jpg",
+          "alt": "Group of young people at Chosen with peace signs and arms around each other",
+          "caption": "Be Radiant"
+        },
+        {
+          "id": 0,
+          "url": "/wp-content/themes/chosen-theme/assets/img/photos-real/dsc00424-1280.jpg",
+          "alt": "Eucharistic adoration before the monstrance with candles",
+          "caption": "Adoration"
+        },
+        {
+          "id": 0,
+          "url": "/wp-content/themes/chosen-theme/assets/img/photos-real/dsc00143-800.jpg",
+          "alt": "Two young men celebrating at UPPERROOM",
+          "caption": "Joy"
+        },
+        {
+          "id": 0,
+          "url": "/wp-content/themes/chosen-theme/assets/img/photos-real/dsc00155-1280.jpg",
+          "alt": "Priest blessing a young woman",
+          "caption": "Anointing"
+        },
+        {
+          "id": 0,
           "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-arms-raised-worship.jpg",
-          "alt": "Young people at Chosen with arms raised in worship"
+          "alt": "Young people with arms raised in worship",
+          "caption": "Worship"
         },
         {
           "id": 0,
-          "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-adoration-monstrance.jpg",
-          "alt": "Eucharistic adoration before the monstrance at Chosen"
-        },
-        {
-          "id": 0,
-          "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-orange-prayer-tent.jpg",
-          "alt": "Outdoor prayer in the orange tent at Chosen"
-        },
-        {
-          "id": 0,
-          "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-sister-laughing.jpg",
-          "alt": "A religious sister laughing in community at Chosen"
+          "url": "/wp-content/themes/chosen-theme/assets/img/photos-real/dsc00635-800.jpg",
+          "alt": "Two young women hugging",
+          "caption": "Friendship"
         },
         {
           "id": 0,
           "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-painting-candlelit.jpg",
-          "alt": "Reverent prayer in candlelit space at Chosen"
+          "alt": "Reverent prayer in candlelit space",
+          "caption": "Prayer"
         },
         {
           "id": 0,
-          "url": "/wp-content/themes/chosen-theme/assets/img/photos/photo-worship-keyboard.jpg",
-          "alt": "Worship leader at the keyboard at Chosen"
+          "url": "/wp-content/themes/chosen-theme/assets/img/photos-real/dsc09854-800.jpg",
+          "alt": "Two young men with arms around each other",
+          "caption": "Brotherhood"
+        },
+        {
+          "id": 0,
+          "url": "/wp-content/themes/chosen-theme/assets/img/photos-real/dsc09433-800.jpg",
+          "alt": "Young man laughing energetically at a workshop",
+          "caption": "Encounter"
         }
       ]
     },
     "layout": {
       "type": "string",
-      "default": "bento",
+      "default": "asymmetric-9",
       "enum": [
         "bento",
-        "even"
+        "even",
+        "asymmetric-9"
       ]
     }
   },

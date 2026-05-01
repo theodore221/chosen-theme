@@ -50,6 +50,31 @@
           "name": "Warm Paper"
         },
         {
+          "slug": "chosen-cream",
+          "color": "#F4ECDC",
+          "name": "Cream (soft tint)"
+        },
+        {
+          "slug": "chosen-sage",
+          "color": "#BFD2B6",
+          "name": "Sage (soft tint)"
+        },
+        {
+          "slug": "chosen-sky",
+          "color": "#C7DCE8",
+          "name": "Sky (soft tint)"
+        },
+        {
+          "slug": "chosen-sun",
+          "color": "#FAE2A3",
+          "name": "Sun (soft tint)"
+        },
+        {
+          "slug": "chosen-coral",
+          "color": "#F4B7A0",
+          "name": "Coral (soft tint)"
+        },
+        {
           "slug": "chosen-black",
           "color": "#0A0A0A",
           "name": "Chosen Black"
@@ -159,13 +184,9 @@
     }
   ],
   "customTemplates": [
-    { "name": "front-page",     "title": "Front Page",      "postTypes": ["page"] },
-    { "name": "page-about",     "title": "About",           "postTypes": ["page"] },
-    { "name": "page-programme", "title": "Programme",       "postTypes": ["page"] },
-    { "name": "page-travel",    "title": "Travel",          "postTypes": ["page"] },
-    { "name": "page-faqs",      "title": "FAQs",            "postTypes": ["page"] },
-    { "name": "page-contact",   "title": "Contact",         "postTypes": ["page"] },
-    { "name": "page-privacy",   "title": "Privacy Policy",  "postTypes": ["page"] },
-    { "name": "page-safety",    "title": "Child Safety",    "postTypes": ["page"] }
+    { "name": "front-page",   "title": "Front Page",      "postTypes": ["page"] },
+    { "name": "page-about",   "title": "About",           "postTypes": ["page"] },
+    { "name": "page-privacy", "title": "Privacy Policy",  "postTypes": ["page"] },
+    { "name": "page-safety",  "title": "Child Safety",    "postTypes": ["page"] }
   ]
 }

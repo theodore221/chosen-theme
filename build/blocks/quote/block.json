@@ -37,7 +37,12 @@
       "default": "navy",
       "enum": [
         "navy",
-        "paper"
+        "paper",
+        "cream",
+        "sage",
+        "sky",
+        "sun",
+        "coral"
       ]
     }
   },
