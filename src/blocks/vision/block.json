@@ -32,6 +32,11 @@
     "cite": {
       "type": "string",
       "default": "Psalm 34:5"
+    },
+    "background": {
+      "type": "string",
+      "default": "sun",
+      "enum": ["navy", "paper", "cream", "sage", "sky", "sun", "coral"]
     }
   },
   "editorScript": "file:./index.js",

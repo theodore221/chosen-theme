@@ -41,6 +41,7 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 			/>
 			<img
 				class="absolute inset-0 z-0 h-full w-full object-cover"
+				style="object-position: center 35%"
 				src="<?php echo esc_url( $photo_base . '-1280.jpg' ); ?>"
 				srcset="<?php echo esc_url( $photo_base . '-1280.jpg' ); ?> 1280w,
 				        <?php echo esc_url( $photo_base . '-1920.jpg' ); ?> 1920w"
@@ -51,7 +52,12 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 				aria-hidden="true"
 			/>
 		</picture>
-		<div class="absolute inset-0 z-[1] bg-gradient-to-t from-chosen-navy via-chosen-navy/85 to-chosen-navy/55" aria-hidden="true"></div>
+		<!-- Polished scrim: top 35% scrim catches the bright ceiling/highlights so
+		     headline reads cleanly; bottom anchors deeply into navy so the CTA pill
+		     and citation read against a calm wash. Two-stop gradient avoids the
+		     muddy mid-tone the previous 3-stop produced on lighter scenes. -->
+		<div class="absolute inset-0 z-[1] bg-gradient-to-b from-chosen-navy/40 via-chosen-navy/20 to-chosen-navy/95" aria-hidden="true"></div>
+		<div class="absolute inset-x-0 bottom-0 z-[1] h-2/3 bg-gradient-to-t from-chosen-navy to-transparent" aria-hidden="true"></div>
 	<?php endif; ?>
 
 	<div class="chosen-fade-up relative z-[2] mx-auto max-w-wide px-6">

@@ -17,9 +17,26 @@ $headline  = isset( $attributes['headline'] ) ? (string) $attributes['headline']
 $body      = isset( $attributes['body'] ) ? (string) $attributes['body'] : '';
 $scripture = isset( $attributes['scripture'] ) ? (string) $attributes['scripture'] : '';
 $cite      = isset( $attributes['cite'] ) ? (string) $attributes['cite'] : '';
+$bg        = isset( $attributes['background'] ) && in_array( $attributes['background'], [ 'navy', 'paper', 'cream', 'sage', 'sky', 'sun', 'coral' ], true )
+	? $attributes['background']
+	: 'navy';
+
+$is_navy_bg = 'navy' === $bg;
+$bg_class = [
+	'navy'  => 'bg-chosen-navy text-white',
+	'paper' => 'bg-chosen-paper text-chosen-navy',
+	'cream' => 'bg-chosen-cream text-chosen-navy',
+	'sage'  => 'bg-chosen-sage text-chosen-navy',
+	'sky'   => 'bg-chosen-sky text-chosen-navy',
+	'sun'   => 'bg-chosen-sun text-chosen-navy',
+	'coral' => 'bg-chosen-coral text-chosen-navy',
+][ $bg ];
+$head_class       = $is_navy_bg ? 'text-white' : 'text-chosen-navy';
+$body_class       = $is_navy_bg ? 'text-white/85' : 'text-chosen-navy/85';
+$scripture_class  = $is_navy_bg ? 'text-white' : 'text-chosen-navy';
 
 $wrapper_attrs = get_block_wrapper_attributes( [
-	'class' => 'chosen-vision bg-chosen-navy text-white py-28 md:py-40',
+	'class' => 'chosen-vision ' . $bg_class . ' py-28 md:py-40',
 ] );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
@@ -32,7 +49,7 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 
 		<?php if ( $headline ) : ?>
 			<h2
-				class="chosen-display-2xl mt-6 text-white"
+				class="chosen-display-2xl mt-6 <?php echo esc_attr( $head_class ); ?>"
 				data-split="line"
 			>
 				<?php echo esc_html( $headline ); ?>
@@ -40,7 +57,7 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 		<?php endif; ?>
 
 		<?php if ( $body ) : ?>
-			<p class="mt-8 max-w-2xl text-[clamp(17px,1.6vw,22px)] font-light italic leading-relaxed text-white/85">
+			<p class="mt-8 max-w-2xl text-[clamp(17px,1.6vw,22px)] font-light italic leading-relaxed <?php echo esc_attr( $body_class ); ?>">
 				<?php echo esc_html( $body ); ?>
 			</p>
 		<?php endif; ?>
@@ -49,7 +66,7 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 			<span class="chosen-rule-grow mt-10 w-12 block" aria-hidden="true"></span>
 
 			<?php if ( $scripture ) : ?>
-				<blockquote class="mt-6 max-w-xl text-[22px] font-light italic leading-relaxed text-white">
+				<blockquote class="mt-6 max-w-xl text-[22px] font-light italic leading-relaxed <?php echo esc_attr( $scripture_class ); ?>">
 					<?php echo esc_html( $scripture ); ?>
 				</blockquote>
 			<?php endif; ?>
