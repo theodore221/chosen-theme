@@ -67,7 +67,7 @@
       if (reduce) return;
 
       function splitChars(el) {
-        if (el.dataset.split === '1') return;
+        if (el.dataset.splitDone === '1') return;
         var text = el.textContent;
         el.textContent = '';
         for (var i = 0; i < text.length; i++) {
@@ -78,16 +78,16 @@
           span.textContent = ch === ' ' ? ' ' : ch;
           el.appendChild(span);
         }
-        el.dataset.split = '1';
+        el.dataset.splitDone = '1';
       }
 
       function splitLines(el) {
-        if (el.dataset.split === '1') return;
+        if (el.dataset.splitDone === '1') return;
         // Trim leading/trailing whitespace from the source FIRST so PHP
         // template indentation doesn't generate phantom empty lines.
         var raw = el.textContent.trim();
         if (!raw) {
-          el.dataset.split = '1';
+          el.dataset.splitDone = '1';
           return;
         }
         var lines = raw.indexOf('\n') !== -1
@@ -98,7 +98,7 @@
         // line of vertical space, leaving a phantom gap.
         lines = lines.map(function (l) { return l.trim(); }).filter(Boolean);
         if (!lines.length) {
-          el.dataset.split = '1';
+          el.dataset.splitDone = '1';
           return;
         }
         el.textContent = '';
@@ -109,7 +109,7 @@
           line.textContent = text;
           el.appendChild(line);
         });
-        el.dataset.split = '1';
+        el.dataset.splitDone = '1';
       }
 
       document.querySelectorAll('[data-split="char"]').forEach(splitChars);
