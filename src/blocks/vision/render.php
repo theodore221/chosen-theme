@@ -17,13 +17,15 @@ $headline  = isset( $attributes['headline'] ) ? (string) $attributes['headline']
 $body      = isset( $attributes['body'] ) ? (string) $attributes['body'] : '';
 $scripture = isset( $attributes['scripture'] ) ? (string) $attributes['scripture'] : '';
 $cite      = isset( $attributes['cite'] ) ? (string) $attributes['cite'] : '';
-$bg        = isset( $attributes['background'] ) && in_array( $attributes['background'], [ 'navy', 'paper', 'cream', 'sage', 'sky', 'aqua', 'sun', 'coral' ], true )
+$bg        = isset( $attributes['background'] ) && in_array( $attributes['background'], [ 'navy', 'royal', 'paper', 'cream', 'sage', 'sky', 'aqua', 'sun', 'coral' ], true )
 	? $attributes['background']
 	: 'navy';
 
-$is_navy_bg = 'navy' === $bg;
+// Dark surfaces use white text; light tints use navy text.
+$is_dark_bg = in_array( $bg, [ 'navy', 'royal' ], true );
 $bg_class = [
 	'navy'  => 'bg-chosen-navy text-white',
+	'royal' => 'bg-chosen-royal text-white',
 	'paper' => 'bg-chosen-paper text-chosen-navy',
 	'cream' => 'bg-chosen-cream text-chosen-navy',
 	'sage'  => 'bg-chosen-sage text-chosen-navy',
@@ -32,9 +34,9 @@ $bg_class = [
 	'sun'   => 'bg-chosen-sun text-chosen-navy',
 	'coral' => 'bg-chosen-coral text-chosen-navy',
 ][ $bg ];
-$head_class       = $is_navy_bg ? 'text-white' : 'text-chosen-navy';
-$body_class       = $is_navy_bg ? 'text-white/85' : 'text-chosen-navy/85';
-$scripture_class  = $is_navy_bg ? 'text-white' : 'text-chosen-navy';
+$head_class       = $is_dark_bg ? 'text-white' : 'text-chosen-navy';
+$body_class       = $is_dark_bg ? 'text-white/85' : 'text-chosen-navy/85';
+$scripture_class  = $is_dark_bg ? 'text-white' : 'text-chosen-navy';
 
 $wrapper_attrs = get_block_wrapper_attributes( [
 	'class' => 'chosen-vision ' . $bg_class . ' py-28 md:py-40',

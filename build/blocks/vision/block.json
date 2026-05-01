@@ -41,9 +41,10 @@
     },
     "background": {
       "type": "string",
-      "default": "aqua",
+      "default": "royal",
       "enum": [
         "navy",
+        "royal",
         "paper",
         "cream",
         "sage",

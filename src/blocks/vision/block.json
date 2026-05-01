@@ -35,8 +35,8 @@
     },
     "background": {
       "type": "string",
-      "default": "aqua",
-      "enum": ["navy", "paper", "cream", "sage", "sky", "aqua", "sun", "coral"]
+      "default": "royal",
+      "enum": ["navy", "royal", "paper", "cream", "sage", "sky", "aqua", "sun", "coral"]
     }
   },
   "editorScript": "file:./index.js",
