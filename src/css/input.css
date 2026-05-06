@@ -696,7 +696,7 @@
     line-height: 1;
     letter-spacing: -0.01em;
     text-transform: uppercase;
-    color: var(--chosen-red, #F71A1D);
+    color: var(--chosen-gold, #EDA90C);
     white-space: nowrap; /* never break "Be Radiant" across lines */
   }
 
