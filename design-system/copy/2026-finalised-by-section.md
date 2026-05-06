@@ -109,11 +109,11 @@ Style notes carried throughout:
 - Body:
   For those who know Chosen Conference, this isn't the first time it's happened. So why now?
 
-  Chosen last ran in 2019. Then COVID hit, and like so much else, it paused.
+  Chosen last ran in 2019. Then COVID hit, and like so much else, it paused. But now it's back — and the timing matters.
 
-  But now it's back — and the timing matters.
+  The Church is building toward something significant. **World Youth Day** arrives in Korea in 2027. The **54th International Eucharistic Congress** comes to Sydney in 2028 — a major global Catholic gathering focused on the Real Presence of Jesus in the Eucharist. And in 2033, we mark the **2000th anniversary of the Redemption** of Jesus Christ.
 
-  The Church is building toward something significant, and these aren't just calendar events. They're a moment the Church is preparing for, and young people are at the heart of that preparation.
+  These aren't just calendar events. They're a moment the Church is preparing for, and young people are at the heart of that preparation.
 
   We believe this generation of young Australians has a real role to play in all of it. But that starts here, now — with young people who are rooted in Jesus, who know who they are, who they belong to, and what they're called to.
 
