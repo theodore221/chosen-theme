@@ -493,6 +493,10 @@
     line-height: 0.95;
     letter-spacing: -0.01em;
     text-transform: uppercase;
+    /* Balance line lengths so the last line doesn't widow with one word
+       (e.g. "AUSTRALIANS." alone). Modern browsers only — older fall
+       back to the natural greedy wrap. */
+    text-wrap: balance;
   }
   .chosen-display-2xl {
     font-family: 'Anton', sans-serif;
@@ -503,6 +507,7 @@
     line-height: 0.92;
     letter-spacing: -0.015em;
     text-transform: uppercase;
+    text-wrap: balance;
   }
   .chosen-display-mark {
     /* Oversized typographic ornament (e.g. opening quote glyph). Decorative
@@ -666,6 +671,34 @@
     line-height: 1.65;
   }
   .chosen-story__body p + p { margin-top: 1.1em; }
+
+  /* Closing cadence treatment used by the LEAD_IN section — stacks the
+     three "calling" lines as a quiet manifesto with a gold left rule,
+     then promotes "Be Radiant." into a display-font stamp underneath.
+     Keeps the brand theme word visually self-contained instead of
+     buried mid-paragraph as <strong>. */
+  .chosen-story__call {
+    margin-top: 2.5em;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--chosen-gold, #EDA90C);
+  }
+  .chosen-story__call p {
+    margin: 0 0 0.4em 0;
+    font-style: italic;
+  }
+  .chosen-story__call p:last-child {
+    margin: 0.6em 0 0 0;
+  }
+  .chosen-story__be-radiant {
+    font-family: 'Anton', sans-serif;
+    font-style: normal !important;
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--chosen-red, #F71A1D);
+    white-space: nowrap; /* never break "Be Radiant" across lines */
+  }
 
   /* ---- Story-section "theme" variant ---- The single scripture pedestal
      on the home page (and About PART II). Oversized heading, floating

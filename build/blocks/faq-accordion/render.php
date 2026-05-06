@@ -46,7 +46,7 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 				</p>
 			<?php endif; ?>
 			<?php if ( $headline ) : ?>
-				<h2 class="font-display mt-3 text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] uppercase tracking-tight text-chosen-navy">
+				<h2 class="font-display mt-3 max-w-2xl text-balance text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] uppercase tracking-tight text-chosen-navy">
 					<?php echo esc_html( $headline ); ?>
 				</h2>
 			<?php endif; ?>

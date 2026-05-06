@@ -48,7 +48,7 @@ $wrapper_attrs = get_block_wrapper_attributes( $wrapper_args );
 				</p>
 			<?php endif; ?>
 			<?php if ( $headline ) : ?>
-				<h2 class="font-display mt-3 text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] uppercase tracking-tight text-chosen-navy">
+				<h2 class="font-display mt-3 max-w-3xl text-balance text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] uppercase tracking-tight text-chosen-navy">
 					<?php echo esc_html( $headline ); ?>
 				</h2>
 			<?php endif; ?>
@@ -102,7 +102,7 @@ $wrapper_attrs = get_block_wrapper_attributes( $wrapper_args );
 						<?php if ( ! $has_photo ) : ?>
 							<span class="chosen-streams-grid__accent absolute left-7 right-7 top-0 h-[3px] rounded-b-full bg-chosen-gold" aria-hidden="true"></span>
 						<?php endif; ?>
-						<h3 class="font-display text-[clamp(1.85rem,3vw,2.4rem)] leading-[0.98] uppercase tracking-tight text-chosen-navy">
+						<h3 class="font-display text-balance text-[clamp(1.85rem,3vw,2.4rem)] leading-[0.98] uppercase tracking-tight text-chosen-navy">
 							<?php echo esc_html( $name ); ?>
 						</h3>
 						<?php if ( $age_band && ! $has_photo ) : ?>

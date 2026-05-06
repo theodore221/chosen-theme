@@ -40,7 +40,7 @@ $wrapper_attrs = get_block_wrapper_attributes( $wrapper_args );
 			</p>
 		<?php endif; ?>
 		<?php if ( $headline ) : ?>
-			<h2 class="font-display mt-4 max-w-4xl text-[clamp(2.25rem,5vw,4rem)] uppercase leading-[1.04] tracking-tight text-chosen-navy" data-split="line">
+			<h2 class="font-display mt-4 max-w-4xl text-balance text-[clamp(2.25rem,5vw,4rem)] uppercase leading-[1.04] tracking-tight text-chosen-navy" data-split="line">
 				<?php echo esc_html( $headline ); ?>
 			</h2>
 		<?php endif; ?>
@@ -53,8 +53,8 @@ $wrapper_attrs = get_block_wrapper_attributes( $wrapper_args );
 				$span_class = $featured ? 'lg:col-span-2' : 'lg:col-span-1';
 				$pad_class  = $featured ? 'p-8 md:p-12 min-h-[320px] flex flex-col justify-end' : 'p-6';
 				$h_class    = $featured
-					? 'font-display text-[clamp(1.75rem,3.2vw,2.5rem)] uppercase leading-[1] tracking-tight'
-					: 'font-sans text-[17px] font-bold leading-snug';
+					? 'font-display text-balance text-[clamp(1.75rem,3.2vw,2.5rem)] uppercase leading-[1] tracking-tight'
+					: 'font-sans text-balance text-[17px] font-bold leading-snug';
 				$photo_stem = isset( $tile['photoStem'] ) ? preg_replace( '/[^a-z0-9_-]/', '', (string) $tile['photoStem'] ) : '';
 				$has_photo  = $featured && '' !== $photo_stem;
 				$photo_base = $theme_uri . '/assets/img/photos-real/' . $photo_stem;
