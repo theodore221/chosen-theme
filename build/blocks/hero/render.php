@@ -158,16 +158,16 @@ $len_part_1 = mb_strlen( $wordmark_part_1 );
 
 		<div class="chosen-hero__primary">
 
+			<h1 class="chosen-hero__wordmark chosen-wordmark chosen-wordmark--lockup chosen-fade-up font-sans text-[clamp(3rem,9vw,9rem)] font-bold leading-[0.95] uppercase tracking-[0.05em] text-white whitespace-nowrap">
+				<?php echo chosen_hero_split_chars( $wordmark_part_1, 0 ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span class="chosen-wordmark__o" aria-hidden="true"></span><?php echo chosen_hero_split_chars( $wordmark_part_2, $len_part_1 + 1 ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+			</h1>
+
 			<?php if ( $eyebrow ) : ?>
-				<p class="chosen-hero__eyebrow flex items-center gap-3 text-[13px] md:text-[15px] font-bold uppercase tracking-[0.2em] text-chosen-gold">
-					<span class="inline-block h-px w-10 bg-chosen-gold/70" aria-hidden="true"></span>
+				<p class="chosen-hero__eyebrow chosen-fade-up mt-5 flex items-center gap-3 md:gap-4 text-[13px] md:text-[16px] font-bold uppercase tracking-[0.22em] text-chosen-gold">
+					<span class="inline-block h-px w-10 md:w-14 flex-shrink-0 bg-chosen-gold/70" aria-hidden="true"></span>
 					<span><?php echo esc_html( $eyebrow ); ?></span>
 				</p>
 			<?php endif; ?>
-
-			<h1 class="chosen-hero__wordmark chosen-wordmark chosen-wordmark--lockup chosen-fade-up mt-6 font-sans text-[clamp(3rem,9vw,9rem)] font-bold leading-[0.95] uppercase tracking-[0.05em] text-white whitespace-nowrap">
-				<?php echo chosen_hero_split_chars( $wordmark_part_1, 0 ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span class="chosen-wordmark__o" aria-hidden="true"></span><?php echo chosen_hero_split_chars( $wordmark_part_2, $len_part_1 + 1 ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-			</h1>
 
 			<?php if ( $legacy_chip_label ) : ?>
 				<div class="chosen-fade-up mt-6">
