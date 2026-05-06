@@ -60,37 +60,72 @@ $wrapper_attrs = get_block_wrapper_attributes( $wrapper_args );
 		</div>
 
 		<div class="chosen-streams-grid__cards mt-12 grid gap-6 md:grid-cols-3 md:gap-8">
-			<?php foreach ( $streams as $stream ) :
-				$name     = isset( $stream['name'] ) ? (string) $stream['name'] : '';
-				$age_band = isset( $stream['ageBand'] ) ? (string) $stream['ageBand'] : '';
-				$intro    = isset( $stream['intro'] ) ? (string) $stream['intro'] : '';
-				$topics   = isset( $stream['topics'] ) && is_array( $stream['topics'] ) ? $stream['topics'] : [];
+			<?php
+			$theme_uri = get_theme_file_uri();
+			foreach ( $streams as $stream ) :
+				$name           = isset( $stream['name'] ) ? (string) $stream['name'] : '';
+				$age_band       = isset( $stream['ageBand'] ) ? (string) $stream['ageBand'] : '';
+				$intro          = isset( $stream['intro'] ) ? (string) $stream['intro'] : '';
+				$topics         = isset( $stream['topics'] ) && is_array( $stream['topics'] ) ? $stream['topics'] : [];
+				$photo_stem     = isset( $stream['photoStem'] ) ? preg_replace( '/[^a-z0-9_-]/', '', (string) $stream['photoStem'] ) : '';
+				$photo_position = isset( $stream['photoPosition'] ) ? preg_replace( '/[^a-zA-Z0-9% .-]/', '', (string) $stream['photoPosition'] ) : 'center center';
+				$has_photo      = '' !== $photo_stem;
+				$photo_base     = $theme_uri . '/assets/img/photos-real/' . $photo_stem;
 				?>
-				<article class="chosen-streams-grid__card group relative flex h-full flex-col rounded-[18px] bg-white p-7 md:p-8 shadow-chosen-sm ring-1 ring-chosen-navy/8 transition-all duration-200 ease-out-quart hover:-translate-y-1 hover:shadow-chosen-md">
-					<span class="chosen-streams-grid__accent absolute left-7 right-7 top-0 h-[3px] rounded-b-full bg-chosen-gold" aria-hidden="true"></span>
-					<h3 class="font-display text-[clamp(1.85rem,3vw,2.4rem)] leading-[0.98] uppercase tracking-tight text-chosen-navy">
-						<?php echo esc_html( $name ); ?>
-					</h3>
-					<?php if ( $age_band ) : ?>
-						<p class="mt-2 text-[11px] font-bold uppercase tracking-eyebrow text-chosen-gold">
-							<?php echo esc_html( $age_band ); ?>
-						</p>
+				<article class="chosen-streams-grid__card group relative flex h-full flex-col overflow-hidden rounded-[18px] bg-white shadow-chosen-sm ring-1 ring-chosen-navy/8 transition-all duration-300 ease-out-quart hover:-translate-y-1 hover:shadow-chosen-md">
+					<?php if ( $has_photo ) : ?>
+						<div class="chosen-streams-grid__media relative aspect-[4/3] overflow-hidden">
+							<picture>
+								<source type="image/webp"
+									srcset="<?php echo esc_url( $photo_base . '-800.webp' ); ?> 800w, <?php echo esc_url( $photo_base . '-1280.webp' ); ?> 1280w"
+									sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
+								<img class="chosen-streams-grid__photo h-full w-full object-cover transition-transform duration-700 ease-out-quart group-hover:scale-[1.04]"
+									src="<?php echo esc_url( $photo_base . '-1280.jpg' ); ?>"
+									srcset="<?php echo esc_url( $photo_base . '-800.jpg' ); ?> 800w, <?php echo esc_url( $photo_base . '-1280.jpg' ); ?> 1280w"
+									sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+									style="object-position: <?php echo esc_attr( $photo_position ); ?>"
+									alt=""
+									loading="lazy"
+									decoding="async"
+									aria-hidden="true" />
+							</picture>
+							<span class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-chosen-navy/35 to-transparent" aria-hidden="true"></span>
+							<?php if ( $age_band ) : ?>
+								<span class="absolute left-5 top-5 inline-block rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold uppercase tracking-eyebrow text-chosen-navy shadow-chosen-sm">
+									<?php echo esc_html( $age_band ); ?>
+								</span>
+							<?php endif; ?>
+						</div>
 					<?php endif; ?>
-					<?php if ( $intro ) : ?>
-						<p class="chosen-streams-grid__intro-body mt-5 text-[15px] leading-relaxed text-chosen-navy/85">
-							<?php echo esc_html( $intro ); ?>
-						</p>
-					<?php endif; ?>
-					<?php if ( ! empty( $topics ) ) : ?>
-						<ul class="chosen-streams-grid__topics mt-6 space-y-2 border-t border-chosen-navy/10 pt-5 text-[14px] text-chosen-navy/85">
-							<?php foreach ( $topics as $topic ) : ?>
-								<li class="flex items-start gap-3">
-									<span class="mt-[7px] inline-block h-[6px] w-[6px] flex-shrink-0 rounded-full bg-chosen-gold" aria-hidden="true"></span>
-									<span><?php echo esc_html( $topic ); ?></span>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					<?php endif; ?>
+
+					<div class="chosen-streams-grid__body relative flex flex-1 flex-col p-7 md:p-8">
+						<?php if ( ! $has_photo ) : ?>
+							<span class="chosen-streams-grid__accent absolute left-7 right-7 top-0 h-[3px] rounded-b-full bg-chosen-gold" aria-hidden="true"></span>
+						<?php endif; ?>
+						<h3 class="font-display text-[clamp(1.85rem,3vw,2.4rem)] leading-[0.98] uppercase tracking-tight text-chosen-navy">
+							<?php echo esc_html( $name ); ?>
+						</h3>
+						<?php if ( $age_band && ! $has_photo ) : ?>
+							<p class="mt-2 text-[11px] font-bold uppercase tracking-eyebrow text-chosen-gold">
+								<?php echo esc_html( $age_band ); ?>
+							</p>
+						<?php endif; ?>
+						<?php if ( $intro ) : ?>
+							<p class="chosen-streams-grid__intro-body mt-4 text-[15px] leading-relaxed text-chosen-navy/85">
+								<?php echo esc_html( $intro ); ?>
+							</p>
+						<?php endif; ?>
+						<?php if ( ! empty( $topics ) ) : ?>
+							<ul class="chosen-streams-grid__topics mt-6 space-y-2 border-t border-chosen-navy/10 pt-5 text-[14px] text-chosen-navy/85">
+								<?php foreach ( $topics as $topic ) : ?>
+									<li class="flex items-start gap-3">
+										<span class="mt-[7px] inline-block h-[6px] w-[6px] flex-shrink-0 rounded-full bg-chosen-gold" aria-hidden="true"></span>
+										<span><?php echo esc_html( $topic ); ?></span>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+					</div>
 				</article>
 			<?php endforeach; ?>
 		</div>

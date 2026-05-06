@@ -41,6 +41,8 @@
           "name": "Teens",
           "ageBand": "Year 10 and above (16+)",
           "intro": "Designed for high schoolers who are figuring out who they are and what they believe. A space to ask the big questions, build great friendships and discover what it actually looks like to live your faith.",
+          "photoStem": "dsc00424",
+          "photoPosition": "center 30%",
           "topics": [
             "Identity and self-worth",
             "Friendship and community",
@@ -53,6 +55,8 @@
           "name": "Young Adults",
           "ageBand": "18 to 35",
           "intro": "For uni students and young professionals trying to figure out adulthood with faith and purpose. The stuff that actually matters at this stage of life? Done.",
+          "photoStem": "dsc09433",
+          "photoPosition": "center 40%",
           "topics": [
             "Discernment and vocation",
             "Faith in the workplace",
@@ -65,6 +69,8 @@
           "name": "Young Couples",
           "ageBand": "18 to 35, married up to 5 years",
           "intro": "For young couples who want to learn and build something strong, together. This stream is about growing in your relationship with each other and with God, and figuring out what a faith-filled life together actually looks like in practice, while juggling kids, jobs and everything in between.",
+          "photoStem": "dsc00635",
+          "photoPosition": "center 35%",
           "topics": [
             "Communication and conflict",
             "Praying as a couple",

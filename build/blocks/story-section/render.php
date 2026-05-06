@@ -61,6 +61,24 @@ $heading_class = $is_theme ? 'chosen-display-2xl' : 'chosen-display-xl';
 
 $anchor = isset( $attributes['anchor'] ) ? (string) $attributes['anchor'] : '';
 
+// Optional video background: theme/heading text flips to white over a navy scrim.
+$video_stem  = isset( $attributes['videoStem'] ) ? preg_replace( '/[^a-z0-9_-]/', '', (string) $attributes['videoStem'] ) : '';
+$has_video   = '' !== $video_stem;
+$theme_uri   = get_theme_file_uri();
+$theme_path  = get_theme_file_path();
+$video_v_mp4    = ( $has_video && file_exists( $theme_path . '/assets/video/' . $video_stem . '.mp4' ) )    ? filemtime( $theme_path . '/assets/video/' . $video_stem . '.mp4' )    : 0;
+$video_v_webm   = ( $has_video && file_exists( $theme_path . '/assets/video/' . $video_stem . '.webm' ) )   ? filemtime( $theme_path . '/assets/video/' . $video_stem . '.webm' )   : 0;
+$video_v_poster = ( $has_video && file_exists( $theme_path . '/assets/video/' . $video_stem . '-poster.jpg' ) ) ? filemtime( $theme_path . '/assets/video/' . $video_stem . '-poster.jpg' ) : 0;
+$video_url_mp4    = $has_video ? $theme_uri . '/assets/video/' . $video_stem . '.mp4?v=' . $video_v_mp4 : '';
+$video_url_webm   = $has_video ? $theme_uri . '/assets/video/' . $video_stem . '.webm?v=' . $video_v_webm : '';
+$video_url_poster = $has_video ? $theme_uri . '/assets/video/' . $video_stem . '-poster.jpg?v=' . $video_v_poster : '';
+
+// Video bg flips background-class to navy + makes section text white. Variant remains intact.
+if ( $has_video ) {
+	$bg_class = 'bg-chosen-navy text-white chosen-story--video';
+	$is_navy  = true;
+}
+
 $wrapper_args = [
 	'class' => 'chosen-story relative overflow-hidden ' . $bg_class . $variant_class . ' ' . $padding_y,
 ];
@@ -70,11 +88,29 @@ if ( $anchor ) {
 $wrapper_attrs = get_block_wrapper_attributes( $wrapper_args );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
+	<?php if ( $has_video ) : ?>
+		<video
+			class="chosen-story__video absolute inset-0 z-0 h-full w-full object-cover"
+			autoplay
+			muted
+			loop
+			playsinline
+			preload="metadata"
+			poster="<?php echo esc_url( $video_url_poster ); ?>"
+			aria-hidden="true"
+		>
+			<?php if ( $video_v_webm ) : ?>
+				<source src="<?php echo esc_url( $video_url_webm ); ?>" type="video/webm" />
+			<?php endif; ?>
+			<source src="<?php echo esc_url( $video_url_mp4 ); ?>" type="video/mp4" />
+		</video>
+		<div class="chosen-story__video-scrim absolute inset-0 z-[1] bg-gradient-to-b from-chosen-navy/55 via-chosen-navy/65 to-chosen-navy/85" aria-hidden="true"></div>
+	<?php endif; ?>
 	<?php if ( $is_theme ) : ?>
 		<span class="chosen-story__ornament" aria-hidden="true"></span>
 		<span class="chosen-story__breath" aria-hidden="true"></span>
 	<?php endif; ?>
-	<div class="relative mx-auto max-w-wide px-6">
+	<div class="relative z-[2] mx-auto max-w-wide px-6">
 		<div class="<?php echo esc_attr( $layout_class ); ?>">
 			<div class="chosen-story__copy chosen-fade-up">
 				<?php if ( $eyebrow ) : ?>
