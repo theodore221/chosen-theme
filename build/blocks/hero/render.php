@@ -147,14 +147,14 @@ $len_part_1 = mb_strlen( $wordmark_part_1 );
 		</div>
 	<?php endif; ?>
 
-	<div class="chosen-hero__top-fade absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-chosen-navy/55 to-transparent pointer-events-none" aria-hidden="true"></div>
-	<div class="chosen-hero__bottom-scrim absolute inset-x-0 bottom-0 z-[1] h-[78%] bg-gradient-to-t from-chosen-navy via-chosen-navy/85 to-transparent pointer-events-none" aria-hidden="true"></div>
+	<div class="chosen-hero__top-fade absolute inset-x-0 top-0 z-[1] h-20 bg-gradient-to-b from-chosen-navy/40 to-transparent pointer-events-none" aria-hidden="true"></div>
+	<div class="chosen-hero__bottom-scrim absolute inset-x-0 bottom-0 z-[1] h-[58%] bg-gradient-to-t from-chosen-navy via-chosen-navy/85 to-transparent pointer-events-none" aria-hidden="true"></div>
 
 	<?php if ( $enable_rays ) : ?>
 		<div class="chosen-hero__rays chosen-hero__rays--shift absolute inset-0 z-[1] pointer-events-none" aria-hidden="true" data-rays="18"></div>
 	<?php endif; ?>
 
-	<div class="chosen-hero__content relative z-[2] mx-auto flex min-h-[88vh] md:min-h-[92vh] max-w-wide flex-col justify-end px-6 pt-32 pb-14 md:pb-20">
+	<div class="chosen-hero__content relative z-[2] mx-auto flex min-h-[88vh] md:min-h-[92vh] max-w-wide flex-col justify-end px-6 pt-32 pb-10 md:pb-14">
 
 		<div class="chosen-hero__primary">
 
