@@ -77,11 +77,15 @@ $video_mp4    = $theme_uri . '/assets/video/chosen-hero-loop.mp4?v=' . $video_v_
 $video_webm   = $theme_uri . '/assets/video/chosen-hero-loop.webm?v=' . $video_v_webm;
 $video_poster = $theme_uri . '/assets/video/chosen-hero-poster.jpg?v=' . $video_v_poster;
 
+// If the template sets an anchor, use it as the section id so anchor links
+// (e.g. nav targets) work AND the rays JS scope can find the same element.
+$anchor  = isset( $attributes['anchor'] ) ? (string) $attributes['anchor'] : '';
+$hero_id = $anchor ? $anchor : 'chosen-hero-' . wp_unique_id();
+
 $wrapper_attrs = get_block_wrapper_attributes( [
 	'class' => 'chosen-hero relative isolate w-full overflow-hidden bg-chosen-navy text-white min-h-[88vh] md:min-h-[92vh]',
+	'id'    => $hero_id,
 ] );
-
-$hero_id = 'chosen-hero-' . wp_unique_id();
 
 /**
  * Render a string as a sequence of <span> elements, one per character, each
@@ -109,7 +113,7 @@ function chosen_hero_split_chars( $text, $start_idx = 0 ) {
 
 $len_part_1 = mb_strlen( $wordmark_part_1 );
 ?>
-<section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?> id="<?php echo esc_attr( $hero_id ); ?>">
+<section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 
 	<?php if ( $enable_video ) : ?>
 		<video

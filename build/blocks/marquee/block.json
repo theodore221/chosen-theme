@@ -5,7 +5,7 @@
   "title": "Marquee",
   "category": "chosen",
   "icon": "controls-repeat",
-  "description": "Infinite scrolling text strip — single-layer, intentional copy. Defaults to a CHOSEN-led conference signal: name, descriptor, dates, theme, cite. Pauses on hover; off with reduced motion.",
+  "description": "Infinite scrolling text strip, single-layer, intentional copy. Defaults to a CHOSEN-led conference signal: name, descriptor, dates, theme, cite. Pauses on hover; off with reduced motion.",
   "keywords": [
     "marquee",
     "ticker",

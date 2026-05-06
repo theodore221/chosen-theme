@@ -39,9 +39,14 @@ $cta_disabled = '' === $register_url;
 // Soft-tint backgrounds for the 3 callouts. Stays inside the brand palette.
 $callout_bg_classes = [ 'bg-chosen-sun', 'bg-chosen-coral', 'bg-chosen-aqua' ];
 
-$wrapper_attrs = get_block_wrapper_attributes( [
+$anchor = isset( $attributes['anchor'] ) ? (string) $attributes['anchor'] : '';
+$wrapper_args = [
 	'class' => 'chosen-pricing-tiers relative w-full ' . $bg_class . ' py-20 md:py-28',
-] );
+];
+if ( $anchor ) {
+	$wrapper_args['id'] = $anchor;
+}
+$wrapper_attrs = get_block_wrapper_attributes( $wrapper_args );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 	<div class="mx-auto max-w-wide px-6">

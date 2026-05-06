@@ -59,9 +59,15 @@ $padding_y = $is_theme ? 'py-32 md:py-44' : 'py-24 md:py-32';
 $variant_class = $is_theme ? ' chosen-story--theme' : '';
 $heading_class = $is_theme ? 'chosen-display-2xl' : 'chosen-display-xl';
 
-$wrapper_attrs = get_block_wrapper_attributes( [
+$anchor = isset( $attributes['anchor'] ) ? (string) $attributes['anchor'] : '';
+
+$wrapper_args = [
 	'class' => 'chosen-story relative overflow-hidden ' . $bg_class . $variant_class . ' ' . $padding_y,
-] );
+];
+if ( $anchor ) {
+	$wrapper_args['id'] = $anchor;
+}
+$wrapper_attrs = get_block_wrapper_attributes( $wrapper_args );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 	<?php if ( $is_theme ) : ?>

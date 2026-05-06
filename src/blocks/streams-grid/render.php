@@ -30,9 +30,14 @@ $bg_class_map = [
 ];
 $bg_class = isset( $bg_class_map[ $background ] ) ? $bg_class_map[ $background ] : 'bg-chosen-cream';
 
-$wrapper_attrs = get_block_wrapper_attributes( [
+$anchor = isset( $attributes['anchor'] ) ? (string) $attributes['anchor'] : '';
+$wrapper_args = [
 	'class' => 'chosen-streams-grid relative w-full ' . $bg_class . ' py-20 md:py-28',
-] );
+];
+if ( $anchor ) {
+	$wrapper_args['id'] = $anchor;
+}
+$wrapper_attrs = get_block_wrapper_attributes( $wrapper_args );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 	<div class="mx-auto max-w-wide px-6">

@@ -5,7 +5,7 @@
   "title": "Expect Tile Grid",
   "category": "chosen",
   "icon": "screenoptions",
-  "description": "Grid of cards describing what attendees can expect — adoration, talks, workshops, theatre. Hover lifts each tile and slides in a gold top accent.",
+  "description": "Grid of cards describing what attendees can expect, adoration, talks, workshops, theatre. Hover lifts each tile and slides in a gold top accent.",
   "keywords": ["tiles", "grid", "expect", "cards"],
   "supports": {
     "html": false,

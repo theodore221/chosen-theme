@@ -31,7 +31,7 @@
     },
     "subhead": {
       "type": "string",
-      "default": "We know money is rough — and the further you're travelling, the more you're already spending to get here. The tiered pricing is our way of making sure distance isn't a reason to stay home."
+      "default": "We know money is rough, and the further you're travelling, the more you're already spending to get here. The tiered pricing is our way of making sure distance isn't a reason to stay home."
     },
     "tiers": {
       "type": "array",
@@ -79,7 +79,7 @@
         },
         {
           "title": "Payment plans",
-          "body": "Need help with the cost? We don't want money to be the reason anyone misses out. Custom payment plans are available — just reach out to info@chosenconference.org.au and we'll work something out together."
+          "body": "Need help with the cost? We don't want money to be the reason anyone misses out. Custom payment plans are available, just reach out to info@chosenconference.org.au and we'll work something out together."
         }
       ]
     },

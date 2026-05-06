@@ -60,6 +60,23 @@ function chosen_setup_pages(): void {
 add_action( 'after_switch_theme', 'chosen_setup_pages' );
 
 /**
+ * Belt-and-braces: also run setup once on init when the theme is updated
+ * with new expected pages (e.g. Partner / Expo / Volunteer added later).
+ * The original after_switch_theme hook only fires on activation; if the
+ * theme was already active when the slug list grew, those pages would
+ * never get created. An option flag keeps this to a single DB write.
+ */
+add_action( 'init', 'chosen_ensure_pages_once' );
+function chosen_ensure_pages_once(): void {
+	$flag_key = 'chosen_pages_setup_v2';
+	if ( get_option( $flag_key ) ) {
+		return;
+	}
+	chosen_setup_pages();
+	update_option( $flag_key, '1', false );
+}
+
+/**
  * Admin notice: if any expected pages are missing on a request after
  * activation (e.g. one was deleted), surface a "Set up Chosen pages"
  * notice with a one-click recreate action.

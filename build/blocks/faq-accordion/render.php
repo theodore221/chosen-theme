@@ -27,13 +27,17 @@ $bg_class_map = [
 ];
 $bg_class = isset( $bg_class_map[ $background ] ) ? $bg_class_map[ $background ] : 'bg-chosen-paper';
 
-$accordion_id = 'chosen-faq-' . wp_unique_id();
+// If a static anchor is set (e.g. nav target #faqs), use it as the section id
+// so anchor links work AND the accordion's single-open JS can scope to it.
+$anchor       = isset( $attributes['anchor'] ) ? (string) $attributes['anchor'] : '';
+$accordion_id = $anchor ? $anchor : 'chosen-faq-' . wp_unique_id();
 
 $wrapper_attrs = get_block_wrapper_attributes( [
 	'class' => 'chosen-faq-accordion relative w-full ' . $bg_class . ' py-20 md:py-28',
+	'id'    => $accordion_id,
 ] );
 ?>
-<section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?> id="<?php echo esc_attr( $accordion_id ); ?>">
+<section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 	<div class="mx-auto max-w-3xl px-6">
 		<div class="chosen-faq-accordion__intro max-w-2xl">
 			<?php if ( $eyebrow ) : ?>

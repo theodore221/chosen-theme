@@ -6,7 +6,7 @@
 defined( 'ABSPATH' ) || exit;
 
 define( 'CHOSEN_VERSION', '1.0.0' );
-define( 'CHOSEN_REGISTER_URL', '' ); // TODO: set to real signup URL before launch
+define( 'CHOSEN_REGISTER_URL', 'https://chosen.jyconverge.com/' );
 
 require_once get_template_directory() . '/inc/block-registration.php';
 require_once get_template_directory() . '/inc/menus.php';

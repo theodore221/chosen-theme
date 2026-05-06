@@ -5,7 +5,7 @@
   "title": "Timeline Strip",
   "category": "chosen",
   "icon": "clock",
-  "description": "Horizontal milestone strip — 4 nodes connected by a line. Used for the 'Why Chosen now?' generational arc (2026 Chosen → 2027 WYD → 2028 IEC → 2033 Redemption Anniversary).",
+  "description": "Horizontal milestone strip, 4 nodes connected by a line. Used for the 'Why Chosen now?' generational arc (2026 Chosen → 2027 WYD → 2028 IEC → 2033 Redemption Anniversary).",
   "keywords": ["timeline", "milestones", "why now"],
   "supports": {
     "html": false,
@@ -19,7 +19,7 @@
     },
     "headline": {
       "type": "string",
-      "default": "The Church is building toward something — and you're part of it."
+      "default": "The Church is building toward something, and you're part of it."
     },
     "subhead": {
       "type": "string",
@@ -43,7 +43,7 @@
         {
           "year": "2028",
           "name": "International Eucharistic Congress, Sydney",
-          "description": "The 54th IEC — the Real Presence of Jesus celebrated, on Australian soil.",
+          "description": "The 54th IEC, the Real Presence of Jesus celebrated, on Australian soil.",
           "current": false
         },
         {

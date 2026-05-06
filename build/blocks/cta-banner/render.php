@@ -30,9 +30,14 @@ $cta_is_mailto = 0 === strpos( $cta_href, 'mailto:' );
 $theme_uri = get_theme_file_uri();
 $photo_base = $theme_uri . '/assets/img/photos-real/' . $photo_stem;
 
-$wrapper_attrs = get_block_wrapper_attributes( [
+$anchor = isset( $attributes['anchor'] ) ? (string) $attributes['anchor'] : '';
+$wrapper_args = [
 	'class' => 'chosen-cta-banner relative isolate overflow-hidden bg-chosen-navy text-white py-32 md:py-44',
-] );
+];
+if ( $anchor ) {
+	$wrapper_args['id'] = $anchor;
+}
+$wrapper_attrs = get_block_wrapper_attributes( $wrapper_args );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 	<?php if ( $enable_photo ) : ?>

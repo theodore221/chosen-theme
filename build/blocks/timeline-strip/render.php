@@ -34,9 +34,14 @@ $rule_dim    = $is_dark ? 'bg-white/25' : 'bg-chosen-navy/20';
 $year_dim    = $is_dark ? 'text-white' : 'text-chosen-navy';
 $desc_class  = $is_dark ? 'text-white/80' : 'text-chosen-navy/80';
 
-$wrapper_attrs = get_block_wrapper_attributes( [
+$anchor = isset( $attributes['anchor'] ) ? (string) $attributes['anchor'] : '';
+$wrapper_args = [
 	'class' => 'chosen-timeline-strip relative w-full ' . $bg_class . ' py-20 md:py-28',
-] );
+];
+if ( $anchor ) {
+	$wrapper_args['id'] = $anchor;
+}
+$wrapper_attrs = get_block_wrapper_attributes( $wrapper_args );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 	<div class="mx-auto max-w-wide px-6">
