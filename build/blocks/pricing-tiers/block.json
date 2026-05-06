@@ -39,17 +39,17 @@
         {
           "region": "VIC",
           "price": "$330",
-          "description": "Victorian attendees."
+          "description": "From Victoria."
         },
         {
           "region": "NSW · ACT · QLD · SA",
           "price": "$290",
-          "description": "East coast and South Australia."
+          "description": "From New South Wales, the Australian Capital Territory, Queensland or South Australia."
         },
         {
           "region": "WA · TAS · NT",
           "price": "$230",
-          "description": "Western Australia, Tasmania, Northern Territory."
+          "description": "From Western Australia, Tasmania or the Northern Territory."
         }
       ]
     },

@@ -147,9 +147,9 @@ Style notes carried throughout:
 - Headline: One conference. Tiered by where you're coming from.
 - Subhead: We know money is rough — and the further you're travelling, the more you're already spending to get here. The tiered pricing is our way of making sure distance isn't a reason to stay home.
 - Items / list:
-  - **VIC — $330** — Victorian attendees.
-  - **NSW, ACT, QLD, SA — $290** — East coast and South Australia.
-  - **WA, TAS, NT — $230** — Western Australia, Tasmania, Northern Territory.
+  - **VIC — $330** — From Victoria.
+  - **NSW, ACT, QLD, SA — $290** — From New South Wales, the Australian Capital Territory, Queensland or South Australia.
+  - **WA, TAS, NT — $230** — From Western Australia, Tasmania or the Northern Territory.
 - Body:
   **Your registration covers everything:**
   - Lunch and dinner each day
