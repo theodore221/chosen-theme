@@ -164,7 +164,7 @@ $len_part_1 = mb_strlen( $wordmark_part_1 );
 				</p>
 			<?php endif; ?>
 
-			<h1 class="chosen-hero__wordmark chosen-wordmark chosen-wordmark--lockup chosen-fade-up mt-4 font-sans text-[clamp(3.5rem,11vw,12rem)] font-bold leading-[0.95] uppercase tracking-[0.05em] text-white whitespace-nowrap">
+			<h1 class="chosen-hero__wordmark chosen-wordmark chosen-wordmark--lockup chosen-fade-up mt-4 font-sans text-[clamp(3rem,9vw,9rem)] font-bold leading-[0.95] uppercase tracking-[0.05em] text-white whitespace-nowrap">
 				<?php echo chosen_hero_split_chars( $wordmark_part_1, 0 ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span class="chosen-wordmark__o" aria-hidden="true"></span><?php echo chosen_hero_split_chars( $wordmark_part_2, $len_part_1 + 1 ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			</h1>
 
@@ -181,7 +181,7 @@ $len_part_1 = mb_strlen( $wordmark_part_1 );
 				</div>
 			<?php elseif ( $theme_word_1 || $theme_word_2 ) : ?>
 				<div class="chosen-hero__theme chosen-fade-up mt-3 flex flex-wrap items-baseline gap-x-5 gap-y-2">
-					<p class="chosen-hero__theme-word font-display text-[clamp(2.25rem,5.5vw,6rem)] leading-[0.95] uppercase">
+					<p class="chosen-hero__theme-word font-display text-[clamp(2rem,4.2vw,4.5rem)] leading-[0.95] uppercase">
 						<?php if ( $theme_word_1 ) : ?>
 							<span class="text-chosen-gold"><?php echo esc_html( $theme_word_1 ); ?></span>
 						<?php endif; ?>

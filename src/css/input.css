@@ -486,15 +486,21 @@
      blocks on small viewports. */
   .chosen-display-xl {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(56px, 12vw, 192px);
-    line-height: 0.92;
+    /* Was clamp(56,12vw,192px) — felt poster-scale at desktop. Tightened
+       so section headings sit ~30% smaller at the upper bound; clamp min
+       holds at 44px so mobile lockup isn't crushed. */
+    font-size: clamp(44px, 7vw, 104px);
+    line-height: 0.95;
     letter-spacing: -0.01em;
     text-transform: uppercase;
   }
   .chosen-display-2xl {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(80px, 14vw, 240px);
-    line-height: 0.9;
+    /* Was clamp(80,14vw,240px). Theme variant ("Be Radiant") still wants
+       to dominate the page, but 240px was overpowering — 144px max keeps
+       it as the largest type on the page without breaking grid. */
+    font-size: clamp(60px, 9vw, 144px);
+    line-height: 0.92;
     letter-spacing: -0.015em;
     text-transform: uppercase;
   }
