@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CHOSEN conference — Direction B · Golden Hour Gospel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bone-cream: #F4ECDC;
+    --marigold: #F2A52A;
+    --terracotta: #D9573B;
+    --dusty-rose: #E5B6A8;
+    --aubergine: #2A1733;
+
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+    --measure: 64ch;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bone-cream);
+    color: var(--aubergine);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+
+  /* ───── shared rule ───── */
+  .gold-rule {
+    height: 4px;
+    background: var(--marigold);
+    border: 0;
+    width: 64px;
+  }
+  .gold-rule--full { width: 100%; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    color: var(--terracotta);
+  }
+  .eyebrow--marigold { color: var(--marigold); }
+  .eyebrow--cream { color: var(--bone-cream); }
+
+  /* ───── nav ───── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bone-cream);
+    border-bottom: 1px solid rgba(42, 23, 51, 0.18);
+    padding: 1rem var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav__brand {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    color: var(--aubergine);
+    text-decoration: none;
+  }
+  .nav__brand-mark {
+    font-family: var(--sans);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 1.4rem; /* 61% rough proportion */
+    line-height: 1;
+  }
+  .nav__brand-sub {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.48rem; /* 21% rough proportion */
+    letter-spacing: 0.16em;
+    text-transform: lowercase;
+    color: var(--aubergine);
+    opacity: 0.85;
+  }
+  .nav__cta {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: var(--marigold);
+    color: var(--aubergine);
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 4px;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .nav__cta:hover {
+    box-shadow: 0 8px 24px -10px rgba(242, 165, 42, 0.7);
+    transform: translateY(-1px);
+  }
+
+  /* ───── buttons ───── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 1.1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    transition: box-shadow 220ms ease, transform 220ms ease, background 220ms ease;
+  }
+  .btn--primary {
+    background: var(--marigold);
+    color: var(--aubergine);
+  }
+  .btn--primary:hover {
+    box-shadow: 0 14px 36px -14px rgba(242, 165, 42, 0.85);
+    transform: translateY(-1px);
+  }
+  .btn--secondary {
+    background: var(--terracotta);
+    color: var(--bone-cream);
+  }
+  .btn--secondary:hover {
+    box-shadow: 0 14px 36px -14px rgba(217, 87, 59, 0.7);
+    transform: translateY(-1px);
+  }
+  .btn--ghost {
+    background: transparent;
+    color: var(--aubergine);
+    border: 1px solid var(--aubergine);
+  }
+  .btn--ghost:hover {
+    background: var(--aubergine);
+    color: var(--bone-cream);
+  }
+
+  /* ───── hero ───── */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background: var(--aubergine);
+    isolation: isolate;
+  }
+  .hero__photo {
+    position: absolute; inset: 0;
+    background-image: url('../../../assets/img/photos-real/dsc00143-1280.jpg');
+    background-size: cover;
+    background-position: center 35%;
+    filter: saturate(1.05) contrast(1.02);
+    z-index: 0;
+  }
+  .hero__overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(42,23,51,0.05) 0%, rgba(42,23,51,0.55) 60%, rgba(42,23,51,0.78) 100%),
+      linear-gradient(120deg, rgba(242,165,42,0.18) 0%, rgba(217,87,59,0.10) 100%);
+    z-index: 1;
+  }
+  .hero__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 7rem var(--gutter) 4.5rem;
+    color: var(--bone-cream);
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .hero__title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-variation-settings: "opsz" 144;
+    color: var(--bone-cream);
+    line-height: 0.88;
+    letter-spacing: -0.015em;
+    font-size: clamp(4.5rem, 14vw, 12rem);
+    margin-bottom: 1.75rem;
+  }
+  .hero__title span {
+    display: block;
+  }
+  .hero__title span:last-child {
+    padding-left: clamp(1rem, 6vw, 5rem);
+  }
+  .hero__rule {
+    margin-bottom: 1.5rem;
+  }
+  .hero__verse-eyebrow {
+    margin-bottom: 0.75rem;
+  }
+  .hero__verse {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-variation-settings: "opsz" 24;
+    font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+    line-height: 1.45;
+    max-width: 38ch;
+    color: var(--bone-cream);
+    margin-bottom: 2rem;
+  }
+  .hero__meta {
+    font-family: var(--sans);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    color: var(--bone-cream);
+    opacity: 0.92;
+    margin-bottom: 2rem;
+  }
+
+  /* ───── section base ───── */
+  .section {
+    padding: clamp(4rem, 9vw, 7rem) var(--gutter);
+  }
+  .section__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section--cream { background: var(--bone-cream); color: var(--aubergine); }
+  .section--rose { background: var(--dusty-rose); color: var(--aubergine); }
+  .section--aubergine { background: var(--aubergine); color: var(--bone-cream); }
+  .section--terracotta { background: var(--terracotta); color: var(--bone-cream); }
+
+  /* about */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .about { grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+  }
+  .about__head .gold-rule { margin: 0.85rem 0 1.5rem; }
+  .about h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--aubergine);
+  }
+  .about__body p {
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--aubergine);
+    max-width: var(--measure);
+  }
+
+  /* stats */
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  @media (min-width: 768px) {
+    .stats { grid-template-columns: repeat(4, 1fr); }
+  }
+  .stat {
+    padding: 2rem 1.25rem;
+    text-align: center;
+    border-bottom: 4px solid var(--marigold);
+    border-right: 4px solid var(--marigold);
+  }
+  .stat:nth-child(2n) { border-right: 0; }
+  @media (min-width: 768px) {
+    .stat { border-bottom: 0; border-right: 4px solid var(--marigold); }
+    .stat:last-child { border-right: 0; }
+    .stat:nth-child(2n) { border-right: 4px solid var(--marigold); }
+    .stat:last-child { border-right: 0; }
+  }
+  .stat__num {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-variation-settings: "opsz" 144;
+    color: var(--marigold);
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat__label {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bone-cream);
+    margin-top: 0.85rem;
+  }
+
+  /* expect grid */
+  .expect__head {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .expect__head .gold-rule { margin: 1rem auto 1.5rem; }
+  .expect__head h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    line-height: 1.05;
+    color: var(--aubergine);
+    max-width: 22ch;
+    margin: 0 auto;
+  }
+  .expect__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 640px) { .expect__grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .expect__grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .card {
+    background: var(--bone-cream);
+    padding: 1.25rem 1.25rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 260ms ease, box-shadow 260ms ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -22px rgba(42, 23, 51, 0.45);
+  }
+  .card__photo {
+    aspect-ratio: 3 / 4;
+    width: 100%;
+    border-radius: 50% 50% 8px 8px / 30% 30% 8px 8px;
+    overflow: hidden;
+    background: var(--dusty-rose);
+    margin-bottom: 1.25rem;
+  }
+  .card__photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(1.02) contrast(1.02);
+  }
+  .card__title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-variation-settings: "opsz" 36;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    color: var(--aubergine);
+    margin-bottom: 0.5rem;
+  }
+  .card__desc {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--aubergine);
+    opacity: 0.85;
+  }
+
+  /* closing CTA */
+  .cta {
+    text-align: center;
+    padding-top: clamp(5rem, 10vw, 8rem);
+    padding-bottom: clamp(5rem, 10vw, 8rem);
+  }
+  .cta .eyebrow { display: block; margin-bottom: 2rem; }
+  .cta__quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(1.85rem, 4vw, 3.25rem);
+    line-height: 1.18;
+    color: var(--bone-cream);
+    max-width: 24ch;
+    margin: 0 auto 2rem;
+    letter-spacing: -0.005em;
+  }
+  .cta .gold-rule { margin: 0 auto 2.5rem; }
+
+  /* footer */
+  .footer {
+    padding: 4rem var(--gutter) 3rem;
+    background: var(--aubergine);
+    color: var(--bone-cream);
+  }
+  .footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .footer__inner { grid-template-columns: 1fr 1fr 1fr; align-items: start; }
+  }
+  .footer__logo img { width: 160px; height: auto; }
+  .footer__address {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--bone-cream);
+    opacity: 0.85;
+    margin-top: 1rem;
+  }
+  .footer__socials {
+    display: flex; gap: 1rem; align-items: center;
+    margin-top: 1rem;
+  }
+  .footer__socials a {
+    width: 38px; height: 38px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(244, 236, 220, 0.4);
+    border-radius: 50%;
+    color: var(--bone-cream);
+    text-decoration: none;
+    transition: background 200ms ease, border-color 200ms ease;
+  }
+  .footer__socials a:hover { background: var(--marigold); border-color: var(--marigold); color: var(--aubergine); }
+  .footer__socials svg { width: 16px; height: 16px; }
+
+  .footer__pull {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-variation-settings: "opsz" 36;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: var(--bone-cream);
+    max-width: 28ch;
+  }
+  .footer__pull cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--marigold);
+    margin-top: 1rem;
+  }
+
+  /* design system panel */
+  #design-system-reference {
+    background: var(--bone-cream);
+    color: var(--aubergine);
+    padding: 5rem var(--gutter);
+    border-top: 4px solid var(--marigold);
+  }
+  .ds__inner { max-width: 1200px; margin: 0 auto; }
+  .ds__title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--aubergine);
+    margin-bottom: 0.5rem;
+  }
+  .ds__sub {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 3rem;
+  }
+  .ds__h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--aubergine);
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(42, 23, 51, 0.2);
+  }
+
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) { .swatches { grid-template-columns: repeat(5, 1fr); } }
+  .swatch {
+    display: flex;
+    flex-direction: column;
+  }
+  .swatch__chip {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 200px;
+    border-radius: 4px;
+    border: 1px solid rgba(42, 23, 51, 0.12);
+  }
+  .swatch__name {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: 0.85rem;
+    color: var(--aubergine);
+  }
+  .swatch__hex {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--aubergine);
+    opacity: 0.6;
+    margin-top: 0.15rem;
+  }
+
+  .specimen { display: grid; gap: 1.25rem; }
+  .specimen__row {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(42, 23, 51, 0.12);
+  }
+  .specimen__label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+  }
+  .specimen__sample-144 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: 0.9;
+    color: var(--aubergine);
+  }
+  .specimen__sample-72 {
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 72;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--aubergine);
+  }
+  .specimen__sample-24 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-variation-settings: "opsz" 24;
+    font-size: 1.5rem;
+    color: var(--aubergine);
+    line-height: 1.4;
+  }
+  .specimen__inter {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    align-items: baseline;
+    color: var(--aubergine);
+  }
+  .specimen__inter span {
+    font-family: var(--sans);
+    font-size: 1.125rem;
+  }
+  .specimen__inter span b { display: block; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.6; font-weight: 500; margin-bottom: 0.2rem; }
+
+  .ds__btn-row {
+    display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+  }
+
+  .ds__blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 768px) { .ds__blocks { grid-template-columns: repeat(4, 1fr); } }
+  .ds__block {
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .ds__block--cream { background: var(--bone-cream); color: var(--aubergine); border: 1px solid rgba(42,23,51,0.15); }
+  .ds__block--rose { background: var(--dusty-rose); color: var(--aubergine); }
+  .ds__block--aubergine { background: var(--aubergine); color: var(--bone-cream); }
+  .ds__block--terracotta { background: var(--terracotta); color: var(--bone-cream); }
+
+  .ds__rule-sample {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .ds__rule-sample .gold-rule { width: 220px; }
+  .ds__rule-note {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--aubergine);
+    opacity: 0.7;
+    font-style: italic;
+  }
+
+  /* responsive nudge */
+  @media (max-width: 480px) {
+    .hero { min-height: 88vh; }
+    .nav__brand-mark { font-size: 1.15rem; }
+    .nav__brand-sub { font-size: 0.42rem; }
+    .nav__cta { padding: 0.7rem 1rem; font-size: 0.7rem; letter-spacing: 0.12em; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ───── NAV ───── -->
+<header class="nav">
+  <a href="#" class="nav__brand" aria-label="CHOSEN conference home">
+    <span class="nav__brand-mark">CHOSEN</span>
+    <span class="nav__brand-sub">conference</span>
+  </a>
+  <a href="#register" class="nav__cta">Register</a>
+</header>
+
+<!-- ───── HERO ───── -->
+<section class="hero" aria-label="Be Radiant">
+  <div class="hero__photo" role="img" aria-label="Warm candlelit gathering"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <h1 class="hero__title">
+      <span>Be</span>
+      <span>Radiant.</span>
+    </h1>
+    <hr class="gold-rule hero__rule" />
+    <div class="eyebrow eyebrow--marigold hero__verse-eyebrow">Psalm 34:5</div>
+    <p class="hero__verse">Look to Him, and be radiant; so your faces shall never be ashamed.</p>
+    <p class="hero__meta">19 — 22 November 2026 · La Trobe University · Melbourne</p>
+    <a href="#register" class="btn btn--primary">Register Now <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- ───── ABOUT ───── -->
+<section class="section section--cream" id="about">
+  <div class="section__inner about">
+    <div class="about__head">
+      <div class="eyebrow">A National Gathering</div>
+      <hr class="gold-rule" />
+      <h2>Four days. One mission. Thousands of young Catholics.</h2>
+    </div>
+    <div class="about__body">
+      <p>CHOSEN is the annual national Catholic youth conference of Jesus Youth Australia. Four days of adoration, talks, workshops, worship, and unfiltered encounter with Christ. Come and get equipped to be a leader with practical, life-changing steps that help you boldly live a life of purpose.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───── STATS ───── -->
+<section class="section section--aubergine" aria-label="By the numbers" style="padding-left:0; padding-right:0;">
+  <div class="section__inner stats">
+    <div class="stat">
+      <div class="stat__num">4</div>
+      <div class="stat__label">Days</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">1,500<span style="font-size:0.6em;">+</span></div>
+      <div class="stat__label">Pilgrims</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">25<span style="font-size:0.6em;">+</span></div>
+      <div class="stat__label">Speakers</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">1</div>
+      <div class="stat__label">Mission</div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── EXPECT ───── -->
+<section class="section section--rose" id="expect">
+  <div class="section__inner">
+    <div class="expect__head">
+      <div class="eyebrow">What to Expect</div>
+      <hr class="gold-rule" style="margin-left:auto; margin-right:auto;" />
+      <h2>Encounter, equipped — over four luminous days.</h2>
+    </div>
+    <div class="expect__grid">
+      <article class="card">
+        <div class="card__photo"><img src="../../../assets/img/photos/photo-adoration-monstrance.jpg" alt="Monstrance lifted in Eucharistic adoration" /></div>
+        <h3 class="card__title">Adoration</h3>
+        <p class="card__desc">Quiet hours before the Blessed Sacrament — the still centre of the conference.</p>
+      </article>
+      <article class="card">
+        <div class="card__photo"><img src="../../../assets/img/photos/photo-sister-laughing.jpg" alt="A religious sister laughing during a talk" /></div>
+        <h3 class="card__title">Talks</h3>
+        <p class="card__desc">Speakers who don't flinch — formation, witness, and Catholic conviction in plain words.</p>
+      </article>
+      <article class="card">
+        <div class="card__photo"><img src="../../../assets/img/photos/photo-worship-keyboard.jpg" alt="Hands at a keyboard during worship" /></div>
+        <h3 class="card__title">Workshops</h3>
+        <p class="card__desc">Hands-on sessions on prayer, mission, vocation, music, mental health, and culture.</p>
+      </article>
+      <article class="card">
+        <div class="card__photo"><img src="../../../assets/img/photos/photo-orange-prayer-tent.jpg" alt="Warm-lit prayer tent at dusk" /></div>
+        <h3 class="card__title">Worship</h3>
+        <p class="card__desc">Long, unhurried evenings of sung prayer — voices joined, hearts lifted.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CLOSING CTA ───── -->
+<section class="section section--terracotta cta" id="register" aria-label="Closing call">
+  <div class="section__inner">
+    <span class="eyebrow eyebrow--cream">John 15:16</span>
+    <p class="cta__quote">“You did not choose Me but I chose you — and I appointed you to go and bear fruit that will last.”</p>
+    <hr class="gold-rule" style="margin-left:auto; margin-right:auto;" />
+    <a href="#" class="btn btn--primary">Turn To Him <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">
+      <img src="../../../assets/img/chosen-logo-white.png" alt="CHOSEN conference" />
+      <p class="footer__address">Jesus Youth Australia<br />140 Westbourne Grove<br />Northcote VIC 3070</p>
+    </div>
+    <div>
+      <div class="eyebrow eyebrow--marigold" style="margin-bottom:0.85rem;">Follow Along</div>
+      <div class="footer__socials">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="5.5" width="19" height="13" rx="3"/><path d="M10.5 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2.2 4 4.5 4"/></svg>
+        </a>
+      </div>
+    </div>
+    <blockquote class="footer__pull">
+      “The light shines in the darkness, and the darkness has not overcome it.”
+      <cite>John 1:5</cite>
+    </blockquote>
+  </div>
+</footer>
+
+<!-- ───── DESIGN SYSTEM REFERENCE ───── -->
+<section id="design-system-reference">
+  <div class="ds__inner">
+    <h2 class="ds__title">Direction B — Golden Hour Gospel</h2>
+    <p class="ds__sub">Token Reference · Warm · Sun-bleached · Editorial</p>
+
+    <h3 class="ds__h3">Palette</h3>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch__chip" style="background:var(--bone-cream); border:1px solid rgba(42,23,51,0.15);"></div>
+        <span class="swatch__name">Bone Cream</span>
+        <span class="swatch__hex">#F4ECDC</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:var(--marigold);"></div>
+        <span class="swatch__name">Marigold</span>
+        <span class="swatch__hex">#F2A52A</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:var(--terracotta);"></div>
+        <span class="swatch__name">Terracotta</span>
+        <span class="swatch__hex">#D9573B</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:var(--dusty-rose);"></div>
+        <span class="swatch__name">Dusty Rose</span>
+        <span class="swatch__hex">#E5B6A8</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:var(--aubergine);"></div>
+        <span class="swatch__name">Aubergine</span>
+        <span class="swatch__hex">#2A1733</span>
+      </div>
+    </div>
+
+    <h3 class="ds__h3">Type Specimen</h3>
+    <div class="specimen">
+      <div class="specimen__row">
+        <div class="specimen__label">Fraunces · opsz 144 · italic</div>
+        <div class="specimen__sample-144" style="font-style:italic;">Be Radiant.</div>
+      </div>
+      <div class="specimen__row">
+        <div class="specimen__label">Fraunces · opsz 72 · roman</div>
+        <div class="specimen__sample-72">Four days. One mission.</div>
+      </div>
+      <div class="specimen__row">
+        <div class="specimen__label">Fraunces · opsz 24 · italic · scripture</div>
+        <div class="specimen__sample-24">Look to Him, and be radiant; so your faces shall never be ashamed.</div>
+      </div>
+      <div class="specimen__row">
+        <div class="specimen__label">Inter — Body weights</div>
+        <div class="specimen__inter">
+          <span><b>400 Regular</b>The grace of our Lord Jesus Christ be with you all.</span>
+          <span><b>500 Medium</b>The grace of our Lord Jesus Christ be with you all.</span>
+          <span><b>600 Semibold</b>The grace of our Lord Jesus Christ be with you all.</span>
+        </div>
+      </div>
+      <div class="specimen__row">
+        <div class="specimen__label">Eyebrow · Inter 600 · 0.18em tracking</div>
+        <div class="eyebrow" style="font-size:0.85rem;">A National Gathering · 19—22 November 2026</div>
+      </div>
+    </div>
+
+    <h3 class="ds__h3">Buttons</h3>
+    <div class="ds__btn-row">
+      <a href="#" class="btn btn--primary">Register Now <span aria-hidden="true">→</span></a>
+      <a href="#" class="btn btn--secondary">Learn More</a>
+      <a href="#" class="btn btn--ghost">Read the Vision</a>
+    </div>
+
+    <h3 class="ds__h3">Section Surfaces</h3>
+    <div class="ds__blocks">
+      <div class="ds__block ds__block--cream">Bone Cream</div>
+      <div class="ds__block ds__block--rose">Dusty Rose</div>
+      <div class="ds__block ds__block--aubergine">Aubergine</div>
+      <div class="ds__block ds__block--terracotta">Terracotta</div>
+    </div>
+
+    <h3 class="ds__h3">Gold Rule</h3>
+    <div class="ds__rule-sample">
+      <hr class="gold-rule" />
+      <span class="ds__rule-note">4px marigold · section divider — borrowed from missal print</span>
+    </div>
+    <div class="ds__rule-sample">
+      <hr class="gold-rule gold-rule--full" />
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

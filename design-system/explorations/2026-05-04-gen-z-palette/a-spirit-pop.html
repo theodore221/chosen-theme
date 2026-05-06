@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CHOSEN — Direction A · Spirit Pop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+  :root {
+    --cobalt: #1F3DFF;
+    --coral:  #FF5A4D;
+    --lemon:  #FFD400;
+    --cream:  #FBF7EE;
+    --ink:    #0E0E14;
+
+    --display: 'Unbounded', system-ui, sans-serif;
+    --body:    'Space Grotesk', system-ui, sans-serif;
+
+    --eb-tracking: 0.18em;
+    --pill-radius: 999px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--cream);
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- Typography utilities ---------- */
+  .display {
+    font-family: var(--display);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .display-lg { font-size: clamp(3.25rem, 12vw, 11rem); }
+  .display-md { font-size: clamp(2.5rem, 7vw, 5.25rem); }
+  .display-sm { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 800; }
+
+  .eyebrow {
+    font-family: var(--body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--eb-tracking);
+    font-size: 0.78rem;
+  }
+  .eyebrow--lemon  { color: var(--lemon); }
+  .eyebrow--cobalt { color: var(--cobalt); }
+  .eyebrow--cream  { color: var(--cream); }
+
+  .scripture {
+    font-style: italic;
+    font-family: var(--body);
+    font-weight: 400;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1.05rem 2rem;
+    border-radius: var(--pill-radius);
+    font-family: var(--body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    border: 0;
+    cursor: pointer;
+    transition: transform 150ms ease;
+    line-height: 1;
+  }
+  .btn:hover { transform: translateY(1px); }
+  .btn--coral  { background: var(--coral);  color: #fff; }
+  .btn--cobalt { background: var(--cobalt); color: #fff; }
+  .btn--ghost  {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+  }
+  .btn--sm { padding: 0.75rem 1.4rem; font-size: 0.78rem; }
+
+  /* ---------- Layout helpers ---------- */
+  .wrap {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  @media (min-width: 768px) { .wrap { padding: 0 40px; } }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--cobalt);
+    color: #fff;
+  }
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) { .nav__inner { padding: 22px 40px; } }
+  .wordmark { display: flex; flex-direction: column; line-height: 1; }
+  .wordmark__chosen {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 30.5px;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .wordmark__sub {
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: 10.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    color: #fff;
+    opacity: 0.92;
+  }
+  .nav__links {
+    display: none;
+    gap: 32px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .nav__links a { color: #fff; }
+  .nav__links a:hover { color: var(--lemon); }
+  @media (min-width: 900px) { .nav__links { display: flex; } }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    color: var(--cream);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+  .hero__bg {
+    position: absolute; inset: 0;
+    background-image: url('../../../assets/img/photos-real/dsc00143-1280.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    z-index: 0;
+  }
+  .hero__overlay {
+    position: absolute; inset: 0;
+    background: rgba(31, 61, 255, 0.30);
+    z-index: 1;
+  }
+  .hero__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 80px 24px 56px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) { .hero__inner { padding: 120px 40px 80px; } }
+
+  .hero__eyebrow {
+    color: var(--lemon);
+    margin-bottom: 22px;
+  }
+  .hero__title {
+    color: var(--lemon);
+    margin-bottom: 28px;
+    text-shadow: 0 4px 24px rgba(14,14,20,0.18);
+  }
+  .hero__verse {
+    color: var(--cream);
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+  .hero__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: var(--pill-radius);
+    padding: 10px 20px;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+  .hero__chip-dot {
+    display: inline-block;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--lemon);
+  }
+  .hero__cta { font-size: 0.95rem; padding: 1.2rem 2.2rem; }
+
+  /* ---------- About ---------- */
+  .about { background: var(--cream); padding: 96px 0; }
+  @media (min-width: 768px) { .about { padding: 140px 0; } }
+  .about__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  @media (min-width: 900px) {
+    .about__grid { grid-template-columns: 1fr 1.2fr; gap: 80px; }
+  }
+  .about__eyebrow { margin-bottom: 18px; }
+  .about__title { color: var(--ink); }
+  .about__body {
+    font-size: 1.1rem;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .about__body p + p { margin-top: 1.1rem; }
+  .about__sticker {
+    display: inline-block;
+    transform: rotate(-4deg);
+    background: var(--lemon);
+    color: var(--ink);
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 10px 18px;
+    border-radius: 14px;
+    letter-spacing: -0.01em;
+    margin-top: 28px;
+  }
+
+  /* ---------- Stats strip ---------- */
+  .stats {
+    background: var(--cobalt);
+    color: #fff;
+    padding: 80px 0;
+  }
+  @media (min-width: 768px) { .stats { padding: 110px 0; } }
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 56px 32px;
+  }
+  @media (min-width: 768px) { .stats__grid { grid-template-columns: repeat(4, 1fr); } }
+  .stat__num {
+    font-family: var(--display);
+    font-weight: 900;
+    color: var(--lemon);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .stat__label {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* ---------- Expect grid ---------- */
+  .expect { background: var(--cream); padding: 96px 0 120px; }
+  @media (min-width: 768px) { .expect { padding: 140px 0 160px; } }
+  .expect__head { margin-bottom: 56px; max-width: 720px; }
+  .expect__head .eyebrow { margin-bottom: 16px; }
+  .expect__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  @media (min-width: 640px) { .expect__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .expect__grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+  .tile {
+    background: #fff;
+    border: 1.5px solid var(--ink);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 150ms ease;
+  }
+  .tile:hover { transform: translateY(2px); }
+  .tile__img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+  .tile__body { padding: 22px 22px 26px; }
+  .tile__title {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .tile__desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink);
+    opacity: 0.78;
+  }
+
+  /* ---------- Closing CTA ---------- */
+  .closing {
+    background: var(--coral);
+    color: var(--ink);
+    padding: 120px 0;
+    text-align: center;
+  }
+  @media (min-width: 768px) { .closing { padding: 160px 0; } }
+  .closing__eyebrow { margin-bottom: 28px; }
+  .closing__quote {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2rem, 5.2vw, 4rem);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: 980px;
+    margin: 0 auto 16px;
+  }
+  .closing__attr {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink);
+    opacity: 0.85;
+    margin-bottom: 44px;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 80px 0 40px;
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  @media (min-width: 800px) {
+    .footer__grid { grid-template-columns: 1.2fr 1fr 1fr; gap: 64px; }
+  }
+  .footer__logo { width: 160px; height: auto; margin-bottom: 24px; }
+  .footer__addr {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--cream);
+    opacity: 0.78;
+  }
+  .footer__heading {
+    font-family: var(--body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.74rem;
+    color: var(--lemon);
+    margin-bottom: 18px;
+  }
+  .footer__socials {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+  .footer__socials a { color: var(--cream); transition: color 150ms ease; }
+  .footer__socials a:hover { color: var(--lemon); }
+  .footer__pull {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--cream);
+    opacity: 0.92;
+  }
+  .footer__bottom {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(251,247,238,0.12);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.78rem;
+    color: var(--cream);
+    opacity: 0.6;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- Design system reference ---------- */
+  .ds {
+    background: #fff;
+    color: var(--ink);
+    padding: 120px 0 140px;
+    border-top: 6px solid var(--lemon);
+  }
+  .ds__title {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+    margin-bottom: 56px;
+    letter-spacing: -0.01em;
+  }
+  .ds h3 {
+    font-family: var(--body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    color: var(--cobalt);
+    margin: 64px 0 24px;
+  }
+  .ds__swatches {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media (min-width: 700px) { .ds__swatches { grid-template-columns: repeat(5, 1fr); } }
+  .swatch {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+    border: 1.5px solid var(--ink);
+  }
+  .swatch__name {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1.1;
+  }
+  .swatch__hex {
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+    opacity: 0.85;
+  }
+  .swatch--cobalt { background: var(--cobalt); color: #fff; }
+  .swatch--coral  { background: var(--coral);  color: #fff; }
+  .swatch--lemon  { background: var(--lemon);  color: var(--ink); }
+  .swatch--cream  { background: var(--cream);  color: var(--ink); }
+  .swatch--ink    { background: var(--ink);    color: var(--cream); }
+
+  .specimen { display: grid; gap: 18px; }
+  .specimen__row {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 12px 0;
+    border-bottom: 1px dashed rgba(14,14,20,0.15);
+  }
+  .specimen__meta {
+    font-family: var(--body);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.55;
+    min-width: 220px;
+  }
+  .specimen__sample { font-family: var(--display); font-weight: 900; line-height: 0.95; }
+  .specimen__sample--900-72 { font-size: 4.5rem; }
+  .specimen__sample--800-48 { font-size: 3rem;   font-weight: 800; }
+  .specimen__sample--700-32 { font-size: 2rem;   font-weight: 700; }
+  .specimen__sample--body   {
+    font-family: var(--body);
+    font-size: 1.05rem;
+    line-height: 1.55;
+    font-weight: 400;
+    max-width: 540px;
+  }
+  .specimen__sample--500   { font-weight: 500; }
+  .specimen__sample--700   { font-weight: 700; }
+
+  .ds__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .ds__blocks {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  @media (min-width: 800px) { .ds__blocks { grid-template-columns: repeat(3, 1fr); } }
+  .block-sample {
+    aspect-ratio: 4 / 3;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .block-sample--cobalt { background: var(--cobalt); color: var(--cream); }
+  .block-sample--coral  { background: var(--coral);  color: var(--ink);  }
+  .block-sample--cream  { background: var(--cream);  color: var(--ink); border: 1.5px solid var(--ink); }
+  .block-sample__title {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.6rem;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .block-sample__hint {
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+
+  .scripture-cite {
+    background: var(--cream);
+    padding: 32px;
+    border: 1.5px solid var(--ink);
+    max-width: 720px;
+  }
+  .scripture-cite .scripture-verse {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 12px 0 8px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============== NAV ============== -->
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a href="#" class="wordmark" aria-label="CHOSEN conference">
+        <span class="wordmark__chosen">CHOSEN</span>
+        <span class="wordmark__sub">conference</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#expect">Programme</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#register" class="btn btn--coral btn--sm">Register</a>
+    </div>
+  </header>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__bg" role="img" aria-label="Young Catholics worshipping with arms raised"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <p class="eyebrow hero__eyebrow">Chosen 2026 · National Catholic Youth Conference</p>
+      <h1 id="hero-title" class="display display-lg hero__title">BE<br>RADIANT</h1>
+      <p class="scripture hero__verse">
+        &ldquo;Look to Him, and be radiant; so your faces shall never be ashamed.&rdquo;
+        <br>— Psalm 34:5
+      </p>
+      <span class="hero__chip">
+        <span class="hero__chip-dot" aria-hidden="true"></span>
+        19–22 Nov 2026 · La Trobe Uni, Melbourne
+      </span>
+      <div>
+        <a href="#register" class="btn btn--coral hero__cta">Register Now <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ABOUT ============== -->
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="wrap about__grid">
+      <div>
+        <p class="eyebrow eyebrow--cobalt about__eyebrow">A National Gathering</p>
+        <h2 id="about-title" class="display display-md about__title">
+          Four days.<br>One mission.<br>Thousands of<br>young Catholics.
+        </h2>
+      </div>
+      <div class="about__body">
+        <p>
+          Chosen is the annual national Catholic youth conference of Jesus Youth Australia. Four days of adoration, talks, workshops, worship, and unfiltered encounter with Christ.
+        </p>
+        <p>
+          Come and get equipped to be a leader with practical, life-changing steps that help you boldly live a life of purpose.
+        </p>
+        <span class="about__sticker">★ Show up. Be changed.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== STATS ============== -->
+  <section class="stats" aria-label="Conference at a glance">
+    <div class="wrap stats__grid">
+      <div class="stat">
+        <p class="stat__num">4</p>
+        <p class="stat__label">Days</p>
+      </div>
+      <div class="stat">
+        <p class="stat__num">1,500+</p>
+        <p class="stat__label">Pilgrims</p>
+      </div>
+      <div class="stat">
+        <p class="stat__num">25+</p>
+        <p class="stat__label">Speakers</p>
+      </div>
+      <div class="stat">
+        <p class="stat__num">1</p>
+        <p class="stat__label">Mission</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== EXPECT ============== -->
+  <section class="expect" id="expect" aria-labelledby="expect-title">
+    <div class="wrap">
+      <div class="expect__head">
+        <p class="eyebrow eyebrow--cobalt">What To Expect</p>
+        <h2 id="expect-title" class="display display-md">A programme<br>built for encounter.</h2>
+      </div>
+      <div class="expect__grid">
+        <article class="tile">
+          <img class="tile__img" src="../../../assets/img/photos/photo-adoration-monstrance.jpg" alt="Monstrance held high during adoration" loading="lazy">
+          <div class="tile__body">
+            <h3 class="tile__title">Adoration</h3>
+            <p class="tile__desc">Hours before the Blessed Sacrament. Stillness that changes you.</p>
+          </div>
+        </article>
+        <article class="tile">
+          <img class="tile__img" src="../../../assets/img/photos/photo-sister-laughing.jpg" alt="Religious sister laughing during a session" loading="lazy">
+          <div class="tile__body">
+            <h3 class="tile__title">Talks</h3>
+            <p class="tile__desc">Real voices on faith, vocation, suffering, and the call to be holy now.</p>
+          </div>
+        </article>
+        <article class="tile">
+          <img class="tile__img" src="../../../assets/img/photos/photo-worship-keyboard.jpg" alt="Worship leader at keyboard" loading="lazy">
+          <div class="tile__body">
+            <h3 class="tile__title">Workshops</h3>
+            <p class="tile__desc">Practical sessions to equip you for mission, leadership, and prayer.</p>
+          </div>
+        </article>
+        <article class="tile">
+          <img class="tile__img" src="../../../assets/img/photos/photo-orange-prayer-tent.jpg" alt="Orange prayer tent at twilight" loading="lazy">
+          <div class="tile__body">
+            <h3 class="tile__title">Worship</h3>
+            <p class="tile__desc">Voices lifted in praise. Late-night worship that lingers long after.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CLOSING CTA ============== -->
+  <section class="closing" id="register" aria-labelledby="closing-title">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--cobalt closing__eyebrow">John 15:16</p>
+      <h2 id="closing-title" class="closing__quote">
+        &ldquo;You did not choose Me but I chose you — and I appointed you to go and bear fruit that will last.&rdquo;
+      </h2>
+      <p class="closing__attr">— Words of Jesus to His disciples</p>
+      <a href="#" class="btn btn--cobalt">Turn To Him <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer" id="contact" role="contentinfo">
+    <div class="wrap footer__grid">
+      <div>
+        <img class="footer__logo" src="../../../assets/img/chosen-logo-white.png" alt="CHOSEN conference">
+        <p class="footer__addr">
+          Jesus Youth Australia<br>
+          140 Westbourne Grove, Northcote VIC 3070
+        </p>
+      </div>
+      <div>
+        <p class="footer__heading">Follow</p>
+        <ul class="footer__socials">
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="Facebook">Facebook</a></li>
+          <li><a href="#" aria-label="X (Twitter)">X</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__heading">From the Word</p>
+        <p class="footer__pull">
+          &ldquo;You are the light of the world. A city set on a hill cannot be hidden.&rdquo;
+          <br>— Matthew 5:14
+        </p>
+      </div>
+    </div>
+    <div class="wrap footer__bottom">
+      <span>© 2026 Jesus Youth Australia</span>
+      <span>Made for Him</span>
+    </div>
+  </footer>
+
+  <!-- ============== DESIGN SYSTEM REFERENCE ============== -->
+  <section id="design-system-reference" class="ds" aria-label="Direction A design system reference">
+    <div class="wrap">
+      <h2 class="ds__title">Direction A — Spirit Pop · token reference</h2>
+
+      <h3>Palette</h3>
+      <div class="ds__swatches">
+        <div class="swatch swatch--cobalt">
+          <div class="swatch__name">Cobalt</div>
+          <div class="swatch__hex">#1F3DFF</div>
+        </div>
+        <div class="swatch swatch--coral">
+          <div class="swatch__name">Hot Coral</div>
+          <div class="swatch__hex">#FF5A4D</div>
+        </div>
+        <div class="swatch swatch--lemon">
+          <div class="swatch__name">Lemon</div>
+          <div class="swatch__hex">#FFD400</div>
+        </div>
+        <div class="swatch swatch--cream">
+          <div class="swatch__name">Cream</div>
+          <div class="swatch__hex">#FBF7EE</div>
+        </div>
+        <div class="swatch swatch--ink">
+          <div class="swatch__name">Ink</div>
+          <div class="swatch__hex">#0E0E14</div>
+        </div>
+      </div>
+
+      <h3>Type Specimen</h3>
+      <div class="specimen">
+        <div class="specimen__row">
+          <div class="specimen__meta">Unbounded · 900 · 72px</div>
+          <div class="specimen__sample specimen__sample--900-72">Be Radiant</div>
+        </div>
+        <div class="specimen__row">
+          <div class="specimen__meta">Unbounded · 800 · 48px</div>
+          <div class="specimen__sample specimen__sample--800-48">Four days. One mission.</div>
+        </div>
+        <div class="specimen__row">
+          <div class="specimen__meta">Unbounded · 700 · 32px</div>
+          <div class="specimen__sample specimen__sample--700-32">A programme built for encounter</div>
+        </div>
+        <div class="specimen__row">
+          <div class="specimen__meta">Space Grotesk · 700 · 17px</div>
+          <div class="specimen__sample specimen__sample--body specimen__sample--700">Come and get equipped to be a leader.</div>
+        </div>
+        <div class="specimen__row">
+          <div class="specimen__meta">Space Grotesk · 500 · 17px</div>
+          <div class="specimen__sample specimen__sample--body specimen__sample--500">Chosen is the annual national Catholic youth conference of Jesus Youth Australia.</div>
+        </div>
+        <div class="specimen__row">
+          <div class="specimen__meta">Space Grotesk · 400 · 17px</div>
+          <div class="specimen__sample specimen__sample--body">Four days of adoration, talks, workshops, worship, and unfiltered encounter with Christ.</div>
+        </div>
+        <div class="specimen__row">
+          <div class="specimen__meta">Eyebrow · SG · 700 · 0.18em</div>
+          <div class="eyebrow eyebrow--cobalt">A National Gathering</div>
+        </div>
+      </div>
+
+      <h3>Buttons</h3>
+      <div class="ds__buttons">
+        <a href="#" class="btn btn--cobalt">Register Now <span aria-hidden="true">→</span></a>
+        <a href="#" class="btn btn--coral">Turn To Him <span aria-hidden="true">→</span></a>
+        <a href="#" class="btn btn--ghost">Read Programme</a>
+      </div>
+
+      <h3>Eyebrow + Scripture Cite</h3>
+      <div class="scripture-cite">
+        <p class="eyebrow eyebrow--cobalt">Psalm 34:5</p>
+        <p class="scripture-verse">&ldquo;Look to Him, and be radiant; so your faces shall never be ashamed.&rdquo;</p>
+        <p class="eyebrow eyebrow--cobalt" style="opacity:.7;">Psalm · Old Testament</p>
+      </div>
+
+      <h3>Section Blocks</h3>
+      <div class="ds__blocks">
+        <div class="block-sample block-sample--cobalt">
+          <span class="block-sample__hint">Cobalt block</span>
+          <span class="block-sample__title">Full-bleed primary</span>
+        </div>
+        <div class="block-sample block-sample--coral">
+          <span class="block-sample__hint">Coral block</span>
+          <span class="block-sample__title">Passion accent</span>
+        </div>
+        <div class="block-sample block-sample--cream">
+          <span class="block-sample__hint">Cream block</span>
+          <span class="block-sample__title">Breathing space</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
