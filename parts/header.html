@@ -1,26 +1,113 @@
 <!-- wp:group {"tagName":"header","className":"chosen-header","style":{"color":{"background":"#0B0A55"}},"layout":{"type":"constrained"}} -->
 <header class="wp-block-group chosen-header has-background sticky top-0 z-40 w-full bg-chosen-navy" style="background-color:#0B0A55">
-  <div class="chosen-header__bar mx-auto flex h-20 max-w-wide items-center justify-between gap-6 px-6 md:h-24">
+  <div class="chosen-header__bar mx-auto flex h-20 max-w-wide items-center justify-between gap-4 px-6 md:h-24 md:gap-6">
+
     <a
       href="/"
       class="chosen-wordmark chosen-wordmark--lockup group flex flex-col items-start gap-[3px] no-underline leading-none transition-opacity duration-200 ease-out-quart hover:opacity-90"
-      aria-label="Chosen — National Youth Conference, home"
+      aria-label="Chosen — National Catholic Youth Conference, home"
     >
       <span class="font-sans text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.18em] text-white/65 leading-none">National Youth Conference</span>
       <span class="font-sans text-[26px] md:text-[34px] font-bold tracking-[0.10em] uppercase text-white leading-none">CH<span class="chosen-wordmark__o" aria-hidden="true"></span>SEN</span>
     </a>
 
-    <nav class="chosen-header__cluster flex items-center gap-3 md:gap-6" aria-label="Primary">
+    <button
+      type="button"
+      class="chosen-header__menu-toggle relative z-50 inline-flex h-10 w-10 items-center justify-center rounded-md text-white md:hidden"
+      aria-controls="chosen-primary-nav"
+      aria-expanded="false"
+      aria-label="Open menu"
+      data-chosen-menu-toggle
+    >
+      <svg class="chosen-header__menu-icon" width="22" height="14" viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M1 1h20M1 7h20M1 13h20" />
+      </svg>
+      <svg class="chosen-header__close-icon hidden" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M2 2l16 16M18 2L2 18" />
+      </svg>
+    </button>
+
+    <nav
+      id="chosen-primary-nav"
+      class="chosen-header__cluster fixed inset-x-0 top-20 z-40 hidden flex-col items-stretch gap-2 bg-chosen-navy px-6 pb-10 pt-4 shadow-chosen-lg md:static md:flex md:flex-row md:items-center md:gap-2 md:bg-transparent md:p-0 md:shadow-none lg:gap-4"
+      aria-label="Primary"
+      data-chosen-nav
+    >
+      <ul class="chosen-header__links flex flex-col gap-1 md:flex-row md:items-center md:gap-1 lg:gap-2">
+        <li>
+          <a href="#what-to-expect" data-nav-link="what-to-expect" class="chosen-header__link relative block text-[14px] md:text-[13px] lg:text-[14px] font-semibold tracking-[0.04em] text-white/90 no-underline px-3 py-3 md:py-2 transition-colors duration-200 ease-out-quart hover:text-chosen-gold focus-visible:text-chosen-gold">
+            What to Expect
+            <span class="chosen-header__link-rule" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#streams" data-nav-link="streams" class="chosen-header__link relative block text-[14px] md:text-[13px] lg:text-[14px] font-semibold tracking-[0.04em] text-white/90 no-underline px-3 py-3 md:py-2 transition-colors duration-200 ease-out-quart hover:text-chosen-gold focus-visible:text-chosen-gold">
+            Streams
+            <span class="chosen-header__link-rule" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#theme" data-nav-link="theme" class="chosen-header__link relative block text-[14px] md:text-[13px] lg:text-[14px] font-semibold tracking-[0.04em] text-white/90 no-underline px-3 py-3 md:py-2 transition-colors duration-200 ease-out-quart hover:text-chosen-gold focus-visible:text-chosen-gold">
+            Theme
+            <span class="chosen-header__link-rule" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#why-now" data-nav-link="why-now" class="chosen-header__link relative block text-[14px] md:text-[13px] lg:text-[14px] font-semibold tracking-[0.04em] text-white/90 no-underline px-3 py-3 md:py-2 transition-colors duration-200 ease-out-quart hover:text-chosen-gold focus-visible:text-chosen-gold">
+            Why Now
+            <span class="chosen-header__link-rule" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#about" data-nav-link="about" class="chosen-header__link relative block text-[14px] md:text-[13px] lg:text-[14px] font-semibold tracking-[0.04em] text-white/90 no-underline px-3 py-3 md:py-2 transition-colors duration-200 ease-out-quart hover:text-chosen-gold focus-visible:text-chosen-gold">
+            About
+            <span class="chosen-header__link-rule" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li class="chosen-header__dropdown relative" data-chosen-dropdown>
+          <button
+            type="button"
+            class="chosen-header__link chosen-header__dropdown-toggle relative flex w-full items-center justify-between gap-2 text-[14px] md:text-[13px] lg:text-[14px] font-semibold tracking-[0.04em] text-white/90 no-underline px-3 py-3 md:py-2 transition-colors duration-200 ease-out-quart hover:text-chosen-gold focus-visible:text-chosen-gold"
+            aria-haspopup="true"
+            aria-expanded="false"
+            data-chosen-dropdown-toggle
+          >
+            <span>Get Involved</span>
+            <svg class="chosen-header__dropdown-caret transition-transform duration-200 ease-out-quart" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M1 1l4 4 4-4" />
+            </svg>
+            <span class="chosen-header__link-rule" aria-hidden="true"></span>
+          </button>
+          <ul
+            class="chosen-header__dropdown-menu hidden md:absolute md:right-0 md:top-[calc(100%+8px)] md:min-w-[220px] md:rounded-[14px] md:bg-white md:p-2 md:shadow-chosen-lg md:ring-1 md:ring-chosen-navy/8"
+            data-chosen-dropdown-menu
+            role="menu"
+          >
+            <li role="none">
+              <a href="/partner" role="menuitem" class="chosen-header__dropdown-link block rounded-[10px] px-4 py-3 text-[14px] font-semibold text-white/90 no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold md:text-chosen-navy md:hover:bg-chosen-paper md:hover:text-chosen-gold">
+                Partner
+                <span class="block text-[12px] font-normal text-white/55 md:text-chosen-navy/55">For universities, businesses & organisations</span>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/expo" role="menuitem" class="chosen-header__dropdown-link block rounded-[10px] px-4 py-3 text-[14px] font-semibold text-white/90 no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold md:text-chosen-navy md:hover:bg-chosen-paper md:hover:text-chosen-gold">
+                Expo
+                <span class="block text-[12px] font-normal text-white/55 md:text-chosen-navy/55">Catholic ministries, apostolates & exhibitors</span>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/volunteer" role="menuitem" class="chosen-header__dropdown-link block rounded-[10px] px-4 py-3 text-[14px] font-semibold text-white/90 no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold md:text-chosen-navy md:hover:bg-chosen-paper md:hover:text-chosen-gold">
+                Volunteer
+                <span class="block text-[12px] font-normal text-white/55 md:text-chosen-navy/55">Join the team that makes Chosen happen</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
       <a
-        href="/about"
-        class="chosen-header__link relative text-[14px] md:text-[15px] font-semibold tracking-[0.04em] text-white no-underline px-3 py-2 transition-colors duration-200 ease-out-quart hover:text-chosen-gold focus-visible:text-chosen-gold"
-      >
-        About
-        <span class="chosen-header__link-rule" aria-hidden="true"></span>
-      </a>
-      <a
-        href="#"
-        class="chosen-cta chosen-header__cta inline-flex items-center justify-center gap-2 rounded-full bg-chosen-gold px-6 py-3 md:px-7 md:py-[14px] text-[12px] md:text-[13px] font-bold uppercase tracking-[0.14em] text-chosen-navy no-underline shadow-[0_4px_18px_rgba(237,169,12,0.32)] transition-all duration-200 ease-out-quart hover:bg-chosen-gold-600 hover:text-white hover:shadow-[0_8px_24px_rgba(237,169,12,0.45)] focus-visible:bg-chosen-gold-600 focus-visible:text-white"
+        href="#register"
+        class="chosen-cta chosen-header__cta inline-flex items-center justify-center gap-2 rounded-full bg-chosen-gold px-6 py-3 md:px-6 md:py-[12px] lg:px-7 lg:py-[14px] text-[12px] md:text-[12px] lg:text-[13px] font-bold uppercase tracking-[0.14em] text-chosen-navy no-underline shadow-[0_4px_18px_rgba(237,169,12,0.32)] transition-all duration-200 ease-out-quart hover:bg-chosen-gold-600 hover:text-white hover:shadow-[0_8px_24px_rgba(237,169,12,0.45)] focus-visible:bg-chosen-gold-600 focus-visible:text-white"
         aria-label="Register for Chosen 2026"
       >
         <span>Register</span>
@@ -30,5 +117,139 @@
       </a>
     </nav>
   </div>
+
+  <script>
+    /* Mobile menu toggle, dropdown, and scroll-spy active-link highlighting.
+       Vanilla JS only (no jQuery). Idempotent — guards on data flags. */
+    ( function () {
+      var header = document.querySelector( '.chosen-header' );
+      if ( ! header || header.dataset.chosenHeaderReady === '1' ) { return; }
+      header.dataset.chosenHeaderReady = '1';
+
+      /* --- Mobile menu toggle --- */
+      var toggle = header.querySelector( '[data-chosen-menu-toggle]' );
+      var nav    = header.querySelector( '[data-chosen-nav]' );
+      if ( toggle && nav ) {
+        toggle.addEventListener( 'click', function () {
+          var open = nav.classList.toggle( 'chosen-header__cluster--open' );
+          nav.classList.toggle( 'hidden', ! open );
+          nav.classList.toggle( 'flex', open );
+          toggle.setAttribute( 'aria-expanded', open ? 'true' : 'false' );
+          toggle.setAttribute( 'aria-label', open ? 'Close menu' : 'Open menu' );
+          var menuIcon  = toggle.querySelector( '.chosen-header__menu-icon' );
+          var closeIcon = toggle.querySelector( '.chosen-header__close-icon' );
+          if ( menuIcon )  { menuIcon.classList.toggle( 'hidden', open ); }
+          if ( closeIcon ) { closeIcon.classList.toggle( 'hidden', ! open ); }
+        } );
+
+        /* Close mobile menu when an in-page link is clicked. */
+        nav.querySelectorAll( 'a[href^="#"]' ).forEach( function ( a ) {
+          a.addEventListener( 'click', function () {
+            if ( window.innerWidth >= 768 ) { return; }
+            nav.classList.remove( 'chosen-header__cluster--open' );
+            nav.classList.add( 'hidden' );
+            nav.classList.remove( 'flex' );
+            toggle.setAttribute( 'aria-expanded', 'false' );
+            toggle.setAttribute( 'aria-label', 'Open menu' );
+            var mi = toggle.querySelector( '.chosen-header__menu-icon' );
+            var ci = toggle.querySelector( '.chosen-header__close-icon' );
+            if ( mi ) { mi.classList.remove( 'hidden' ); }
+            if ( ci ) { ci.classList.add( 'hidden' ); }
+          } );
+        } );
+      }
+
+      /* --- Get Involved dropdown (click-to-open on mobile, hover/focus on desktop) --- */
+      var dd = header.querySelector( '[data-chosen-dropdown]' );
+      if ( dd ) {
+        var ddToggle = dd.querySelector( '[data-chosen-dropdown-toggle]' );
+        var ddMenu   = dd.querySelector( '[data-chosen-dropdown-menu]' );
+
+        var setOpen = function ( open ) {
+          ddToggle.setAttribute( 'aria-expanded', open ? 'true' : 'false' );
+          if ( window.innerWidth >= 768 ) {
+            ddMenu.classList.toggle( 'hidden', ! open );
+          } else {
+            /* On mobile, render in the flow as a sub-list — toggle hidden state. */
+            ddMenu.classList.toggle( 'hidden', ! open );
+          }
+          var caret = ddToggle.querySelector( '.chosen-header__dropdown-caret' );
+          if ( caret ) {
+            caret.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+          }
+        };
+
+        ddToggle.addEventListener( 'click', function ( e ) {
+          e.preventDefault();
+          var isOpen = ddToggle.getAttribute( 'aria-expanded' ) === 'true';
+          setOpen( ! isOpen );
+        } );
+
+        /* Desktop: open on hover. */
+        dd.addEventListener( 'mouseenter', function () {
+          if ( window.innerWidth >= 768 ) { setOpen( true ); }
+        } );
+        dd.addEventListener( 'mouseleave', function () {
+          if ( window.innerWidth >= 768 ) { setOpen( false ); }
+        } );
+
+        /* Close on outside click. */
+        document.addEventListener( 'click', function ( e ) {
+          if ( ! dd.contains( e.target ) ) { setOpen( false ); }
+        } );
+
+        /* Close on Escape. */
+        document.addEventListener( 'keydown', function ( e ) {
+          if ( e.key === 'Escape' ) { setOpen( false ); ddToggle.focus(); }
+        } );
+      }
+
+      /* --- Sticky-shadow toggle on scroll --- */
+      var setScrolled = function () {
+        header.classList.toggle( 'is-scrolled', window.scrollY > 8 );
+      };
+      setScrolled();
+      window.addEventListener( 'scroll', setScrolled, { passive: true } );
+
+      /* --- Scroll-spy: highlight the nav item whose section is currently in view --- */
+      var navLinks = Array.prototype.slice.call( header.querySelectorAll( '[data-nav-link]' ) );
+      if ( navLinks.length && 'IntersectionObserver' in window ) {
+        var sectionMap = {};
+        navLinks.forEach( function ( link ) {
+          var key = link.getAttribute( 'data-nav-link' );
+          if ( ! key ) { return; }
+          var section = document.getElementById( key );
+          if ( section ) { sectionMap[ key ] = { link: link, section: section }; }
+        } );
+
+        var setActive = function ( key ) {
+          navLinks.forEach( function ( link ) {
+            link.classList.toggle( 'is-active', link.getAttribute( 'data-nav-link' ) === key );
+          } );
+        };
+
+        var io = new IntersectionObserver( function ( entries ) {
+          /* Pick the entry closest to the top among intersecting ones. */
+          var visible = entries
+            .filter( function ( e ) { return e.isIntersecting; } )
+            .sort( function ( a, b ) {
+              return a.boundingClientRect.top - b.boundingClientRect.top;
+            } );
+          if ( visible.length ) {
+            var key = visible[ 0 ].target.id;
+            if ( key ) { setActive( key ); }
+          }
+        }, {
+          /* Trigger when the section's top has crossed the header bottom. */
+          rootMargin: '-30% 0px -55% 0px',
+          threshold: 0,
+        } );
+
+        Object.keys( sectionMap ).forEach( function ( key ) {
+          io.observe( sectionMap[ key ].section );
+        } );
+      }
+    } )();
+  </script>
 </header>
 <!-- /wp:group -->

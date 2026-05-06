@@ -1,0 +1,78 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/pricing-tiers",
+  "title": "Pricing Tiers",
+  "category": "chosen",
+  "icon": "money-alt",
+  "description": "Three-tier registration pricing by state distance + inclusions list + group discount, raffle and payment-plan callouts. Closes on a Register CTA.",
+  "keywords": ["pricing", "registration", "tiers", "fees"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["full", "wide"]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Registration"
+    },
+    "headline": {
+      "type": "string",
+      "default": "One conference. Tiered by where you're coming from."
+    },
+    "subhead": {
+      "type": "string",
+      "default": "We know money is rough — and the further you're travelling, the more you're already spending to get here. The tiered pricing is our way of making sure distance isn't a reason to stay home."
+    },
+    "tiers": {
+      "type": "array",
+      "default": [
+        { "region": "VIC", "price": "$330", "description": "Victorian attendees." },
+        { "region": "NSW · ACT · QLD · SA", "price": "$290", "description": "East coast and South Australia." },
+        { "region": "WA · TAS · NT", "price": "$230", "description": "Western Australia, Tasmania, Northern Territory." }
+      ]
+    },
+    "inclusionsHeading": {
+      "type": "string",
+      "default": "Your registration covers everything"
+    },
+    "inclusions": {
+      "type": "array",
+      "default": [
+        "Lunch and dinner each day",
+        "Childcare (included)",
+        "Conference materials",
+        "Your Chosen t-shirt"
+      ]
+    },
+    "callouts": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Group discount",
+          "body": "Coming as a group? Bring 10 or more from the same state and everyone gets 10% off. Parish, school or a larger community? Get in touch before you register at info@chosenconference.org.au and we'll sort something out."
+        },
+        {
+          "title": "Early registration raffle",
+          "body": "Register early and go in the draw. Every week you're registered before November earns you a raffle ticket. Prizes include full rego covered, rego halved, and 50% off merch. Nine winners total."
+        },
+        {
+          "title": "Payment plans",
+          "body": "Need help with the cost? We don't want money to be the reason anyone misses out. Custom payment plans are available — just reach out to info@chosenconference.org.au and we'll work something out together."
+        }
+      ]
+    },
+    "ctaLabel": {
+      "type": "string",
+      "default": "Register"
+    },
+    "background": {
+      "type": "string",
+      "default": "paper",
+      "enum": ["paper", "cream", "white", "sky", "aqua"]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

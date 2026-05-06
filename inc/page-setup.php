@@ -5,8 +5,10 @@
  * `templates/page-{slug}.html` templates auto-render at the corresponding URLs.
  *
  * Privacy + Safety are kept as legal/footer-only links (not in primary nav).
- * Earlier IA had Programme / Travel / FAQs / Contact pages — those are
- * intentionally retired in favour of a single front + about composition.
+ * Earlier IA had Programme / Travel / FAQs / Contact / About pages —
+ * those are retired in favour of a single long landing page. Three
+ * audience-specific "Get Involved" pages (Partner / Expo / Volunteer)
+ * remain because their CTAs and audiences differ from the main scroll.
  *
  * Pages are created with empty post_content because the templates contain
  * all the block markup. Editors can override at any time by editing the
@@ -27,9 +29,11 @@ defined( 'ABSPATH' ) || exit;
  */
 function chosen_expected_pages(): array {
 	return [
-		'about'   => 'About',
-		'privacy' => 'Privacy Policy',
-		'safety'  => 'Child Safety',
+		'partner'   => 'Partner',
+		'expo'      => 'Expo',
+		'volunteer' => 'Volunteer',
+		'privacy'   => 'Privacy Policy',
+		'safety'    => 'Child Safety',
 	];
 }
 

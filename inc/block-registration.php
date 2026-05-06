@@ -39,12 +39,15 @@ function chosen_register_blocks() {
         'vision',
         'stat-strip',
         'expect-tile-grid',
+        'streams-grid',
+        'pricing-tiers',
+        'faq-accordion',
+        'timeline-strip',
         'image-mosaic',
         'cta-banner',
         'sponsor-strip',
         'quote',
         'story-section',
-        'people-grid',
         'testimonial',
     ];
 

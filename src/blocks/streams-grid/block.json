@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/streams-grid",
+  "title": "Streams Grid",
+  "category": "chosen",
+  "icon": "groups",
+  "description": "Three audience streams (Teens / Young Adults / Young Couples) as side-by-side cards. Each card holds stream name, age band, intro paragraph and a parallel-structured topics list.",
+  "keywords": ["streams", "audiences", "teens", "young adults", "couples"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["full", "wide"]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Streams"
+    },
+    "headline": {
+      "type": "string",
+      "default": "Built for where you are."
+    },
+    "subhead": {
+      "type": "string",
+      "default": "Streams are fundamental to Chosen. We know a 16-year-old has different life situations to a couple who've been married three years with two kids. We get it."
+    },
+    "streams": {
+      "type": "array",
+      "default": [
+        {
+          "name": "Teens",
+          "ageBand": "Year 10 and above (16+)",
+          "intro": "Designed for high schoolers who are figuring out who they are and what they believe. A space to ask the big questions, build great friendships and discover what it actually looks like to live your faith.",
+          "topics": [
+            "Identity and self-worth",
+            "Friendship and community",
+            "Prayer and the sacraments",
+            "Making good choices",
+            "Navigating pressure as a young Catholic today"
+          ]
+        },
+        {
+          "name": "Young Adults",
+          "ageBand": "18 to 35",
+          "intro": "For uni students and young professionals trying to figure out adulthood with faith and purpose. The stuff that actually matters at this stage of life? Done.",
+          "topics": [
+            "Discernment and vocation",
+            "Faith in the workplace",
+            "Relationships and boundaries",
+            "Leadership and service",
+            "Living on mission in everyday life"
+          ]
+        },
+        {
+          "name": "Young Couples",
+          "ageBand": "18 to 35, married up to 5 years",
+          "intro": "For young couples who want to learn and build something strong, together. This stream is about growing in your relationship with each other and with God — and figuring out what a faith-filled life together actually looks like in practice, while juggling kids, jobs and everything in between.",
+          "topics": [
+            "Communication and conflict",
+            "Praying as a couple",
+            "Building unity and trust",
+            "Navigating challenges together",
+            "Growing spiritually as a family"
+          ]
+        }
+      ]
+    },
+    "background": {
+      "type": "string",
+      "default": "cream",
+      "enum": ["paper", "cream", "white", "sage", "sky", "sun", "aqua"]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

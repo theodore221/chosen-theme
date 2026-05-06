@@ -1,153 +1,169 @@
 <!-- wp:group {"tagName":"footer","className":"chosen-footer","style":{"color":{"background":"#0B0A55","text":"#FFFFFF"}}} -->
 <footer class="wp-block-group chosen-footer has-background has-text-color bg-chosen-navy text-white" style="background-color:#0B0A55;color:#FFFFFF">
-  <div class="mx-auto max-w-wide px-6 py-16">
+  <div class="mx-auto max-w-wide px-6 py-16 md:py-20">
 
-    <div class="grid gap-10 md:grid-cols-3 md:items-start">
-      <div class="chosen-footer__logo">
+    <div class="chosen-footer__top grid gap-12 md:grid-cols-12 md:gap-10">
+
+      <div class="chosen-footer__brand md:col-span-5">
         <img src="/wp-content/themes/chosen-theme/assets/img/chosen-logo-white.png" alt="Chosen Conference" width="180" height="56" class="h-14 w-auto" />
+
+        <div class="mt-8 max-w-md">
+          <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">Theme · Chosen 2026</p>
+          <blockquote class="mt-3 text-[20px] md:text-[22px] font-light italic leading-relaxed text-white">
+            &ldquo;Those who look to Him are radiant; their faces are never covered with shame.&rdquo;
+          </blockquote>
+          <cite class="not-italic text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold mt-3 inline-block">Psalm 34:5</cite>
+        </div>
+
+        <address class="chosen-footer__address mt-10 not-italic text-[14px] leading-loose text-white/85">
+          <strong class="block text-white">Chosen 2026</strong>
+          19–22 November 2026<br />
+          La Trobe University, Bundoora Campus<br />
+          Melbourne, Australia<br />
+          <span class="mt-2 block">Hosted by Jesus Youth Australia</span>
+        </address>
       </div>
 
-      <address class="chosen-footer__address not-italic text-[14px] leading-loose text-white/85">
-        Jesus Youth Australia<br />
-        140 Westbourne Grove<br />
-        Northcote VIC 3070<br />
-        Australia
-      </address>
+      <nav class="chosen-footer__columns md:col-span-7 grid grid-cols-2 gap-8 sm:grid-cols-3 md:gap-6 lg:gap-10" aria-label="Footer">
 
-      <div class="chosen-footer__socials flex items-center gap-5 md:justify-end">
-        <a href="https://maps.google.com/?q=140+Westbourne+Grove+Northcote+VIC+3070" class="text-white/85 hover:text-chosen-gold transition-colors duration-200 ease-out-quart" aria-label="View Jesus Youth Australia office on Google Maps" target="_blank" rel="noopener noreferrer">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        </a>
-        <a href="https://instagram.com/jyaustralia" class="text-white/85 hover:text-chosen-gold transition-colors duration-200 ease-out-quart" aria-label="Jesus Youth Australia on Instagram" target="_blank" rel="noopener noreferrer">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-        </a>
-        <a href="https://facebook.com/jesusyouthaustralia" class="text-white/85 hover:text-chosen-gold transition-colors duration-200 ease-out-quart" aria-label="Jesus Youth Australia on Facebook" target="_blank" rel="noopener noreferrer">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-      </div>
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">Conference</p>
+          <ul class="mt-4 space-y-2 text-[14px] text-white/85">
+            <li><a href="/#what-to-expect" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold">What to Expect</a></li>
+            <li><a href="/#streams" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold">Streams</a></li>
+            <li><a href="/#theme" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold">Theme</a></li>
+            <li><a href="/#why-now" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold">Why Now</a></li>
+            <li><a href="/#faqs" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold">FAQs</a></li>
+            <li><a href="/#register" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold">Register</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">Get Involved</p>
+          <ul class="mt-4 space-y-2 text-[14px] text-white/85">
+            <li><a href="/partner" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold">Partner</a></li>
+            <li><a href="/expo" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold">Expo</a></li>
+            <li><a href="/volunteer" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold">Volunteer</a></li>
+          </ul>
+
+          <p class="mt-8 text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">About</p>
+          <ul class="mt-4 space-y-2 text-[14px] text-white/85">
+            <li><a href="https://jesusyouth.org.au" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold" target="_blank" rel="noopener noreferrer">Jesus Youth Australia</a></li>
+            <li><a href="mailto:info@chosenconference.org.au" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">Connect</p>
+
+          <ul class="mt-4 space-y-2 text-[14px] text-white/85">
+            <li><a href="https://instagram.com/jyaustralia" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://facebook.com/jesusyouthaustralia" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://youtube.com/@jyaustralia" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+            <li><a href="https://tiktok.com/@jyaustralia" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+          </ul>
+
+          <p class="mt-8 text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold">Email</p>
+          <p class="mt-4 text-[14px] text-white/85">
+            <a href="mailto:info@chosenconference.org.au" class="no-underline transition-colors duration-200 ease-out-quart hover:text-chosen-gold">info@chosenconference.org.au</a>
+          </p>
+        </div>
+      </nav>
     </div>
 
     <div class="my-12 h-[3px] w-12 bg-chosen-gold" aria-hidden="true"></div>
 
-    <div class="chosen-footer__scripture max-w-xl">
-      <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold mb-3">Theme &middot; Chosen 2026</p>
-      <blockquote class="text-[20px] font-light italic leading-relaxed text-white">
-        &ldquo;Look to him, and be radiant; so your faces shall never be ashamed.&rdquo;
-      </blockquote>
-      <cite class="not-italic text-[11px] font-bold uppercase tracking-[0.18em] text-chosen-gold mt-3 inline-block">Psalm 34:5</cite>
-    </div>
-
-    <div class="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 text-[12px] text-white/60 md:flex-row md:items-center md:justify-between">
+    <div class="chosen-footer__bottom flex flex-col gap-4 text-[12px] text-white/60 md:flex-row md:items-center md:justify-between">
       <p>&copy; 2026 Jesus Youth Australia. All rights reserved.</p>
-      <nav aria-label="Legal" class="flex items-center gap-4">
-        <a href="/safety" class="text-white/70 hover:text-chosen-gold transition-colors duration-200 ease-out-quart">Child Safety</a>
-        <span class="text-white/30" aria-hidden="true">&middot;</span>
-        <a href="/privacy" class="text-white/70 hover:text-chosen-gold transition-colors duration-200 ease-out-quart">Privacy</a>
+      <nav aria-label="Legal" class="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <a href="/privacy" class="text-white/70 no-underline hover:text-chosen-gold transition-colors duration-200 ease-out-quart">Privacy Policy</a>
+        <span class="text-white/30" aria-hidden="true">·</span>
+        <a href="/safety" class="text-white/70 no-underline hover:text-chosen-gold transition-colors duration-200 ease-out-quart">Child Safety &amp; Safeguarding</a>
+        <span class="text-white/30" aria-hidden="true">·</span>
+        <a href="/terms" class="text-white/70 no-underline hover:text-chosen-gold transition-colors duration-200 ease-out-quart">Terms</a>
       </nav>
-      <p class="md:text-right">Built for Chosen 2026 &middot; La Trobe, Melbourne &middot; 19&ndash;22 Nov 2026</p>
+      <p class="md:text-right">La Trobe, Melbourne · 19&ndash;22 Nov 2026</p>
     </div>
   </div>
 
   <script>
-    /* Sticky-shadow toggle on scroll for the header. */
-    (function () {
-      var hdr = document.querySelector('.chosen-header');
-      if (!hdr) return;
-      var on = function () { hdr.classList.toggle('is-scrolled', window.scrollY > 8); };
-      on();
-      window.addEventListener('scroll', on, { passive: true });
-    })();
-
     /* Split-text helpers — wrap target text in per-character or per-line
        spans so each can fade in independently. Idempotent via dataset.split.
        Reduced-motion users skip the split entirely (transitions are killed
        by the global @layer base reset, but the markup change isn't worth it). */
-    (function () {
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduce) return;
+    ( function () {
+      var reduce = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+      if ( reduce ) { return; }
 
-      function splitChars(el) {
-        if (el.dataset.splitDone === '1') return;
+      function splitChars( el ) {
+        if ( el.dataset.splitDone === '1' ) { return; }
         var text = el.textContent;
         el.textContent = '';
-        for (var i = 0; i < text.length; i++) {
-          var ch = text[i];
-          var span = document.createElement('span');
+        for ( var i = 0; i < text.length; i++ ) {
+          var ch = text[ i ];
+          var span = document.createElement( 'span' );
           span.className = 'chosen-split-char';
-          span.style.transitionDelay = (i * 30) + 'ms';
-          span.textContent = ch === ' ' ? ' ' : ch;
-          el.appendChild(span);
+          span.style.transitionDelay = ( i * 30 ) + 'ms';
+          span.textContent = ch === ' ' ? ' ' : ch;
+          el.appendChild( span );
         }
         el.dataset.splitDone = '1';
       }
 
-      function splitLines(el) {
-        if (el.dataset.splitDone === '1') return;
-        // Trim leading/trailing whitespace from the source FIRST so PHP
-        // template indentation doesn't generate phantom empty lines.
+      function splitLines( el ) {
+        if ( el.dataset.splitDone === '1' ) { return; }
         var raw = el.textContent.trim();
-        if (!raw) {
-          el.dataset.splitDone = '1';
-          return;
-        }
-        var lines = raw.indexOf('\n') !== -1
-          ? raw.split('\n')
-          : raw.split(/(?<=[.!?])\s+/);
-        // Trim each segment and drop empties — block-level chosen-split-line
-        // spans for empty strings stay invisible but still occupy a full
-        // line of vertical space, leaving a phantom gap.
-        lines = lines.map(function (l) { return l.trim(); }).filter(Boolean);
-        if (!lines.length) {
-          el.dataset.splitDone = '1';
-          return;
-        }
+        if ( ! raw ) { el.dataset.splitDone = '1'; return; }
+        var lines = raw.indexOf( '\n' ) !== -1
+          ? raw.split( '\n' )
+          : raw.split( /(?<=[.!?])\s+/ );
+        lines = lines.map( function ( l ) { return l.trim(); } ).filter( Boolean );
+        if ( ! lines.length ) { el.dataset.splitDone = '1'; return; }
         el.textContent = '';
-        lines.forEach(function (text, i) {
-          var line = document.createElement('span');
+        lines.forEach( function ( text, i ) {
+          var line = document.createElement( 'span' );
           line.className = 'chosen-split-line';
-          line.style.transitionDelay = (i * 80) + 'ms';
+          line.style.transitionDelay = ( i * 80 ) + 'ms';
           line.textContent = text;
-          el.appendChild(line);
-        });
+          el.appendChild( line );
+        } );
         el.dataset.splitDone = '1';
       }
 
-      document.querySelectorAll('[data-split="char"]').forEach(splitChars);
-      document.querySelectorAll('[data-split="line"]').forEach(splitLines);
-    })();
+      document.querySelectorAll( '[data-split="char"]' ).forEach( splitChars );
+      document.querySelectorAll( '[data-split="line"]' ).forEach( splitLines );
+    } )();
 
-    /* Shared scroll-fade observer for .chosen-fade-up elements (vision, quote,
-       and any future block opting in). Also reveals split-text descendants
-       (chosen-split-char / chosen-split-line) when their wrapper enters view. */
-    (function () {
+    /* Shared scroll-fade observer for .chosen-fade-up elements. */
+    ( function () {
       var els = document.querySelectorAll(
         '.chosen-fade-up:not(.is-visible),' +
         '[data-split="char"]:not(.is-visible),' +
         '[data-split="line"]:not(.is-visible)'
       );
-      if (!els.length) return;
-      if (!('IntersectionObserver' in window)) {
-        els.forEach(function (el) {
-          el.classList.add('is-visible');
-          el.querySelectorAll('.chosen-split-char,.chosen-split-line').forEach(function (s) {
-            s.classList.add('is-visible');
-          });
-        });
+      if ( ! els.length ) { return; }
+      if ( ! ( 'IntersectionObserver' in window ) ) {
+        els.forEach( function ( el ) {
+          el.classList.add( 'is-visible' );
+          el.querySelectorAll( '.chosen-split-char,.chosen-split-line' ).forEach( function ( s ) {
+            s.classList.add( 'is-visible' );
+          } );
+        } );
         return;
       }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            entry.target.querySelectorAll('.chosen-split-char,.chosen-split-line').forEach(function (s) {
-              s.classList.add('is-visible');
-            });
-            io.unobserve(entry.target);
+      var io = new IntersectionObserver( function ( entries ) {
+        entries.forEach( function ( entry ) {
+          if ( entry.isIntersecting ) {
+            entry.target.classList.add( 'is-visible' );
+            entry.target.querySelectorAll( '.chosen-split-char,.chosen-split-line' ).forEach( function ( s ) {
+              s.classList.add( 'is-visible' );
+            } );
+            io.unobserve( entry.target );
           }
-        });
-      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
-      els.forEach(function (el) { io.observe(el); });
-    })();
+        } );
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 } );
+      els.forEach( function ( el ) { io.observe( el ); } );
+    } )();
   </script>
 </footer>
 <!-- /wp:group -->

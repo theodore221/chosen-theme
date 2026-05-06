@@ -14,6 +14,7 @@ defined( 'ABSPATH' ) || exit;
 $headline      = isset( $attributes['headline'] ) ? (string) $attributes['headline'] : '';
 $subhead       = isset( $attributes['subhead'] ) ? (string) $attributes['subhead'] : '';
 $cta_label     = isset( $attributes['ctaLabel'] ) ? (string) $attributes['ctaLabel'] : 'Register';
+$cta_href_raw  = isset( $attributes['ctaHref'] ) ? trim( (string) $attributes['ctaHref'] ) : '';
 $eyebrow       = isset( $attributes['eyebrow'] ) ? (string) $attributes['eyebrow'] : '';
 $scripture     = isset( $attributes['scripture'] ) ? (string) $attributes['scripture'] : '';
 $cite          = isset( $attributes['cite'] ) ? (string) $attributes['cite'] : '';
@@ -21,7 +22,10 @@ $enable_photo  = ! isset( $attributes['enablePhoto'] ) || ! empty( $attributes['
 $photo_stem    = isset( $attributes['photoStem'] ) ? preg_replace( '/[^a-z0-9_-]/', '', (string) $attributes['photoStem'] ) : 'dsc00424';
 
 $register_url = ( defined( 'CHOSEN_REGISTER_URL' ) && CHOSEN_REGISTER_URL ) ? CHOSEN_REGISTER_URL : '';
-$cta_disabled = '' === $register_url;
+// Explicit ctaHref wins (mailto:, anchor, secondary page CTA). Otherwise fall back to the register constant.
+$cta_href     = '' !== $cta_href_raw ? $cta_href_raw : $register_url;
+$cta_disabled = '' === $cta_href;
+$cta_is_mailto = 0 === strpos( $cta_href, 'mailto:' );
 
 $theme_uri = get_theme_file_uri();
 $photo_base = $theme_uri . '/assets/img/photos-real/' . $photo_stem;
@@ -75,10 +79,10 @@ $wrapper_attrs = get_block_wrapper_attributes( [
 				<?php endif; ?>
 				<div class="mt-10">
 					<a class="chosen-cta-arrow chosen-cta-pulse group inline-flex items-center justify-center gap-2 rounded-full bg-chosen-gold px-8 py-4 text-[14px] font-bold uppercase tracking-[0.10em] text-chosen-navy no-underline transition-all duration-200 ease-out-quart hover:bg-chosen-gold-600 hover:text-white"
-						href="<?php echo esc_url( $register_url ? $register_url : '#' ); ?>"
+						href="<?php echo $cta_is_mailto ? esc_attr( $cta_href ) : esc_url( $cta_href ? $cta_href : '#' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>"
 						<?php if ( $cta_disabled ) : ?>
 							aria-disabled="true"
-							title="<?php esc_attr_e( 'Registration link not yet available', 'chosen-theme' ); ?>"
+							title="<?php esc_attr_e( 'Link not yet available', 'chosen-theme' ); ?>"
 						<?php else : ?>
 							rel="noopener"
 						<?php endif; ?>>

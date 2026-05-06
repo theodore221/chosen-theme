@@ -25,6 +25,10 @@
       "type": "string",
       "default": "Register"
     },
+    "ctaHref": {
+      "type": "string",
+      "default": ""
+    },
     "eyebrow": {
       "type": "string",
       "default": "Chosen 2026"

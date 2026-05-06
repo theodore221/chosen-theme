@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/timeline-strip",
+  "title": "Timeline Strip",
+  "category": "chosen",
+  "icon": "clock",
+  "description": "Horizontal milestone strip — 4 nodes connected by a line. Used for the 'Why Chosen now?' generational arc (2026 Chosen → 2027 WYD → 2028 IEC → 2033 Redemption Anniversary).",
+  "keywords": [
+    "timeline",
+    "milestones",
+    "why now"
+  ],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "full",
+      "wide"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Why Chosen now"
+    },
+    "headline": {
+      "type": "string",
+      "default": "The Church is building toward something — and you're part of it."
+    },
+    "subhead": {
+      "type": "string",
+      "default": ""
+    },
+    "milestones": {
+      "type": "array",
+      "default": [
+        {
+          "year": "2026",
+          "name": "Chosen",
+          "description": "Four days at La Trobe University, Melbourne. Where this generation gets rooted.",
+          "current": true
+        },
+        {
+          "year": "2027",
+          "name": "World Youth Day, Korea",
+          "description": "A global gathering of young Catholics, hosted by South Korea.",
+          "current": false
+        },
+        {
+          "year": "2028",
+          "name": "International Eucharistic Congress, Sydney",
+          "description": "The 54th IEC — the Real Presence of Jesus celebrated, on Australian soil.",
+          "current": false
+        },
+        {
+          "year": "2033",
+          "name": "Anniversary of the Redemption",
+          "description": "The 2000th anniversary of the Redemption of Jesus Christ.",
+          "current": false
+        }
+      ]
+    },
+    "background": {
+      "type": "string",
+      "default": "navy",
+      "enum": [
+        "navy",
+        "royal",
+        "paper",
+        "cream"
+      ]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

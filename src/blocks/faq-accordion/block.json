@@ -1,0 +1,97 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chosen/faq-accordion",
+  "title": "FAQ Accordion",
+  "category": "chosen",
+  "icon": "editor-help",
+  "description": "Collapsible Q&A list. Single-item-open behaviour. Vanilla JS, accessible (aria-expanded, keyboard nav).",
+  "keywords": ["faq", "accordion", "questions"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["full", "wide"]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "FAQs"
+    },
+    "headline": {
+      "type": "string",
+      "default": "Got questions? Same."
+    },
+    "items": {
+      "type": "array",
+      "default": [
+        {
+          "question": "What is Chosen?",
+          "answer": "Chosen is a national Catholic youth conference run by Jesus Youth Australia. Four days of rallies, workshops, Mass, Adoration, live music and community, held at La Trobe University in Melbourne, 19–22 November 2026."
+        },
+        {
+          "question": "Who is it for?",
+          "answer": "Anyone aged 16–35 — high schoolers, uni students, young professionals and young couples (married up to 5 years), including those with children. If you're somewhere on the journey of faith and open to more, it's for you."
+        },
+        {
+          "question": "Do I need to be a strong Catholic to come?",
+          "answer": "Not at all. Chosen welcomes everyone — whether you're deep in your faith, somewhere in between, or just curious. There's no pressure. A lot of people who come say it was the thing that sparked something new in them."
+        },
+        {
+          "question": "Where is it held?",
+          "answer": "La Trobe University, Bundoora Campus, Melbourne."
+        },
+        {
+          "question": "What's the format?",
+          "answer": "It's a day conference — you travel in each morning and leave each evening. Accommodation is not included but is being explored as an optional extra. Details TBC."
+        },
+        {
+          "question": "How do I get to Melbourne?",
+          "answer": "Travel is arranged independently. A lot of groups coordinate flights or road trips together — we'd encourage that."
+        },
+        {
+          "question": "Is childcare available?",
+          "answer": "Yes, and it's included in your registration fee. Times and logistics are TBC."
+        },
+        {
+          "question": "Is it safe?",
+          "answer": "Yes. All staff and volunteers hold a valid Working With Children Check. Jesus Youth Australia has a comprehensive Child Safety and Safeguarding Policy, and trained welfare officers and first aid staff are present throughout the event."
+        },
+        {
+          "question": "How much does it cost?",
+          "answer": "Victoria — $330. NSW, ACT, QLD, SA — $290. WA, TAS, NT — $230. All meals and childcare are included."
+        },
+        {
+          "question": "Why are prices different by state?",
+          "answer": "The further you're travelling, the more you're already spending to get here. The tiered pricing is our way of making sure distance isn't a reason to stay home."
+        },
+        {
+          "question": "Is there a group discount?",
+          "answer": "Yes — groups of 10 or more from the same state get 10% off. Parish, school or a larger community? Get in touch at info@chosenconference.org.au before registering."
+        },
+        {
+          "question": "How does under-18 registration work?",
+          "answer": "Under-18s must register through a group leader who registers on their behalf. Get in touch at info@chosenconference.org.au for more info."
+        },
+        {
+          "question": "Are payment plans available?",
+          "answer": "Yes. We genuinely don't want cost to be the reason you couldn't have an encounter with Christ at Chosen. Reach out to info@chosenconference.org.au and we'll work something out."
+        },
+        {
+          "question": "What's the early registration raffle?",
+          "answer": "Every week you're registered before November earns you a raffle ticket. The earlier you register, the more chances you have. Prizes include full rego covered, rego halved, and 50% off merch. Nine winners total."
+        },
+        {
+          "question": "Still have a question?",
+          "answer": "Send it through to info@chosenconference.org.au and we'll get back to you."
+        }
+      ]
+    },
+    "background": {
+      "type": "string",
+      "default": "paper",
+      "enum": ["paper", "cream", "white", "sky"]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
