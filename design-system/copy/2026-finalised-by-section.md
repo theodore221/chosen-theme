@@ -153,7 +153,6 @@ Style notes carried throughout:
 - Body:
   **Your registration covers everything:**
   - Lunch and dinner each day
-  - Childcare (included)
   - Conference materials
   - Your Chosen t-shirt
 - CTA label: Register
@@ -180,7 +179,7 @@ Style notes carried throughout:
   - **What is Chosen?**
     Chosen is a national Catholic youth conference run by Jesus Youth Australia. Four days of rallies, workshops, Mass, Adoration, live music and community, held at La Trobe University in Melbourne, 19–22 November 2026.
   - **Who is it for?**
-    Anyone aged 16–35, high schoolers, uni students, young professionals and young couples (married up to 5 years), including those with children. If you're somewhere on the journey of faith and open to more, it's for you.
+    Anyone aged 16–35. High schoolers, uni students, young professionals, and young couples (married up to 5 years). Parents are welcome too. If you're somewhere on the journey of faith and open to more, it's for you.
   - **Do I need to be a strong Catholic to come?**
     Not at all. Chosen welcomes everyone, whether you're deep in your faith, somewhere in between, or just curious. There's no pressure. A lot of people who come say it was the thing that sparked something new in them.
   - **Where is it held?**
@@ -189,22 +188,24 @@ Style notes carried throughout:
     It's a day conference, you travel in each morning and leave each evening. Accommodation is not included but is being explored as an optional extra. Details TBC.
   - **How do I get to Melbourne?**
     Travel is arranged independently. A lot of groups coordinate flights or road trips together, we'd encourage that.
-  - **Is childcare available?**
-    Yes, and it's included in your registration fee. Times and logistics are TBC.
   - **Is it safe?**
     Yes. All staff and volunteers hold a valid Working With Children Check. Jesus Youth Australia has a comprehensive Child Safety and Safeguarding Policy, and trained welfare officers and first aid staff are present throughout the event.
   - **How much does it cost?**
-    Victoria, $330. NSW, ACT, QLD, SA, $290. WA, TAS, NT, $230. All meals and childcare are included.
+    Early bird (until Pentecost 2026): Victoria, $320. NSW, ACT, QLD, SA, $280. WA, TAS, NT, $220. Prices step up by $40 across the board after Pentecost. All meals are included.
   - **Why are prices different by state?**
     The further you're travelling, the more you're already spending to get here. The tiered pricing is our way of making sure distance isn't a reason to stay home.
   - **Is there a group discount?**
     Yes, groups of 10 or more from the same state get 10% off. Parish, school or a larger community? Get in touch at info@chosenconference.org.au before registering.
   - **How does under-18 registration work?**
     Under-18s must register through a group leader who registers on their behalf. Get in touch at info@chosenconference.org.au for more info.
+  - **What about children under 5?**
+    Kids under 5 come free, but they still need to be registered alongside a registered adult. Pop them on the form when you sign up.
   - **Are payment plans available?**
     Yes. We genuinely don't want cost to be the reason you couldn't have an encounter with Christ at Chosen. Reach out to info@chosenconference.org.au and we'll work something out.
   - **What's the early registration raffle?**
     Every week you're registered before November earns you a raffle ticket. The earlier you register, the more chances you have. Prizes include full rego covered, rego halved, and 50% off merch. Nine winners total.
+  - **I'm clergy, can I attend?**
+    Yes, please come. Drop us a line at info@chosenconference.org.au and we'll be in touch. More details soon.
   - **Still have a question?**
     Send it through to info@chosenconference.org.au and we'll get back to you.
 - Notes: 14 Q&A items + a "still have a question?" closer (15 entries total, the closer is conventionally appended). Render as accordion. Each Q is sentence case ending with `?`. Email addresses render as `mailto:` links at template time, not here.

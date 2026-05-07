@@ -53,7 +53,6 @@
       "type": "array",
       "default": [
         "Lunch and dinner each day",
-        "Childcare (included)",
         "Conference materials",
         "Your Chosen t-shirt"
       ]
