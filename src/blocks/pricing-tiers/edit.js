@@ -19,6 +19,9 @@ export default function Edit( { attributes, setAttributes } ) {
 		callouts,
 		ctaLabel,
 		background,
+		earlyBirdEndsDate,
+		earlyBirdLabel,
+		earlyBirdSubLabel,
 	} = attributes;
 
 	const blockProps = useBlockProps( {
@@ -65,6 +68,25 @@ export default function Edit( { attributes, setAttributes } ) {
 						onChange={ ( v ) => setAttributes( { ctaLabel: v } ) }
 					/>
 				</PanelBody>
+				<PanelBody title={ __( 'Early bird pricing', 'chosen-theme' ) } initialOpen={ false }>
+					<TextControl
+						label={ __( 'Early bird ends (YYYY-MM-DD)', 'chosen-theme' ) }
+						value={ earlyBirdEndsDate }
+						onChange={ ( v ) => setAttributes( { earlyBirdEndsDate: v } ) }
+						help={ __( 'After this date, the standard price replaces the early bird price automatically.', 'chosen-theme' ) }
+					/>
+					<TextControl
+						label={ __( 'Early bird label', 'chosen-theme' ) }
+						value={ earlyBirdLabel }
+						onChange={ ( v ) => setAttributes( { earlyBirdLabel: v } ) }
+					/>
+					<TextControl
+						label={ __( 'Early bird sub-label', 'chosen-theme' ) }
+						value={ earlyBirdSubLabel }
+						onChange={ ( v ) => setAttributes( { earlyBirdSubLabel: v } ) }
+						help={ __( 'Shown next to the chip in the section heading.', 'chosen-theme' ) }
+					/>
+				</PanelBody>
 				{ tiers.map( ( tier, i ) => (
 					<PanelBody key={ i } title={ tier.region || `Tier ${ i + 1 }` } initialOpen={ false }>
 						<TextControl
@@ -73,9 +95,15 @@ export default function Edit( { attributes, setAttributes } ) {
 							onChange={ ( v ) => updateTier( i, 'region', v ) }
 						/>
 						<TextControl
-							label={ __( 'Price', 'chosen-theme' ) }
-							value={ tier.price }
-							onChange={ ( v ) => updateTier( i, 'price', v ) }
+							label={ __( 'Early bird price', 'chosen-theme' ) }
+							value={ tier.earlyBirdPrice || '' }
+							onChange={ ( v ) => updateTier( i, 'earlyBirdPrice', v ) }
+						/>
+						<TextControl
+							label={ __( 'Standard price', 'chosen-theme' ) }
+							value={ tier.standardPrice || '' }
+							onChange={ ( v ) => updateTier( i, 'standardPrice', v ) }
+							help={ __( 'Shown after the early-bird cutoff.', 'chosen-theme' ) }
 						/>
 						<TextareaControl
 							label={ __( 'Description', 'chosen-theme' ) }
@@ -175,44 +203,67 @@ export default function Edit( { attributes, setAttributes } ) {
 						marginBottom: 24,
 					} }
 				>
-					{ tiers.map( ( tier, i ) => (
-						<div
-							key={ i }
-							style={ {
-								background: '#FFFFFF',
-								borderRadius: 14,
-								padding: 24,
-								color: '#0B0A55',
-								border: '1px solid rgba(11,10,85,0.10)',
-								textAlign: 'center',
-							} }
-						>
+					{ tiers.map( ( tier, i ) => {
+						const ebPrice = tier.earlyBirdPrice || tier.price || '';
+						const stdPrice = tier.standardPrice || '';
+						return (
 							<div
+								key={ i }
 								style={ {
-									fontSize: 11,
-									fontWeight: 700,
-									letterSpacing: '0.14em',
-									textTransform: 'uppercase',
-									color: '#EDA90C',
+									background: '#FFFFFF',
+									borderRadius: 14,
+									padding: 24,
+									color: '#0B0A55',
+									border: '1px solid rgba(11,10,85,0.10)',
+									textAlign: 'left',
 								} }
 							>
-								{ tier.region }
+								<div
+									style={ {
+										fontSize: 11,
+										fontWeight: 700,
+										letterSpacing: '0.14em',
+										textTransform: 'uppercase',
+										color: '#EDA90C',
+									} }
+								>
+									{ tier.region }
+								</div>
+								{ ebPrice && stdPrice && (
+									<div
+										style={ {
+											fontSize: 10,
+											fontWeight: 700,
+											letterSpacing: '0.16em',
+											textTransform: 'uppercase',
+											color: '#EDA90C',
+											marginTop: 6,
+										} }
+									>
+										{ '✦ ' + ( earlyBirdLabel || 'Early bird' ) }
+									</div>
+								) }
+								<div
+									style={ {
+										fontFamily: 'Anton, sans-serif',
+										fontSize: 56,
+										lineHeight: 1,
+										marginTop: 8,
+									} }
+								>
+									{ ebPrice || stdPrice || '—' }
+								</div>
+								{ stdPrice && ebPrice && (
+									<div style={ { fontSize: 11, marginTop: 8, color: 'rgba(11,10,85,0.55)' } }>
+										{ __( 'Standard ', 'chosen-theme' ) + stdPrice + __( ' after ', 'chosen-theme' ) + ( earlyBirdEndsDate || '—' ) }
+									</div>
+								) }
+								<div style={ { fontSize: 13, marginTop: 10, color: '#3F3B33' } }>
+									{ tier.description }
+								</div>
 							</div>
-							<div
-								style={ {
-									fontFamily: 'Anton, sans-serif',
-									fontSize: 56,
-									lineHeight: 1,
-									marginTop: 8,
-								} }
-							>
-								{ tier.price }
-							</div>
-							<div style={ { fontSize: 13, marginTop: 10, color: '#3F3B33' } }>
-								{ tier.description }
-							</div>
-						</div>
-					) ) }
+						);
+					} ) }
 				</div>
 
 				<div

@@ -28,10 +28,22 @@
     "tiers": {
       "type": "array",
       "default": [
-        { "region": "VIC", "price": "$330", "description": "From Victoria." },
-        { "region": "NSW · ACT · QLD · SA", "price": "$290", "description": "From New South Wales, the Australian Capital Territory, Queensland or South Australia." },
-        { "region": "WA · TAS · NT", "price": "$230", "description": "From Western Australia, Tasmania or the Northern Territory." }
+        { "region": "VIC", "earlyBirdPrice": "$320", "standardPrice": "$360", "description": "From Victoria." },
+        { "region": "NSW · ACT · QLD · SA", "earlyBirdPrice": "$280", "standardPrice": "$320", "description": "From New South Wales, the Australian Capital Territory, Queensland or South Australia." },
+        { "region": "WA · TAS · NT", "earlyBirdPrice": "$220", "standardPrice": "$260", "description": "From Western Australia, Tasmania or the Northern Territory." }
       ]
+    },
+    "earlyBirdEndsDate": {
+      "type": "string",
+      "default": "2026-05-24"
+    },
+    "earlyBirdLabel": {
+      "type": "string",
+      "default": "Early bird"
+    },
+    "earlyBirdSubLabel": {
+      "type": "string",
+      "default": "until Pentecost · 24 May 2026"
     },
     "inclusionsHeading": {
       "type": "string",
